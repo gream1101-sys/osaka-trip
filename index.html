@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="大阪 DAY 1">
+    <title>DAY 1 大阪行程導航</title>
+    <style>
+        :root {
+            --bg-color: #f2f2f7;
+            --card-bg: #ffffff;
+            --primary: #007aff;
+            --text-main: #1c1c1e;
+            --text-sub: #8e8e93;
+            --accent-orange: #ff9500;
+            --accent-green: #34c759;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px 16px 40px 16px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin: 0;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease;
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .time-badge {
+            background-color: rgba(0, 122, 255, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+        }
+
+        .info-group {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background-color: #f2f2f7;
+            color: var(--text-sub);
+            margin-top: 4px;
+        }
+
+        .btn-nav {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .btn-nav:active {
+            opacity: 0.8;
+        }
+
+        .time-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .time-table th, .time-table td {
+            border: 1px solid #e5e5ea;
+            padding: 6px;
+            text-align: left;
+        }
+
+        .time-table th {
+            background-color: #f2f2f7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⛩️ DAY 1 大阪行程總覽</h1>
+    <p class="subtitle">神戶機場 ➔ 難波 ➔ 美食景點巡禮</p>
+</header>
+
+<div class="timeline">
+
+    <!-- 卡片 1 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">12:30 – 14:15</span>
+            <span class="tag">機場接駁</span>
+        </div>
+        <div class="title">🛬 降落神戶機場 ➔ 難波 OCATO</div>
+        <div class="info-group">
+            <div class="info-row">📍 <b>乘車點：</b>神戶機場 1F 1號公車處</div>
+            <div class="info-row">🚌 <b>路線：</b>神戶交通巴士（往難波 OCATO）</div>
+            <div class="info-row">💳 <b>付款：</b>售票機買票 / 可刷 Suica</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Kobe+Airport/Namba+OCATO" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <!-- 卡片 2 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">14:15 – 14:35</span>
+            <span class="tag">飯店接駁</span>
+        </div>
+        <div class="title">🏨 難波 OCATO ➔ 飯店 Check-in</div>
+        <div class="info-group">
+            <div class="info-row">🚕 <b>選項 A：</b>計程車（5-8分鐘，~1400日圓）</div>
+            <div class="info-row">🚇 <b>選項 B：</b>地鐵千日前線（難波 ➔ 日本橋/谷町九丁目）</div>
+            <div class="info-row">🚶 <b>選項 C：</b>全程步行約 20 分鐘</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+OCATO/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
+    </div>
+
+    <!-- 卡片 3 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">15:00 – 15:45</span>
+            <span class="tag">景點參拜</span>
+        </div>
+        <div class="title">🐕 御津宮 (寵物神社)</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>飯店步行約 17 分鐘 (1.2 km)</div>
+            <div class="info-row">⏰ <b>境內開放：</b>09:00 – 18:00</div>
+            <div class="info-row">⛩️ <b>社務所：</b>09:00 – 17:00（領御朱印/買御守）</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=御津八幡宮" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <!-- 卡片 4 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">15:45 – 16:30</span>
+            <span class="tag">景點參拜</span>
+        </div>
+        <div class="title">👹 難波八阪神社</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>從御津宮步行約 12 分鐘</div>
+            <div class="info-row">⏰ <b>參拜時間：</b>06:00 – 17:00</div>
+            <div class="info-row">⛩️ <b>社務所：</b>09:00 – 16:50</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=難波八阪神社" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <!-- 卡片 5 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">16:30 – 18:00</span>
+            <span class="tag">美食 & 地鐵</span>
+        </div>
+        <div class="title">🍙 南海難波站飯糰 ➔ 通天閣</div>
+        <div class="info-group">
+            <div class="info-row">🍙 <b>Gorichan 飯糰：</b>南海難波站 3F 北改札內（營業至 20:00）</div>
+            <div class="info-row">🚃 <b>電車：</b>南海高野線 <b>1/2月台</b>（往河內長野）</div>
+            <div class="info-row">⚠️ <b>重點：</b>務必搭乘<b>「各駅停車」</b>至今宮戎站（1站）</div>
+            <div class="info-row">🗼 <b>通天閣時間：</b>展望台 -21:45 / 溜滑梯 -20:00</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+Station/Tsutenkaku" target="_blank">🗺️ 導航至通天閣</a>
+    </div>
+
+    <!-- 卡片 6 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">18:00 – 19:00</span>
+            <span class="tag">地鐵回程</span>
+        </div>
+        <div class="title">🚇 通天閣 ➔ 飯店 Check-in</div>
+        <div class="info-group">
+            <div class="info-row">🚉 <b>進站：</b>惠美須町站（堺筋線 <b>2號月台</b>）</div>
+            <div class="info-row">🧭 <b>方向：</b>往天神橋筋六丁目 / 高槻市方向</div>
+            <div class="info-row">🛑 <b>下車：</b>日本橋站（搭 2 站），6/7 號出口步行 8 分鐘</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Tsutenkaku/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
+    </div>
+
+    <!-- 卡片 7 -->
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">19:00 – 21:30</span>
+            <span class="tag">晚餐購物</span>
+        </div>
+        <div class="title">🥢 味乃家御好燒 ➔ 心齋橋</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>飯店步行 15 分鐘至味乃家本店</div>
+            <div class="info-row">⏰ <b>味乃家營業：</b>11:00 – 22:00（逢週一公休）</div>
+            <div class="info-row">🛍️ <b>回程：</b>心齋橋/道頓堀商圈全程步行回飯店</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=味乃家+本店" target="_blank">🗺️ 導航至味乃家</a>
+    </div>
+
+    <!-- 卡片 8：時刻表參考 -->
+    <div class="card">
+        <div class="title">⏱️ 下午核心班次時間參考</div>
+        <table class="time-table">
+            <tr>
+                <th>路線</th>
+                <th>月台/方向</th>
+                <th>主要發車時間 (每小時)</th>
+            </tr>
+            <tr>
+                <td><b>南海高野線</b><br>(難波➔今宮戎)</td>
+                <td>1/2號月台<br>各駅停車</td>
+                <td>:05, :20, :35, :50<br>(每 15 分鐘一班)</td>
+            </tr>
+            <tr>
+                <td><b>地鐵堺筋線</b><br>(惠美須町➔日本橋)</td>
+                <td>2號月台<br>往天神橋筋六丁目</td>
+                <td>約每 6-7 分鐘一班<br>(每小時 8-9 班)</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
