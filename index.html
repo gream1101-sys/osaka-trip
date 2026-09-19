@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="osaka">
     
-    <!-- iPhone 桌面 App 圖示（指向同目錄下剛上傳的 icon.png） -->
+    <!-- iPhone 桌面 App 圖示 -->
     <link rel="apple-touch-icon" sizes="180x180" href="./icon.png?v=3">
     <link rel="icon" type="image/png" sizes="180x180" href="./icon.png?v=3">
 
@@ -24,6 +24,7 @@
             --text-sub: #8e8e93;
             --accent-orange: #ff9500;
             --accent-green: #34c759;
+            --accent-red: #ff3b30;
         }
 
         body {
@@ -63,11 +64,6 @@
             border-radius: 16px;
             padding: 16px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: transform 0.2s ease;
-        }
-
-        .card:active {
-            transform: scale(0.98);
         }
 
         .card-header {
@@ -104,6 +100,11 @@
             align-items: flex-start;
             gap: 6px;
             margin-bottom: 4px;
+        }
+
+        .warning-text {
+            color: var(--accent-red);
+            font-weight: 600;
         }
 
         .tag {
@@ -156,7 +157,7 @@
 
 <header>
     <h1>⛩️ osaka - DAY 1</h1>
-    <p class="subtitle">神戶機場 ➔ 難波 ➔ 美食景點巡禮</p>
+    <p class="subtitle">神戶機場 ➔ 難波 ➔ 景點美食巡禮</p>
 </header>
 
 <div class="timeline">
@@ -165,13 +166,14 @@
     <div class="card">
         <div class="card-header">
             <span class="time-badge">12:30 – 14:15</span>
-            <span class="tag">機場接駁</span>
+            <span class="tag">機場高速巴士</span>
         </div>
-        <div class="title">🛬 降落神戶機場 ➔ 難波 OCATO</div>
+        <div class="title">🛬 神戶機場 ➔ 難波 OCATO</div>
         <div class="info-group">
-            <div class="info-row">📍 <b>乘車點：</b>神戶機場 1F 1號公車處</div>
-            <div class="info-row">🚌 <b>路線：</b>神戶交通巴士（往難波 OCATO）</div>
-            <div class="info-row">💳 <b>付款：</b>售票機買票 / 可刷 Suica</div>
+            <div class="info-row">📍 <b>乘車點：</b>神戶機場 1F 到達大廳外 1 號乘車處</div>
+            <div class="info-row">🚌 <b>路線：</b>日本交通/神戶交通巴士（往難波 OCATO）</div>
+            <div class="info-row">💳 <b>付款：</b>售票機買票（現金） / IC 卡（Suica, ICOCA）刷卡</div>
+            <div class="info-row">⏱️ <b>車程：</b>約 50–60 分鐘直達</div>
         </div>
         <a class="btn-nav" href="https://www.google.com/maps/dir/Kobe+Airport/Namba+OCATO" target="_blank">🗺️ 地圖導航</a>
     </div>
@@ -184,9 +186,9 @@
         </div>
         <div class="title">🏨 難波 OCATO ➔ 飯店 Check-in</div>
         <div class="info-group">
-            <div class="info-row">🚕 <b>選項 A：</b>計程車（5-8分鐘，~1400日圓）</div>
-            <div class="info-row">🚇 <b>選項 B：</b>地鐵千日前線（難波 ➔ 日本橋/谷町九丁目）</div>
-            <div class="info-row">🚶 <b>選項 C：</b>全程步行約 20 分鐘</div>
+            <div class="info-row">🚕 <b>選項 A (推薦)：</b>計程車（1F 招呼站，約 5-8 分鐘，1000-1400日圓）</div>
+            <div class="info-row">🚇 <b>選項 B：</b>地鐵千日前線（難波 ➔ 日本橋/谷町九丁目，180日圓）</div>
+            <div class="info-row">🚶 <b>選項 C：</b>沿千日前通直行步行約 18-22 分鐘 (1.5 km)</div>
         </div>
         <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+OCATO/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
     </div>
@@ -197,11 +199,10 @@
             <span class="time-badge">15:00 – 15:45</span>
             <span class="tag">景點參拜</span>
         </div>
-        <div class="title">🐕 御津宮 (寵物神社)</div>
+        <div class="title">🐕 飯店 ➔ 御津宮 (御津八幡宮)</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>飯店步行約 17 分鐘 (1.2 km)</div>
-            <div class="info-row">⏰ <b>境內開放：</b>09:00 – 18:00</div>
-            <div class="info-row">⛩️ <b>社務所：</b>09:00 – 17:00（領御朱印/買御守）</div>
+            <div class="info-row">🚶 <b>移動：</b>主要經八幡筋直線步行約 17 分鐘 (1.2 km)</div>
+            <div class="info-row">⛩️ <b>社務所開放：</b>09:00 – 17:00（買御守/領御朱印）</div>
         </div>
         <a class="btn-nav" href="https://maps.google.com/?q=御津八幡宮" target="_blank">🗺️ 地圖導航</a>
     </div>
@@ -212,11 +213,10 @@
             <span class="time-badge">15:45 – 16:30</span>
             <span class="tag">景點參拜</span>
         </div>
-        <div class="title">👹 難波八阪神社</div>
+        <div class="title">👹 御津宮 ➔ 難波八阪神社</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>從御津宮步行約 12 分鐘</div>
-            <div class="info-row">⏰ <b>參拜時間：</b>06:00 – 17:00</div>
-            <div class="info-row">⛩️ <b>社務所：</b>09:00 – 16:50</div>
+            <div class="info-row">🚶 <b>移動：</b>向西南方向步行約 12 分鐘</div>
+            <div class="info-row">⛩️ <b>社務所時間：</b>09:00 – 17:00</div>
         </div>
         <a class="btn-nav" href="https://maps.google.com/?q=難波八阪神社" target="_blank">🗺️ 地圖導航</a>
     </div>
@@ -225,14 +225,15 @@
     <div class="card">
         <div class="card-header">
             <span class="time-badge">16:30 – 18:00</span>
-            <span class="tag">美食 & 地鐵</span>
+            <span class="tag">美食 & 南海電鐵</span>
         </div>
-        <div class="title">🍙 南海難波站飯糰 ➔ 通天閣</div>
+        <div class="title">🍙 飯糰(站內) ➔ 通天閣</div>
         <div class="info-group">
-            <div class="info-row">🍙 <b>Gorichan 飯糰：</b>南海難波站 3F 北改札內（營業至 20:00）</div>
-            <div class="info-row">🚃 <b>電車：</b>南海高野線 <b>1/2月台</b>（往河內長野）</div>
-            <div class="info-row">⚠️ <b>重點：</b>務必搭乘<b>「各駅停車」</b>至今宮戎站（1站）</div>
-            <div class="info-row">🗼 <b>通天閣時間：</b>展望台 -21:45 / 溜滑梯 -20:00</div>
+            <div class="info-row">🚶 <b>步行：</b>神社向東北步行約 11 分鐘至南海難波站</div>
+            <div class="info-row">🍙 <b>飯糰位置：</b>直接進站刷卡！位於 <b>3 樓北改札內</b></div>
+            <div class="info-row">🚃 <b>電車：</b>南海高野線（<b>1-4 號月台</b>）</div>
+            <div class="info-row warning-text">⚠️ 注意：務必搭乘「各駅停車/普通車」至今宮戎站！</div>
+            <div class="info-row">🚶 <b>後續步行：</b>今宮戎站出站步行約 8-10 分鐘 (650m) 至通天閣</div>
         </div>
         <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+Station/Tsutenkaku" target="_blank">🗺️ 導航至通天閣</a>
     </div>
@@ -245,9 +246,9 @@
         </div>
         <div class="title">🚇 通天閣 ➔ 飯店 Check-in</div>
         <div class="info-group">
-            <div class="info-row">🚉 <b>進站：</b>惠美須町站（堺筋線 <b>2號月台</b>）</div>
-            <div class="info-row">🧭 <b>方向：</b>往天神橋筋六丁目 / 高槻市方向</div>
-            <div class="info-row">🛑 <b>下車：</b>日本橋站（搭 2 站），6/7 號出口步行 8 分鐘</div>
+            <div class="info-row">🚶 <b>進站：</b>通天閣步行 3 分鐘至「惠美須町站」</div>
+            <div class="info-row">🚇 <b>地鐵：</b>堺筋線（往天神橋筋六丁目方向）➔ 「日本橋站」（2站）</div>
+            <div class="info-row">🛑 <b>出口：</b>走 <b>6 號或 7 號出口</b>，步行約 8-10 分鐘抵達飯店</div>
         </div>
         <a class="btn-nav" href="https://www.google.com/maps/dir/Tsutenkaku/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
     </div>
@@ -256,37 +257,15 @@
     <div class="card">
         <div class="card-header">
             <span class="time-badge">19:00 – 21:30</span>
-            <span class="tag">晚餐購物</span>
+            <span class="tag">晚餐 & 購物</span>
         </div>
-        <div class="title">🥢 味乃家御好燒 ➔ 心齋橋</div>
+        <div class="title">🥢 味乃家御好燒 ➔ 心齋橋 ➔ 飯店</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>飯店步行 15 分鐘至味乃家本店</div>
-            <div class="info-row">⏰ <b>味乃家營業：</b>11:00 – 22:00（逢週一公休）</div>
-            <div class="info-row">🛍️ <b>回程：</b>心齋橋/道頓堀商圈全程步行回飯店</div>
+            <div class="info-row">🚶 <b>去程：</b>飯店向西穿越道頓堀商圈步行約 15 分鐘 (1.1 km)</div>
+            <div class="info-row">🥢 <b>味乃家營業：</b>11:00 – 22:00（逢週一公休）</div>
+            <div class="info-row">🛍️ <b>回程：</b>心齋橋商圈逛街後全程步行回飯店</div>
         </div>
         <a class="btn-nav" href="https://maps.google.com/?q=味乃家+本店" target="_blank">🗺️ 導航至味乃家</a>
-    </div>
-
-    <!-- 卡片 8：時刻表參考 -->
-    <div class="card">
-        <div class="title">⏱️ 下午核心班次時間參考</div>
-        <table class="time-table">
-            <tr>
-                <th>路線</th>
-                <th>月台/方向</th>
-                <th>主要發車時間 (每小時)</th>
-            </tr>
-            <tr>
-                <td><b>南海高野線</b><br>(難波➔今宮戎)</td>
-                <td>1/2號月台<br>各駅停車</td>
-                <td>:05, :20, :35, :50<br>(每 15 分鐘一班)</td>
-            </tr>
-            <tr>
-                <td><b>地鐵堺筋線</b><br>(惠美須町➔日本橋)</td>
-                <td>2號月台<br>往天神橋筋六丁目</td>
-                <td>約每 6-7 分鐘一班<br>(每小時 8-9 班)</td>
-            </tr>
-        </table>
     </div>
 
 </div>
