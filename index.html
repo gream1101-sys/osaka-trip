@@ -23,6 +23,7 @@
             --text-main: #1c1c1e;
             --text-sub: #8e8e93;
             --accent-red: #ff3b30;
+            --accent-orange: #ff9500;
         }
 
         body {
@@ -64,7 +65,7 @@
             flex: 1;
             padding: 8px 0;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             border: none;
             background: transparent;
@@ -139,6 +140,15 @@
             font-weight: 600;
         }
 
+        .timetable-box {
+            background-color: #f8f9fa;
+            border-left: 3px solid var(--primary);
+            padding: 8px 12px;
+            margin: 8px 0;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
         .tag {
             display: inline-block;
             font-size: 12px;
@@ -176,8 +186,9 @@
 
 <!-- 天數切換 Tab -->
 <div class="tab-container">
-    <button class="tab-btn active" onclick="switchDay(1)">DAY 1 (機場/難波)</button>
-    <button class="tab-btn" onclick="switchDay(2)">DAY 2 (京都/美食)</button>
+    <button class="tab-btn active" onclick="switchDay(1, this)">DAY 1</button>
+    <button class="tab-btn" onclick="switchDay(2, this)">DAY 2</button>
+    <button class="tab-btn" onclick="switchDay(3, this)">DAY 3 (USJ)</button>
 </div>
 
 <!-- DAY 1 內容 -->
@@ -402,8 +413,86 @@
 
 </div>
 
+<!-- DAY 3 內容 -->
+<div id="day3" class="day-content">
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">約 40 分鐘</span>
+            <span class="tag">去程 (阪神+JR)</span>
+        </div>
+        <div class="title">🎢 飯店 ➔ 日本環球影城 (USJ)</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>步驟 1：</b>步行至 「近鐵日本橋站」（地下入口）。跟著 「近鉄線」 或 「阪神電車」 黃底黑字標示走。</div>
+            <div class="info-row">💳 <b>進站：</b>於近鐵閘門直接感應 Suica（西瓜卡）進站，前往 <b>1號月台</b>（往 難波、尼崎、神戶三宮方向）候車。</div>
+            
+            <div class="timetable-box">
+                <b>⏱️ 阪神難波線 (往尼崎方向) 時刻表：</b><br>
+                • 05:21 發 ➔ 05:35 抵達 西九條 (14分鐘)<br>
+                <i>(備用班次：05:36 發 ➔ 05:51 抵達)</i>
+            </div>
+
+            <div class="info-row">🚶 <b>步驟 2：</b>在西九條站下車後，順著指標走聯絡天橋前往 JR 月台（刷 Suica 轉乘）。</div>
+
+            <div class="timetable-box">
+                <b>⏱️ JR 櫻島線 (往櫻島方向) 時刻表：</b><br>
+                • 05:40 發 ➔ 05:45 抵達 環球城站 (5分鐘)<br>
+                <i>(備用班次：05:58 發 ➔ 06:03 抵達)</i>
+            </div>
+
+            <div class="info-row">🚶 <b>抵達：</b>出站後沿 Universal Citywalk 商店街直走即達園區大門。</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Apartment+Hotel+11+Dotonbori+10/Universal+Studios+Japan" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">深夜宵夜</span>
+            <span class="tag">回程 (JR+阪神)</span>
+        </div>
+        <div class="title">🍢 環球影城 ➔ BATTEN YOKATO (美國村)</div>
+        <div class="info-group">
+            <div class="info-row warning-text">⚠️ 末班車提醒：園區離場人潮極多，建議最晚 23:00 前開始往車站移動！</div>
+            <div class="info-row">🚶 <b>步驟 1：</b>出影城大門，沿 Universal Citywalk 步行至 JR 環球城站（Universal-City Station）。</div>
+            <div class="info-row">🚃 <b>步驟 2：</b>前往 1 號月台，搭乘 JR 櫻島線（往西九條／大阪方向）至「西九條站」（2站）。</div>
+
+            <div class="timetable-box">
+                <b>⏱️ JR 櫻島線 (回程往西九條) 晚班時刻表：</b><br>
+                • 22:50、23:06、23:22、23:42 (末班車)
+            </div>
+
+            <div class="info-row">🚶 <b>步驟 3：</b>走出 JR 西九條站改札口（刷 Suica 出站），走過聯絡天橋至 阪神電車 西九條站（刷 Suica 進站），前往「往 大阪難波／奈良方向」月台。</div>
+            <div class="info-row">🚃 <b>步驟 4：</b>搭乘阪神難波線至「大阪難波站」下車。</div>
+
+            <div class="timetable-box">
+                <b>⏱️ 阪神難波線 (回程往難波) 晚班時刻表：</b><br>
+                • 23:08、23:24、23:40、00:03 (末班車)
+            </div>
+
+            <div class="info-row">🚶 <b>步驟 5：</b>從大阪難波站 <b>24 號或 25 號出口</b>出來，沿御堂筋向北直走過橋，於周防町筋或八幡筋左轉進入美國村，步行約 2 分鐘抵達。</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=BATTEN+YOKATO+AMERIKAMURA" target="_blank">🗺️ 導航至宵夜居酒屋</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">深夜購物</span>
+            <span class="tag">步行 15 分鐘</span>
+        </div>
+        <div class="title">🛒 美國村 ➔ 唐吉訶德 道頓堀店 ➔ 飯店</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>宵夜後購物：</b>從 BATTEN YOKATO 往東南方向步行約 5–7 分鐘即可抵達「唐吉訶德 道頓堀店」（24 小時營業）。</div>
+            <div class="info-row warning-text">💡 深夜回飯店交通說明：</div>
+            <div class="info-row">🚶 <b>選項 A (推薦直行)：</b>從唐吉訶德沿道頓堀/千日前通向東步行約 12–15 分鐘（約 1.1 km）直接回飯店（最方便，免受限於地鐵末班車）。</div>
+            <div class="info-row">🚇 <b>選項 B (地鐵末班)：</b>若在 00:10 前逛完，可至 大阪難波站/日本橋站 搭千日前線（末班車約 00:18）。</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Don+Quijote+Dotonbori/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航回飯店</a>
+    </div>
+
+</div>
+
 <script>
-    function switchDay(day) {
+    function switchDay(day, btn) {
         // 隱藏所有行程
         document.querySelectorAll('.day-content').forEach(el => el.classList.remove('active'));
         // 取消所有按鈕選取
@@ -412,7 +501,7 @@
         // 顯示選取的 DAY
         document.getElementById('day' + day).classList.add('active');
         // 高亮選取的按鈕
-        event.target.classList.add('active');
+        btn.classList.add('active');
     }
 </script>
 
