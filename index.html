@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./icon.png?v=3">
     <link rel="icon" type="image/png" sizes="180x180" href="./icon.png?v=3">
 
-    <title>osaka - DAY 2 京都漫遊與美食</title>
+    <title>osaka - 大阪京都行程導航</title>
     <style>
         :root {
             --bg-color: #f2f2f7;
@@ -22,8 +22,6 @@
             --primary: #007aff;
             --text-main: #1c1c1e;
             --text-sub: #8e8e93;
-            --accent-orange: #ff9500;
-            --accent-green: #34c759;
             --accent-red: #ff3b30;
         }
 
@@ -32,31 +30,65 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 20px 16px 40px 16px;
+            padding: 16px 16px 40px 16px;
             -webkit-tap-highlight-color: transparent;
         }
 
         header {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            margin: 0 0 6px 0;
+            margin: 0 0 4px 0;
         }
 
         p.subtitle {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-sub);
             margin: 0;
         }
 
-        .timeline {
+        /* 天數分頁切換按鈕 */
+        .tab-container {
             display: flex;
+            background-color: #e3e3e8;
+            border-radius: 10px;
+            padding: 2px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: var(--text-sub);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background-color: #ffffff;
+            color: var(--text-main);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* 行程卡片區塊 */
+        .day-content {
+            display: none;
             flex-direction: column;
             gap: 16px;
+        }
+
+        .day-content.active {
+            display: flex;
         }
 
         .card {
@@ -83,7 +115,7 @@
         }
 
         .title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             margin: 0 0 6px 0;
         }
@@ -114,7 +146,6 @@
             border-radius: 6px;
             background-color: #f2f2f7;
             color: var(--text-sub);
-            margin-top: 4px;
         }
 
         .btn-nav {
@@ -139,13 +170,123 @@
 <body>
 
 <header>
-    <h1>⛩️ osaka - DAY 2</h1>
-    <p class="subtitle">伏見稻荷 ➔ 祇園和服 ➔ 清水寺 ➔ 京都塔 ➔ 難波美食</p>
+    <h1>⛩️ osaka 自由行導航</h1>
+    <p class="subtitle">點擊上方分頁即可切換天數</p>
 </header>
 
-<div class="timeline">
+<!-- 天數切換 Tab -->
+<div class="tab-container">
+    <button class="tab-btn active" onclick="switchDay(1)">DAY 1 (機場/難波)</button>
+    <button class="tab-btn" onclick="switchDay(2)">DAY 2 (京都/美食)</button>
+</div>
 
-    <!-- 卡片 1 -->
+<!-- DAY 1 內容 -->
+<div id="day1" class="day-content active">
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">12:30 – 14:15</span>
+            <span class="tag">機場高速巴士</span>
+        </div>
+        <div class="title">🛬 神戶機場 ➔ 難波 OCATO</div>
+        <div class="info-group">
+            <div class="info-row">📍 <b>乘車點：</b>神戶機場 1F 到達大廳外 1 號乘車處</div>
+            <div class="info-row">🚌 <b>路線：</b>日本交通/神戶交通巴士（往難波 OCATO）</div>
+            <div class="info-row">💳 <b>付款：</b>售票機買票（現金） / IC 卡（Suica, ICOCA）刷卡</div>
+            <div class="info-row">⏱️ <b>車程：</b>約 50–60 分鐘直達</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Kobe+Airport/Namba+OCATO" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">14:15 – 14:35</span>
+            <span class="tag">飯店接駁</span>
+        </div>
+        <div class="title">🏨 難波 OCATO ➔ 飯店 Check-in</div>
+        <div class="info-group">
+            <div class="info-row">🚕 <b>選項 A (推薦)：</b>計程車（1F 招呼站，約 5-8 分鐘，1000-1400日圓）</div>
+            <div class="info-row">🚇 <b>選項 B：</b>地鐵千日前線（難波 ➔ 日本橋/谷町九丁目，180日圓）</div>
+            <div class="info-row">🚶 <b>選項 C：</b>沿千日前通直行步行約 18-22 分鐘 (1.5 km)</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+OCATO/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">15:00 – 15:45</span>
+            <span class="tag">景點參拜</span>
+        </div>
+        <div class="title">🐕 飯店 ➔ 御津宮 (御津八幡宮)</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>主要經八幡筋直線步行約 17 分鐘 (1.2 km)</div>
+            <div class="info-row">⛩️ <b>社務所開放：</b>09:00 – 17:00（買御守/領御朱印）</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=御津八幡宮" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">15:45 – 16:30</span>
+            <span class="tag">景點參拜</span>
+        </div>
+        <div class="title">👹 御津宮 ➔ 難波八阪神社</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>向西南方向步行約 12 分鐘</div>
+            <div class="info-row">⛩️ <b>社務所時間：</b>09:00 – 17:00</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=難波八阪神社" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">16:30 – 18:00</span>
+            <span class="tag">美食 & 南海電鐵</span>
+        </div>
+        <div class="title">🍙 飯糰(站內) ➔ 通天閣</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>步行：</b>神社向東北步行約 11 分鐘至南海難波站</div>
+            <div class="info-row">🍙 <b>飯糰位置：</b>直接進站刷卡！位於 <b>3 樓北改札內</b></div>
+            <div class="info-row">🚃 <b>電車：</b>南海高野線（<b>1-4 號月台</b>）</div>
+            <div class="info-row warning-text">⚠️ 注意：務必搭乘「各駅停車/普通車」至今宮戎站！</div>
+            <div class="info-row">🚶 <b>後續步行：</b>今宮戎站出站步行約 8-10 分鐘 (650m) 至通天閣</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Namba+Station/Tsutenkaku" target="_blank">🗺️ 導航至通天閣</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">18:00 – 19:00</span>
+            <span class="tag">地鐵回程</span>
+        </div>
+        <div class="title">🚇 通天閣 ➔ 飯店 Check-in</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>進站：</b>通天閣步行 3 分鐘至「惠美須町站」</div>
+            <div class="info-row">🚇 <b>地鐵：</b>堺筋線（往天神橋筋六丁目方向）➔ 「日本橋站」（2站）</div>
+            <div class="info-row">🛑 <b>出口：</b>走 <b>6 號或 7 號出口</b>，步行約 8-10 分鐘抵達飯店</div>
+        </div>
+        <a class="btn-nav" href="https://www.google.com/maps/dir/Tsutenkaku/Apartment+Hotel+11+Dotonbori+10" target="_blank">🗺️ 導航至飯店</a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <span class="time-badge">19:00 – 21:30</span>
+            <span class="tag">晚餐 & 購物</span>
+        </div>
+        <div class="title">🥢 味乃家御好燒 ➔ 心齋橋 ➔ 飯店</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>去程：</b>飯店向西穿越道頓堀商圈步行約 15 分鐘 (1.1 km)</div>
+            <div class="info-row">🥢 <b>味乃家營業：</b>11:00 – 22:00（逢週一公休）</div>
+            <div class="info-row">🛍️ <b>回程：</b>心齋橋商圈逛街後全程步行回飯店</div>
+        </div>
+        <a class="btn-nav" href="https://maps.google.com/?q=味乃家+本店" target="_blank">🗺️ 導航至味乃家</a>
+    </div>
+
+</div>
+
+<!-- DAY 2 內容 -->
+<div id="day2" class="day-content">
+
     <div class="card">
         <div class="card-header">
             <span class="time-badge">約 70 分鐘</span>
@@ -162,7 +303,6 @@
         <a class="btn-nav" href="https://www.google.com/maps/dir/Apartment+Hotel+11+Dotonbori+10/Fushimi+Inari+Taisha" target="_blank">🗺️ 地圖導航</a>
     </div>
 
-    <!-- 卡片 2 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">約 20 分鐘</span>
@@ -178,7 +318,6 @@
         <a class="btn-nav" href="https://maps.google.com/?q=京都悠見着物" target="_blank">🗺️ 導航至和服店</a>
     </div>
 
-    <!-- 卡片 3 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">30–40 分鐘</span>
@@ -193,7 +332,6 @@
         <a class="btn-nav" href="https://maps.google.com/?q=モリタ屋+四条猪熊店" target="_blank">🗺️ 地圖導航</a>
     </div>
 
-    <!-- 卡片 4 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">彈性</span>
@@ -206,7 +344,6 @@
         <a class="btn-nav" href="https://www.google.com/maps/dir/Moritaya/Yasaka+Shrine" target="_blank">🗺️ 導航至八坂神社</a>
     </div>
 
-    <!-- 卡片 5 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">約 23 分鐘</span>
@@ -222,7 +359,6 @@
         <a class="btn-nav" href="https://maps.google.com/?q=京都塔" target="_blank">🗺️ 導航至京都塔</a>
     </div>
 
-    <!-- 卡片 6 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">約 50 分鐘</span>
@@ -238,7 +374,6 @@
         <a class="btn-nav" href="https://maps.google.com/?q=浪花ひとくち餃子チャオチャオ+湊町店" target="_blank">🗺️ 導航至餃子店</a>
     </div>
 
-    <!-- 卡片 7 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">15–20 分鐘</span>
@@ -252,7 +387,6 @@
         <a class="btn-nav" href="https://maps.google.com/?q=ライフ+なんば店" target="_blank">🗺️ 地圖導航</a>
     </div>
 
-    <!-- 卡片 8 -->
     <div class="card">
         <div class="card-header">
             <span class="time-badge">10–15 分鐘</span>
@@ -267,6 +401,20 @@
     </div>
 
 </div>
+
+<script>
+    function switchDay(day) {
+        // 隱藏所有行程
+        document.querySelectorAll('.day-content').forEach(el => el.classList.remove('active'));
+        // 取消所有按鈕選取
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        // 顯示選取的 DAY
+        document.getElementById('day' + day).classList.add('active');
+        // 高亮選取的按鈕
+        event.target.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
