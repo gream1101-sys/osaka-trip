@@ -192,131 +192,180 @@
     <button class="tab-btn" onclick="switchDay(4, this)">DAY 4</button>
 </div>
 
-<!-- DAY 1 內容 -->
+<!-- ================= DAY 1 內容 ================= -->
 <div id="day1" class="day-content active">
 
+    <!-- 1. 機場交通：全電車省錢方案 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">12:30 – 14:15</span>
-            <span class="tag">機場高速巴士</span>
-        </div>
-        <div class="title">🛬 神戶機場 ➔ 難波 OCATO</div>
+        <div class="card-header"><span class="time-badge">12:30 – 13:55</span><span class="tag">💰 車資 760円</span></div>
+        <div class="title">🛬 神戶機場 ➔ 阪神三宮站 ➔ 大阪難波站</div>
         <div class="info-group">
-            <div class="info-row">📍 <b>乘車點：</b>神戶機場 1F 到達大廳外 1 號乘車處</div>
-            <div class="info-row">🚌 <b>路線：</b>日本交通/神戶交通巴士（往難波 OCATO）</div>
-            <div class="info-row">💳 <b>付款：</b>售票機買票（現金） / IC 卡（Suica, ICOCA）刷卡</div>
-            <div class="info-row">⏱️ <b>車程：</b>約 50–60 分鐘直達</div>
+            <div class="info-row">🚇 <b>第一段(Port Liner)：</b>「神戶機場站」搭車至終點「三宮站」（340日圓）</div>
+            <div class="info-row">⏱️ <b>全日班次：</b>每 6–10 分鐘一班（建議12:40班次，車程18分，末班車 23:45）</div>
+            <div class="info-row">🚶 <b>轉乘秘訣：</b>出站正面搭大電梯直達地下街，左轉平路直走 3-5 分鐘即達阪神三宮站東改札口。</div>
+            <div class="info-row">🚃 <b>第二段(阪神電車)：</b>轉搭 阪神難波線 往近鐵奈良方向的「快速急行」列車</div>
+            <div class="info-row">⏱️ <b>全日班次：</b>每 20 分鐘一班固定發車（建議13:09班次，車程44分直達難波免轉車，420日圓，始發必有座，末班車 23:02）</div>
         </div>
-        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 地圖導航</a>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 查看大眾運輸導航</a>
     </div>
 
+    <!-- 2. 大阪難波站至飯店 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">14:15 – 14:35</span>
-            <span class="tag">飯店接駁</span>
-        </div>
-        <div class="title">🏨 難波 OCATO ➔ 飯店 放行李</div>
+        <div class="card-header"><span class="time-badge">13:55 – 14:15</span><span class="tag">大行李接駁</span></div>
+        <div class="title">🏨 大阪難波站 ➔ 飯店 Check-in 放行李</div>
         <div class="info-group">
-            <div class="info-row">🚕 <b>選項 A (推薦)：</b>計程車（1F 招呼站，約 5-8 分鐘，1000-1400日圓）</div>
-            <div class="info-row">🚇 <b>選項 B：</b>地鐵千日前線（難波 ➔ 日本橋/谷町九丁目，180日圓）</div>
-            <div class="info-row">🚶 <b>選項 C：</b>沿千日前通直行步行約 18-22 分鐘 (1.5 km)</div>
+            <div class="info-row">🚕 <b>小黃：</b>難波站出站上地面，招呼站直接搭計程車（5-8分鐘，1000-1400円）。</div>
+            <div class="info-row">🏨 <b>目標飯店：</b>Apartment Hotel 11 Dotonbori</div>
+            <div class="info-row warning-text">🛑 避坑提示：千萬別推大行李走20分鐘，沿路商圈極度擁擠，花小錢保體力！</div>
         </div>
         <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至飯店</a>
     </div>
 
+    <!-- 3. 御津宮參拜 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">15:00 – 15:45</span>
-            <span class="tag">景點參拜</span>
-        </div>
+        <div class="card-header"><span class="time-badge">14:32 – 15:05</span><span class="tag">景點參拜</span></div>
         <div class="title">🐕 飯店 ➔ 御津宮 (御津八幡宮)</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>主要經八幡筋直線步行約 17 分鐘 (1.2 km)</div>
-            <div class="info-row">⏰ <b>開放時間：</b>境內 09:00 – 18:00（<b>社務所/御守販售至 17:00</b>）</div>
-            <div class="info-row">📅 <b>公休日：</b>全年無休</div>
+            <div class="info-row">🚶 <b>移動：</b>主要經八幡筋直線步行約 17 分鐘 (1.2 km)。</div>
+            <div class="info-row">⏰ <b>開放：</b>09:00 – 18:00（社務所售御守/領朱印至 17:00，全年無休）</div>
+            <div class="info-row">💡 <b>停留：</b>建議 33 分鐘（買貓咪御守、簽朱印時間非常充裕）。</div>
         </div>
         <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 地圖導航</a>
     </div>
 
+    <!-- 4. 難波八阪神社參拜 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">15:45 – 16:30</span>
-            <span class="tag">景點參拜</span>
-        </div>
+        <div class="card-header"><span class="time-badge">15:17 – 15:50</span><span class="tag">景點參拜</span></div>
         <div class="title">👹 御津宮 ➔ 難波八阪神社</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>向西南方向步行約 12 分鐘</div>
-            <div class="info-row">⏰ <b>開放時間：</b>境內 06:00 – 17:00（<b>社務所/御守販售 09:00 – 16:50</b>）</div>
-            <div class="info-row">📅 <b>公休日：</b>全年無休</div>
+            <div class="info-row">🚶 <b>移動：</b>向西南方向步行約 12 分鐘。</div>
+            <div class="info-row">⏰ <b>開放：</b>境內 06:00 – 17:00（社務所販售 09:00 – 16:50，全年無休）</div>
+            <div class="info-row">💡 <b>停留：</b>建議 33 分鐘（震撼大獅子頭合照拍到滿意）。</div>
         </div>
         <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 地圖導航</a>
     </div>
 
+    <!-- 5. 網紅飯糰與南海電鐵 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">16:30 – 18:00</span>
-            <span class="tag">美食 & 南海電鐵</span>
-        </div>
-        <div class="title">🍙 飯糰(站內) ➔ 通天閣</div>
+        <div class="card-header"><span class="time-badge">16:01 – 16:35</span><span class="tag">美食 & 南海</span></div>
+        <div class="title">🍙 飯糰(站內排隊) ➔ 搭車前往新世界</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>步行：</b>神社向東北步行約 11 分鐘至南海難波站</div>
-            <div class="info-row">🍙 <b>飯糰位置：</b>直接進站刷卡！位於 <b>3 樓北改札內</b>（おにぎりごりちゃん）</div>
-            <div class="info-row">⏰ <b>飯糰營業：</b>11:00 – 21:00（*配合行程此時段有營業）</div>
-            <div class="info-row">🚃 <b>電車：</b>南海高野線（<b>1-4 號月台</b>）</div>
-            <div class="info-row warning-text">⚠️ 注意：務必搭乘「各駅停車/普通車」至今宮戎站！</div>
-            <div class="info-row">🚶 <b>後續步行：</b>今宮戎站出站步行約 8-10 分鐘 (650m) 至通天閣</div>
+            <div class="info-row">🚶 <b>步行：</b>神社向東北步行約 11 分鐘至南海難波站。</div>
+            <div class="info-row">🍙 <b>位置：</b>南海難波站 3 樓北改札內（おにぎりごりちゃん，營業07:30-21:00）</div>
+            <div class="info-row warning-text">⚠️ 提示：此時段人潮多留作排隊外帶，建議拿上火車或到通天閣再享用！</div>
+            <div class="info-row">🚃 <b>大眾運輸：</b>南海高野線，⚠️ <b>務必搭乘「各駅停車/普通車」</b>。</div>
+            <div class="info-row">⏱️ <b>全日班次：</b>每 10–12 分鐘一班（建議16:34班次，180円，坐1站於今宮戎站下車）。</div>
         </div>
-        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至通天閣</a>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至難波站</a>
     </div>
 
-    <!-- 🌟 新增：牛舌的檸檬晚餐行程 🌟 -->
+    <!-- 6. 通天閣 & 新世界慢活商圈 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">18:00 – 19:30</span>
-            <span class="tag">地鐵美食</span>
-        </div>
-        <div class="title">🥢 通天閣 ➔ 新宿燒肉 牛舌的檸檬 大阪本店</div>
+        <div class="card-header"><span class="time-badge">16:50 – 19:10</span><span class="tag">新世界慢活</span></div>
+        <div class="title">🗼 暢遊通天閣、新世界商圈</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>進站：</b>通天閣步行約 3 分鐘至地鐵「惠美須町站」</div>
-            <div class="info-row">🚇 <b>地鐵：</b>堺筋線（往天神橋筋六丁目方向）➔ 「日本橋站」（2站）</div>
-            <div class="info-row">🛑 <b>出口：</b>走 <b>4 號或 5 號出口</b>（鄰近難波地下街 B29 出口），出站步行 2 分鐘</div>
-            <div class="info-row">⏰ <b>餐廳營業：</b>午餐 11:30–15:00 / 晚餐 17:00–21:30</div>
-            <div class="info-row warning-text">⚠️ 備註：檸檬和牛已訂位 19:30 (7:30)</div>
+            <div class="info-row">🗼 <b>通天閣：</b>開放 10:00 – 20:00（最後入場 19:30，全年無休）</div>
+            <div class="info-row">💡 <b>時間：</b>整整留了 2 小時 20 分鐘。可以從容街拍、玩溜滑梯或看夜景。</div>
+            <div class="info-row warning-text">⚠️ 警示：請最晚於 19:10 離開通天閣前往地鐵站，以免晚餐遲到！</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 地圖導航</a>
+    </div>
+
+    <!-- 7. 牛舌的檸檬晚餐 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">19:10 – 20:30</span><span class="tag">地鐵美食</span></div>
+        <div class="title">🥢 通天閣 ➔ 新宿燒肉 牛舌的檸檬</div>
+        <div class="info-group">
+            <div class="info-row">🚇 <b>地鐵：</b>惠美須町站搭<b>堺筋線</b>坐 2 站至「日本橋站」（190日圓，車程 3 分鐘）。</div>
+            <div class="info-row">⏱️ <b>全日班次：</b>每 5–7 分鐘一班（建議19:12班次，末班車 23:57）。</div>
+            <div class="info-row">🛑 <b>出口：</b>走 4 號或 5 號出口，出站步行 2 分鐘即達。</div>
+            <div class="info-row warning-text">⚠️ 備註：檸檬和牛已訂位 19:30 (7:30) 準時入座！</div>
         </div>
         <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至牛舌的檸檬</a>
     </div>
-
-    <!-- 🌟 新增：晚餐後返回飯店 🌟 -->
+       <!-- 8. 服飾掃貨：UNIQLO -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">19:30 – 20:30</span>
-            <span class="tag">散步回程</span>
-        </div>
-        <div class="title">🏨 牛舌的檸檬 ➔ 飯店 Check-in 休息</div>
+        <div class="card-header"><span class="time-badge">20:30 – 21:15</span><span class="tag">服飾掃貨</span></div>
+        <div class="title">🛍️ 餐廳 ➔ UNIQLO 心齋橋筋店</div>
         <div class="info-group">
-            <div class="info-row">🚶 <b>移動：</b>餐廳出發向東北方向步行約 8-10 分鐘 (650m)</div>
-            <div class="info-row">🏨 <b>目標：</b>抵達 Apartment Hotel 11 Dotonbori 辦理入住與行李整理</div>
+            <div class="info-row">🚶 <b>移動：</b>餐廳出發向北經由難波地下街/心齋橋筋步行約 10 分鐘。</div>
+            <div class="info-row">⏰ <b>時間：</b>11:00 – 21:00（全年無休）</div>
+            <div class="info-row warning-text">⚠️ 注意：配合21:00打烊時間，吃飽後直接前來掃貨退稅！</div>
         </div>
-        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至飯店</a>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至UNIQLO</a>
     </div>
 
+    <!-- 9. 三麗鷗旗艦店 -->
     <div class="card">
-        <div class="card-header">
-            <span class="time-badge">20:30 – 22:00</span>
-            <span class="tag">美食備案 & 購物</span>
-        </div>
-        <div class="title">🛍️ 心齋橋商圈 ➔ 飯店（備案：味乃家御好燒）</div>
+        <div class="card-header"><span class="time-badge">21:15 – 21:45</span><span class="tag">卡通周邊</span></div>
+        <div class="title">🎀 UNIQLO ➔ Sanrio 心齋橋店</div>
         <div class="info-group">
-            <div class="info-row">🛍️ <b>購物：</b>心齋橋、道頓堀商圈逛街，採買後全程步行回飯店</div>
-            <div class="info-row">⏰ <b>味乃家營業：</b>11:00 – 22:00（L.O. 21:30）</div>
-            <div class="info-row warning-text">🛑 味乃家公休：逢週一公休 (如果第一天是週一會休息喔！)</div>
-            <div class="info-row">💡 <b>說明：</b>原晚餐味乃家改為宵夜備案，若肚子還有空間可前往挑戰</div>
+            <div class="info-row">🚶 <b>移動：</b>心齋橋筋商店街內平路步行 1 分鐘。</div>
+            <div class="info-row">⏰ <b>時間：</b>11:00 – 20:00（全年無休）</div>
+            <div class="info-row warning-text">⚠️ 注意：該店 20:00 打烊。若因吃牛舌錯過，可改逛街上開到深夜的藥妝店。</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至Sanrio</a>
+    </div>
+
+    <!-- 10. 心齋橋筋商店街漫步 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">21:45 – 22:30</span><span class="tag">夜間散策</span></div>
+        <div class="title">🛍️ 心齋橋筋商店街夜巡</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>沿心齋橋筋商店街往道頓堀方向邊逛邊走。</div>
+            <div class="info-row">⏰ <b>說明：</b>多數服飾店於 21:00 打烊，此時段主要逛夜間藥妝店或唐吉訶德。</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至商店街</a>
+    </div>
+
+    <!-- 11. 米其林推薦：味乃家御好燒 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">22:30 – 23:40</span><span class="tag">深夜美食</span></div>
+        <div class="title">🥢 味乃家御好燒 本店</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>商店街過戎橋後，右轉步行 4 分鐘（米其林推薦名店）。</div>
+            <div class="info-row">⏰ <b>時間：</b>11:00 – 22:00（L.O. 21:30）</div>
+            <div class="info-row warning-text">🛑 避坑防線：味乃家平日營業到 22:00。如果此時段已打烊，可改吃隔壁24小時營業的一蘭拉麵！</div>
+            <div class="info-row">📅 <b>公休日：</b>每週一公休</div>
         </div>
         <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至味乃家</a>
     </div>
 
-</div>
+    <!-- 12. 人氣甜點：Strawberry Mania 草莓大福 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">23:40 – 00:15</span><span class="tag">深夜甜點</span></div>
+        <div class="title">🍓 Strawberry Mania 道頓堀店</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>由味乃家步行約 4 分鐘至道頓堀主街。</div>
+            <div class="info-row">⏰ <b>時間：</b>11:00 – 22:00（全年無休）</div>
+            <div class="info-row warning-text">⚠️ 提示：若路過已打烊，可至24h唐吉訶德購買新鮮日本大草莓回飯店！</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至草莓甜點</a>
+    </div>
 
+    <!-- 13. 返回飯店 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">00:15 – 00:25</span><span class="tag">返回住宿</span></div>
+        <div class="title">🏨 返回 Apartment Hotel 11 Dotonbori</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>移動：</b>從道頓堀主街步行約 7-10 分鐘，即可輕鬆回到飯店休息。</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航回飯店</a>
+    </div>
+
+    <!-- 14. 24H 補給站 -->
+    <div class="card">
+        <div class="card-header"><span class="time-badge">00:25+</span><span class="tag">🏪 24H 補給站</span></div>
+        <div class="title">🏪 飯店旁 LAWSON 購買宵夜飲品</div>
+        <div class="info-group">
+            <div class="info-row">🚶 <b>位置：</b>位於飯店下樓周邊極近距離，提供 24 小時不打烊服務。</div>
+            <div class="info-row">⏰ <b>時間：</b>24小時營業（全年無休）</div>
+            <div class="info-row">💡 <b>推薦：</b>進去買限定炸雞塊（L-chiki）或哈根達斯限定口味當宵夜，結束 Day 1！</div>
+        </div>
+        <a class="btn-nav" href="https://google.com" target="_blank">🗺️ 導航至最近LAWSON</a>
+    </div>
+
+</div>
 <!-- DAY 2 內容 -->
 <div id="day2" class="day-content">
 
