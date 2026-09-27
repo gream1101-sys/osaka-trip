@@ -2,352 +2,410 @@
 <html lang="zh-TW">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<title>osaka - 大阪京都行程導航</title>
 
-    <title>osaka - 大阪京都行程導航</title>
+<style>
 
-    <style>
+:root {
+    --bg-color:#f2f2f7;
+    --card-bg:#ffffff;
+    --primary:#007aff;
+    --text-main:#1c1c1e;
+    --text-sub:#8e8e93;
+    --accent-red:#ff3b30;
+    --green:#34c759;
+    --orange:#ff9500;
+}
 
-        :root {
-            --bg-color: #f2f2f7;
-            --card-bg: #ffffff;
-            --primary: #007aff;
-            --text-main: #1c1c1e;
-            --text-sub: #8e8e93;
-            --accent-red: #ff3b30;
-        }
+* {
+    box-sizing:border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
+    background-color:var(--bg-color);
+    color:var(--text-main);
 
-            background-color: var(--bg-color);
-            color: var(--text-main);
+    margin:0;
 
-            margin: 0;
+    padding:
+        16px
+        16px
+        40px
+        16px;
 
-            padding:
-                16px
-                16px
-                40px
-                16px;
+    -webkit-tap-highlight-color:transparent;
+}
 
-            -webkit-tap-highlight-color: transparent;
-        }
+header {
+    text-align:center;
+    margin-bottom:16px;
+}
 
+h1 {
+    font-size:22px;
+    font-weight:700;
+    margin:0 0 4px 0;
+}
 
-        /* =========================
-           HEADER
-           ========================= */
+.subtitle {
+    font-size:13px;
+    color:var(--text-sub);
+    margin:0;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 16px;
-        }
+.tab-container {
+    display:flex;
 
-        h1 {
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 0 4px 0;
-        }
+    background-color:#e3e3e8;
 
-        .subtitle {
-            font-size: 13px;
-            color: var(--text-sub);
-            margin: 0;
-        }
+    border-radius:10px;
 
+    padding:2px;
 
-        /* =========================
-           DAY TAB
-           ========================= */
+    margin-bottom:20px;
 
-        .tab-container {
-            display: flex;
+    position:sticky;
 
-            background-color: #e3e3e8;
+    top:8px;
 
-            border-radius: 10px;
+    z-index:100;
+}
 
-            padding: 2px;
+.tab-btn {
+    flex:1;
 
-            margin-bottom: 20px;
+    padding:9px 0;
 
-            position: sticky;
+    text-align:center;
 
-            top: 8px;
+    font-size:12px;
 
-            z-index: 100;
-        }
+    font-weight:600;
 
-        .tab-btn {
-            flex: 1;
+    border:none;
 
-            padding: 9px 0;
+    background:transparent;
 
-            text-align: center;
+    color:var(--text-sub);
 
-            font-size: 12px;
+    border-radius:8px;
 
-            font-weight: 600;
+    cursor:pointer;
 
-            border: none;
+    -webkit-appearance:none;
+}
 
-            background: transparent;
+.tab-btn.active {
+    background-color:#ffffff;
 
-            color: var(--text-sub);
+    color:var(--text-main);
 
-            border-radius: 8px;
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.1);
+}
 
-            cursor: pointer;
+.day-content {
+    display:none;
 
-            -webkit-appearance: none;
-        }
+    flex-direction:column;
 
-        .tab-btn.active {
-            background-color: #ffffff;
+    gap:16px;
+}
 
-            color: var(--text-main);
+.day-content.active {
+    display:flex;
+}
 
-            box-shadow:
-                0 2px 4px rgba(0,0,0,0.1);
-        }
+.card {
+    background-color:var(--card-bg);
 
+    border-radius:16px;
 
-        /* =========================
-           DAY CONTENT
-           ========================= */
+    padding:16px;
 
-        .day-content {
-            display: none;
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.04);
+}
 
-            flex-direction: column;
+.card-header {
+    display:flex;
 
-            gap: 16px;
-        }
+    justify-content:space-between;
 
-        .day-content.active {
-            display: flex;
-        }
+    align-items:center;
 
+    gap:8px;
 
-        /* =========================
-           CARD
-           ========================= */
+    margin-bottom:10px;
+}
 
-        .card {
-            background-color: var(--card-bg);
+.time-badge {
+    background-color:
+        rgba(0,122,255,0.1);
 
-            border-radius: 16px;
+    color:var(--primary);
 
-            padding: 16px;
+    font-weight:600;
 
-            box-shadow:
-                0 2px 8px rgba(0,0,0,0.04);
-        }
+    font-size:13px;
 
+    padding:
+        4px 10px;
 
-        /* =========================
-           CARD HEADER
-           ========================= */
+    border-radius:20px;
+}
 
-        .card-header {
-            display: flex;
+.tag {
+    display:inline-block;
 
-            justify-content: space-between;
+    font-size:12px;
 
-            align-items: center;
+    padding:
+        2px 8px;
 
-            gap: 8px;
+    border-radius:6px;
 
-            margin-bottom: 10px;
-        }
+    background-color:#f2f2f7;
 
-        .time-badge {
-            background-color:
-                rgba(0,122,255,0.1);
+    color:var(--text-sub);
 
-            color: var(--primary);
+    text-align:right;
+}
 
-            font-weight: 600;
+.title {
+    font-size:17px;
 
-            font-size: 13px;
+    font-weight:600;
 
-            padding:
-                4px 10px;
+    margin:
+        0 0 8px 0;
+}
 
-            border-radius: 20px;
-        }
+.info-group {
+    font-size:14px;
 
-        .tag {
-            display: inline-block;
+    line-height:1.55;
 
-            font-size: 12px;
+    margin-bottom:12px;
+}
 
-            padding:
-                2px 8px;
+.info-row {
+    display:flex;
 
-            border-radius: 6px;
+    align-items:flex-start;
 
-            background-color: #f2f2f7;
+    gap:6px;
 
-            color: var(--text-sub);
+    margin-bottom:7px;
+}
 
-            text-align: right;
-        }
+.warning-text {
+    color:var(--accent-red);
 
+    font-weight:600;
+}
 
-        /* =========================
-           TITLE
-           ========================= */
+.transit-box {
+    background:#f2f2f7;
 
-        .title {
-            font-size: 17px;
+    border-radius:12px;
 
-            font-weight: 600;
+    padding:12px;
 
-            margin:
-                0 0 8px 0;
-        }
+    margin:
+        10px 0;
 
+    font-size:13.5px;
 
-        /* =========================
-           INFO
-           ========================= */
+    line-height:1.65;
+}
 
-        .info-group {
-            font-size: 14px;
+.transit-title {
+    font-size:14px;
 
-            line-height: 1.55;
+    font-weight:700;
 
-            margin-bottom: 12px;
-        }
+    margin-bottom:6px;
 
-        .info-row {
-            display: flex;
+    color:#1c1c1e;
+}
 
-            align-items: flex-start;
+.train {
+    background:#ffffff;
 
-            gap: 6px;
+    border-radius:8px;
 
-            margin-bottom: 5px;
-        }
+    padding:8px 10px;
 
-        .warning-text {
-            color: var(--accent-red);
+    margin:
+        5px 0;
 
-            font-weight: 600;
-        }
+    border-left:
+        3px solid var(--primary);
+}
 
+.last-train {
+    background:
+        rgba(255,59,48,0.08);
 
-        /* =========================
-           TIMETABLE
-           ========================= */
+    color:#d70015;
 
-        .timetable-box {
-            background: #f2f2f7;
+    border-radius:8px;
 
-            border-radius: 10px;
+    padding:8px 10px;
 
-            padding: 10px;
+    margin-top:7px;
 
-            margin:
-                8px 0 10px 0;
+    font-weight:600;
+}
 
-            font-size: 13px;
+.transfer {
+    background:
+        rgba(52,199,89,0.09);
 
-            line-height: 1.6;
-        }
+    border-radius:8px;
 
+    padding:9px 10px;
 
-        /* =========================
-           NAVIGATION BUTTON
-           ========================= */
+    margin:7px 0;
 
-        .btn-nav {
-            display: block;
+    color:#16733a;
+}
 
-            width: 100%;
+.floor {
+    background:
+        rgba(255,149,0,0.10);
 
-            text-align: center;
+    border-radius:8px;
 
-            background-color: var(--primary);
+    padding:9px 10px;
 
-            color: white;
+    margin:7px 0;
 
-            font-weight: 600;
+    color:#9a5b00;
+}
 
-            font-size: 14px;
+.route-step {
+    margin:
+        6px 0;
 
-            padding: 10px 0;
+    padding:
+        7px 0;
 
-            border-radius: 10px;
+    border-bottom:
+        1px solid #e5e5ea;
+}
 
-            cursor: pointer;
+.route-step:last-child {
+    border-bottom:none;
+}
 
-            border: none;
+.btn-nav {
+    display:block;
 
-            box-sizing: border-box;
+    width:100%;
 
-            text-decoration: none;
+    text-align:center;
 
-            -webkit-appearance: none;
+    background-color:var(--primary);
 
-            transition:
-                opacity 0.15s ease,
-                transform 0.1s ease;
-        }
+    color:white;
 
-        .btn-nav:active {
-            opacity: 0.8;
+    font-weight:600;
 
-            transform: scale(0.98);
-        }
+    font-size:14px;
 
+    padding:10px 0;
 
-        /* =========================
-           MOBILE
-           ========================= */
+    border-radius:10px;
 
-        @media (max-width: 480px) {
+    cursor:pointer;
 
-            body {
-                padding:
-                    12px
-                    12px
-                    30px
-                    12px;
-            }
+    border:none;
 
-            h1 {
-                font-size: 21px;
-            }
+    text-decoration:none;
 
-            .card {
-                padding: 14px;
-            }
+    -webkit-appearance:none;
 
-            .title {
-                font-size: 16px;
-            }
+    transition:
+        opacity .15s ease,
+        transform .1s ease;
+}
 
-            .info-group {
-                font-size: 13.5px;
-            }
+.btn-nav:active {
+    opacity:.8;
 
-        }
+    transform:scale(.98);
+}
 
-    </style>
+.timetable-box {
+    background:#f2f2f7;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    margin:
+        8px 0 10px 0;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.notice {
+    background:
+        rgba(0,122,255,0.07);
+
+    border-radius:10px;
+
+    padding:10px;
+
+    margin-bottom:12px;
+
+    font-size:13px;
+
+    line-height:1.55;
+}
+
+@media(max-width:480px) {
+
+    body {
+        padding:
+            12px
+            12px
+            30px
+            12px;
+    }
+
+    h1 {
+        font-size:21px;
+    }
+
+    .card {
+        padding:14px;
+    }
+
+    .title {
+        font-size:16px;
+    }
+
+    .info-group {
+        font-size:13.5px;
+    }
+
+}
+
+</style>
 </head>
 
 
@@ -359,16 +417,11 @@
     <h1>⛩️ osaka 自由行導航</h1>
 
     <p class="subtitle">
-        點擊上方分頁即可切換天數
+        2026/10/25（日）～ 10/28（三）
     </p>
 
 </header>
 
-
-
-<!-- ================================================= -->
-<!-- ===================== DAY TAB ==================== -->
-<!-- ================================================= -->
 
 <div class="tab-container">
 
@@ -411,761 +464,1100 @@
 <div id="day1" class="day-content active">
 
 
-    <!-- DAY 1 - 1 -->
+<div class="notice">
 
-    <div class="card">
+<b>📅 DAY 1｜2026/10/25（日）</b><br>
 
-        <div class="card-header">
+今天是星期日，因此電車班次請以「土休日」時刻表確認。
+以下特別把「方向、樓層、轉乘」拆開，避免第一次搭車時找不到。
 
-            <span class="time-badge">
-                12:30 – 13:55
-            </span>
+</div>
 
-            <span class="tag">
-                💰 車資 760円
-            </span>
 
-        </div>
 
-        <div class="title">
-            🛬 神戶機場 ➔ 阪神三宮站 ➔ 大阪難波站
-        </div>
+<!-- DAY 1 - 1 -->
 
-        <div class="info-group">
+<div class="card">
 
-            <div class="info-row">
-                🚇 <b>第一段：</b>
-                神戶機場站 → 三宮站（340日圓）
-            </div>
+<div class="card-header">
 
-            <div class="info-row">
-                ⏱️ <b>車程：</b>
-                約18分鐘
-            </div>
+<span class="time-badge">
+12:30 – 13:55
+</span>
 
-            <div class="info-row">
-                🚶 <b>轉乘：</b>
-                三宮站轉阪神電車
-            </div>
+<span class="tag">
+💰 約760円
+</span>
 
-            <div class="info-row">
-                🚃 <b>第二段：</b>
-                阪神難波線 → 大阪難波站
-            </div>
+</div>
 
-            <div class="info-row">
-                ⏱️ <b>車程：</b>
-                約44分鐘，免轉車
-            </div>
+<div class="title">
+🛬 神戶機場 → 三宮 → 大阪難波
+</div>
 
-        </div>
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Kobe Airport',
-                'Osaka Namba Station'
-            )">
+<div class="info-group">
 
-            🗺️ 查看大眾運輸導航
 
-        </button>
+<div class="transit-box">
 
-    </div>
+<div class="transit-title">
+① 神戶機場 → 三宮
+</div>
 
+<div class="route-step">
 
+🏢 <b>神戶機場抵達後</b><br>
 
-    <!-- DAY 1 - 2 -->
+抵達大廳後，依照
+「ポートライナー / Port Liner」
+指示前往機場站。
 
-    <div class="card">
+</div>
 
-        <div class="card-header">
+<div class="floor">
 
-            <span class="time-badge">
-                13:55 – 14:15
-            </span>
+📍 <b>樓層：</b>
+神戶機場航廈與 Port Liner 車站以連絡通道銜接，
+依現場「ポートライナー」指示前往車站。
 
-            <span class="tag">
-                大行李接駁
-            </span>
+</div>
 
-        </div>
+<div class="route-step">
 
-        <div class="title">
-            🏨 大阪難波站 ➔ 飯店 Check-in 放行李
-        </div>
+🚃 <b>搭乘：</b>
+Port Liner（神戶新交通）
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚕 <b>小黃：</b>
-                難波站出站上地面，搭計程車約5–8分鐘。
-            </div>
+<div class="route-step">
 
-            <div class="info-row">
-                🏨 <b>目標飯店：</b>
-                Apartment Hotel 11 Dotonbori
-            </div>
+➡️ <b>方向：</b>
+「三宮 / Sannomiya」
 
-            <div class="info-row warning-text">
-                🛑 避坑提示：帶大行李不建議步行20分鐘。
-            </div>
+<br>
+⚠️ 神戶機場站是機場端起點，
+不要搭往「神戶機場」方向的車。
 
-        </div>
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'Apartment Hotel 11 Dotonbori 10'
-            )">
+<div class="train">
 
-            🗺️ 導航至飯店
+<b>🚃 當天班次：</b><br>
 
-        </button>
+12:30 後可優先尋找
+12:35、12:40、12:45、12:50、12:55
+附近班次。
 
-    </div>
+</div>
 
+<div class="last-train">
 
+🌙 <b>末班車：</b>
+神戶機場 → 三宮方向請以當日站內電子時刻表為準。
+</div>
 
-    <!-- DAY 1 - 3 -->
+<div class="route-step">
 
-    <div class="card">
+⏱️ <b>車程：</b>
+約18分鐘
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                14:32 – 15:05
-            </span>
+</div>
 
-            <span class="tag">
-                景點參拜
-            </span>
 
-        </div>
 
-        <div class="title">
-            🐕 飯店 ➔ 御津宮 (御津八幡宮)
-        </div>
+<div class="transit-box">
 
-        <div class="info-group">
+<div class="transit-title">
+② 三宮轉乘阪神電車
+</div>
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                步行約17分鐘。
-            </div>
+<div class="transfer">
 
-            <div class="info-row">
-                ⏰ <b>開放：</b>
-                境內與社務所依現場公告。
-            </div>
+🚶 <b>轉乘重點：</b><br>
 
-            <div class="info-row">
-                💡 <b>停留：</b>
-                約33分鐘。
-            </div>
+Port Liner 抵達「三宮」後，
+不要跟著 JR-only 指示走到底。
 
-        </div>
+尋找：
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '御津八幡宮 大阪'
-            )">
+<b>阪神電車 / 阪神神戸三宮駅</b>
 
-            🗺️ 地圖導航
+</div>
 
-        </button>
+<div class="floor">
 
-    </div>
+🏢 <b>樓層：</b><br>
 
+依站內「阪神線 / 阪神電車」
+指示前往阪神神戶三宮站。
 
+進入阪神車站後再依月台電子看板確認。
 
-    <!-- DAY 1 - 4 -->
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+🚃 <b>搭乘路線：</b>
+阪神本線 → 阪神なんば線
 
-            <span class="time-badge">
-                15:17 – 15:50
-            </span>
+</div>
 
-            <span class="tag">
-                景點參拜
-            </span>
+<div class="route-step">
 
-        </div>
+➡️ <b>方向：</b>
 
-        <div class="title">
-            👹 御津宮 ➔ 難波八阪神社
-        </div>
+<b>大阪難波・近鉄奈良方面</b>
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                步行約12分鐘。
-            </div>
+<div class="route-step">
 
-            <div class="info-row">
-                ⏰ <b>開放：</b>
-                依現場公告。
-            </div>
+🎯 <b>目的地：</b>
 
-            <div class="info-row">
-                💡 <b>停留：</b>
-                約33分鐘。
-            </div>
+大阪難波駅
 
-        </div>
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '難波八阪神社 大阪'
-            )">
+<div class="route-step">
 
-            🗺️ 地圖導航
+⚠️ <b>不要搭反方向：</b>
 
-        </button>
+姫路 / 山陽姫路方向是往西，
+不是你這趟前往大阪難波的方向。
 
-    </div>
+</div>
 
+<div class="train">
 
+<b>🚃 班次：</b><br>
 
-    <!-- DAY 1 - 5 -->
+請在阪神神戶三宮站電子看板確認
+「大阪難波 / 近鉄奈良方面」。
 
-    <div class="card">
+優先選擇可直達大阪難波的列車。
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                16:01 – 16:35
-            </span>
+<div class="last-train">
 
-            <span class="tag">
-                美食 & 南海
-            </span>
+🌙 <b>末班車：</b>
+神戶三宮 → 大阪難波方向以當日阪神電子時刻表為準。
+</div>
 
-        </div>
+</div>
 
-        <div class="title">
-            🍙 飯糰(站內排隊) ➔ 搭車前往新世界
-        </div>
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚶 <b>步行：</b>
-                神社 → 南海難波站。
-            </div>
 
-            <div class="info-row">
-                🍙 <b>位置：</b>
-                南海難波站3樓北改札內
-            </div>
+<button
+class="btn-nav"
+onclick="goRoute(
+'Kobe Airport',
+'Osaka Namba Station'
+)">
 
-            <div class="info-row warning-text">
-                ⚠️ 建議外帶後帶上火車。
-            </div>
+🗺️ 查看大眾運輸導航
 
-            <div class="info-row">
-                🚃 <b>搭車：</b>
-                南海高野線普通車。
-            </div>
+</button>
 
-        </div>
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '南海難波站 大阪'
-            )">
 
-            🗺️ 導航至難波站
 
-        </button>
+<!-- DAY 1 - 2 -->
 
-    </div>
+<div class="card">
 
+<div class="card-header">
 
+<span class="time-badge">
+13:55 – 14:15
+</span>
 
-    <!-- DAY 1 - 6 -->
+<span class="tag">
+大行李
+</span>
 
-    <div class="card">
+</div>
 
-        <div class="card-header">
+<div class="title">
+🏨 大阪難波站 → Apartment Hotel 11 Dotonbori
+</div>
 
-            <span class="time-badge">
-                16:50 – 19:10
-            </span>
+<div class="info-group">
 
-            <span class="tag">
-                新世界慢活
-            </span>
+<div class="route-step">
 
-        </div>
+🚉 <b>大阪難波站抵達後：</b>
 
-        <div class="title">
-            🗼 暢遊通天閣、新世界商圈
-        </div>
+帶大行李建議直接上地面搭計程車，
+不要拖行李走長距離地下街。
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🗼 <b>通天閣：</b>
-                依官方當日營業時間為準。
-            </div>
+<div class="route-step">
 
-            <div class="info-row">
-                💡 <b>時間：</b>
-                約2小時20分鐘。
-            </div>
+🚕 <b>推薦：</b>
 
-            <div class="info-row warning-text">
-                ⚠️ 建議19:10左右離開前往晚餐。
-            </div>
+大阪難波站 → 飯店
 
-        </div>
+計程車約5～10分鐘，
+依當時交通狀況而定。
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '通天閣 大阪'
-            )">
+</div>
 
-            🗺️ 地圖導航
+<div class="route-step">
 
-        </button>
+🏨 <b>目的地：</b>
 
-    </div>
+Apartment Hotel 11 Dotonbori 10
 
+</div>
 
+</div>
 
-    <!-- DAY 1 - 7 -->
+<button
+class="btn-nav"
+onclick="goMap(
+'Apartment Hotel 11 Dotonbori 10'
+)">
 
-    <div class="card">
+🗺️ 導航至飯店
 
-        <div class="card-header">
+</button>
 
-            <span class="time-badge">
-                19:10 – 20:30
-            </span>
+</div>
 
-            <span class="tag">
-                地鐵美食
-            </span>
 
-        </div>
 
-        <div class="title">
-            🥢 通天閣 ➔ 新宿燒肉 牛舌的檸檬
-        </div>
+<!-- DAY 1 - 3 -->
 
-        <div class="info-group">
+<div class="card">
 
-            <div class="info-row">
-                🚇 <b>地鐵：</b>
-                惠美須町站 → 日本橋站
-            </div>
+<div class="card-header">
 
-            <div class="info-row">
-                🚶 <b>出口：</b>
-                依 Google Maps 當日導航。
-            </div>
+<span class="time-badge">
+14:32 – 15:05
+</span>
 
-            <div class="info-row warning-text">
-                ⚠️ 檸檬和牛已訂位19:30，請準時抵達。
-            </div>
+<span class="tag">
+🐕 景點
+</span>
 
-        </div>
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '新宿焼肉 牛たんの檸檬 大阪'
-            )">
+<div class="title">
+🐕 飯店 → 御津宮（御津八幡宮）
+</div>
 
-            🗺️ 導航至牛舌的檸檬
+<div class="info-group">
 
-        </button>
+<div class="route-step">
 
-    </div>
+🚶 <b>交通：</b>
 
+全程步行。
 
+</div>
 
-    <!-- ================================================= -->
-    <!-- DAY 1 - 8 -->
-    <!-- ================================================= -->
+<div class="route-step">
 
-    <div class="card">
+📍 飯店 → 御津八幡宮
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                20:30 – 21:15
-            </span>
+<div class="route-step">
 
-            <span class="tag">
-                服飾掃貨
-            </span>
+⏱️ 約17分鐘。
 
-        </div>
+</div>
 
-        <div class="title">
-            🛍️ 餐廳 ➔ UNIQLO 心齋橋筋店
-        </div>
+<div class="route-step">
 
-        <div class="info-group">
+💡 Google Maps 導航時選擇「步行」模式。
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                餐廳出發向北經由難波地下街/心齋橋筋步行約 10 分鐘。
-            </div>
+</div>
 
-            <div class="info-row">
-                ⏰ <b>時間：</b>
-                11:00 – 21:00（全年無休）
-            </div>
+</div>
 
-            <div class="info-row warning-text">
-                ⚠️ 注意：配合21:00打烊時間，吃飽後直接前來掃貨退稅！
-            </div>
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'Apartment Hotel 11 Dotonbori 10',
+'御津八幡宮 大阪'
+)">
 
-        </div>
+🚶 步行導航至御津宮
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=%E6%96%B0%E5%AE%BF%E7%84%BC%E8%82%89%20%E7%89%9B%E3%81%9F%E3%82%93%E3%81%AE%E6%AA%B8%E6%AA%AC%20%E5%A4%A7%E9%98%AA&destination=UNIQLO%20%E5%BF%83%E6%96%8E%E6%A9%8B%E5%BA%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+</button>
 
-            🗺️ 導航至UNIQLO
+</div>
 
-        </a>
 
-    </div>
 
+<!-- DAY 1 - 4 -->
 
+<div class="card">
 
-    <!-- DAY 1 - 9 -->
+<div class="card-header">
 
-    <div class="card">
+<span class="time-badge">
+15:17 – 15:50
+</span>
 
-        <div class="card-header">
+<span class="tag">
+⛩️ 景點
+</span>
 
-            <span class="time-badge">
-                21:15 – 21:45
-            </span>
+</div>
 
-            <span class="tag">
-                卡通周邊
-            </span>
+<div class="title">
+👹 御津宮 → 難波八阪神社
+</div>
 
-        </div>
+<div class="info-group">
 
-        <div class="title">
-            🎀 UNIQLO ➔ Sanrio 心齋橋店
-        </div>
+<div class="route-step">
 
-        <div class="info-group">
+🚶 <b>交通：</b>
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                心齋橋筋商店街內平路步行 1 分鐘。
-            </div>
+全程步行。
 
-            <div class="info-row">
-                ⏰ <b>時間：</b>
-                11:00 – 20:00（全年無休）
-            </div>
+</div>
 
-            <div class="info-row warning-text">
-                ⚠️ 注意：該店 20:00 打烊。若因吃牛舌錯過，可改逛街上開到深夜的藥妝店。
-            </div>
+<div class="route-step">
 
-        </div>
+📍 御津八幡宮 → 難波八阪神社
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=UNIQLO%20%E5%BF%83%E9%BD%8B%E6%A9%8B%E5%BA%97&destination=%E3%82%B5%E3%83%B3%E3%83%AA%E3%82%AA%20%E5%BF%83%E6%96%8E%E6%A9%8B%E5%BA%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+</div>
 
-            🗺️ 導航至Sanrio
+<div class="route-step">
 
-        </a>
+⏱️ 約12～15分鐘。
 
-    </div>
+</div>
 
+</div>
 
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'御津八幡宮 大阪',
+'難波八阪神社 大阪'
+)">
 
-    <!-- DAY 1 - 10 -->
+🚶 步行導航
 
-    <div class="card">
+</button>
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                21:45 – 22:30
-            </span>
 
-            <span class="tag">
-                夜間散策
-            </span>
 
-        </div>
+<!-- DAY 1 - 5 -->
 
-        <div class="title">
-            🛍️ 心齋橋筋商店街夜巡
-        </div>
+<div class="card">
 
-        <div class="info-group">
+<div class="card-header">
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                沿心齋橋筋商店街往道頓堀方向邊逛邊走。
-            </div>
+<span class="time-badge">
+16:01 – 16:35
+</span>
 
-            <div class="info-row">
-                ⏰ <b>說明：</b>
-                多數服飾店於 21:00 打烊，此時段主要逛夜間藥妝店或唐吉訶德。
-            </div>
+<span class="tag">
+🍙 南海電車
+</span>
 
-        </div>
+</div>
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=%E3%82%B5%E3%83%B3%E3%83%AA%E3%82%AA%20%E5%BF%83%E9%BD%8B%E6%A9%8B%E5%BA%97&destination=%E5%BF%83%E6%96%8E%E6%A9%8B%E7%AD%8B%E5%95%86%E5%BA%97%E8%A1%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+<div class="title">
+🍙 難波八阪神社 → 南海難波站 → 新世界
+</div>
 
-            🗺️ 導航至商店街
+<div class="info-group">
 
-        </a>
+<div class="transit-box">
 
-    </div>
+<div class="transit-title">
+① 難波八阪神社 → 南海難波站
+</div>
 
+<div class="route-step">
 
+🚶 步行前往
+<b>南海なんば駅</b>。
 
-    <!-- DAY 1 - 11 -->
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+🏢 進入南海難波站後，
+前往 <b>3樓北改札</b> 一帶。
 
-            <span class="time-badge">
-                22:30 – 23:40
-            </span>
+</div>
 
-            <span class="tag">
-                深夜美食
-            </span>
+<div class="route-step">
 
-        </div>
+🍙 <b>飯糰：</b>
 
-        <div class="title">
-            🥢 味乃家御好燒 本店
-        </div>
+依你的原行程先在站內購買，
+再搭車前往新世界。
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                商店街過戎橋後，右轉步行 4 分鐘（米其林推薦名店）。
-            </div>
+</div>
 
-            <div class="info-row">
-                ⏰ <b>時間：</b>
-                11:00 – 22:00（L.O. 21:30）
-            </div>
 
-            <div class="info-row warning-text">
-                🛑 避坑防線：味乃家平日營業到 22:00。如果此時段已打烊，可改吃隔壁24小時營業的一蘭拉麵！
-            </div>
+<div class="transit-box">
 
-            <div class="info-row">
-                📅 <b>公休日：</b>
-                每週一公休
-            </div>
+<div class="transit-title">
+② 南海難波 → 新世界
+</div>
 
-        </div>
+<div class="route-step">
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=%E5%BF%83%E9%BD%8B%E6%A9%8B%E7%AD%8B%E5%95%86%E5%BA%97%E8%A1%97&destination=%E5%91%B3%E4%B9%83%E5%AE%B6%20%E6%9C%AC%E5%BA%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+🚃 <b>方式：</b>
 
-            🗺️ 導航至味乃家
+南海高野線
 
-        </a>
+</div>
 
-    </div>
+<div class="route-step">
 
+➡️ <b>方向：</b>
 
+高野山 / 橋本方向
 
-    <!-- DAY 1 - 12 -->
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+🎯 <b>下車：</b>
 
-            <span class="time-badge">
-                23:40 – 00:15
-            </span>
+新今宮
 
-            <span class="tag">
-                深夜甜點
-            </span>
+</div>
 
-        </div>
+<div class="transfer">
 
-        <div class="title">
-            🍓 Strawberry Mania 道頓堀店
-        </div>
+⚠️ 到新今宮後，
+依「動物園前 / 新世界 / 通天閣」
+方向步行。
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                由味乃家步行約 4 分鐘至道頓堀主街。
-            </div>
+<div class="last-train">
 
-            <div class="info-row">
-                ⏰ <b>時間：</b>
-                11:00 – 22:00（全年無休）
-            </div>
+🌙 <b>末班車：</b>
+南海難波 → 新今宮方向晚間仍有列車，
+實際末班依10/25當日時刻表確認。
+</div>
 
-            <div class="info-row warning-text">
-                ⚠️ 提示：若路過已打烊，可至24h唐吉訶德購買新鮮日本大草莓回飯店！
-            </div>
+</div>
 
-        </div>
+</div>
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=%E5%91%B3%E4%B9%83%E5%AE%B6%20%E6%9C%AC%E5%BA%97&destination=Strawberry%20Mania%20%E9%81%93%E9%A0%93%E5%A0%80%E5%BA%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+<button
+class="btn-nav"
+onclick="goRoute(
+'難波八阪神社 大阪',
+'新世界 大阪'
+)">
 
-            🗺️ 導航至草莓甜點
+🗺️ 大眾運輸導航至新世界
 
-        </a>
+</button>
 
-    </div>
+</div>
 
 
 
-    <!-- DAY 1 - 13 -->
+<!-- DAY 1 - 6 -->
 
-    <div class="card">
+<div class="card">
 
-        <div class="card-header">
+<div class="card-header">
 
-            <span class="time-badge">
-                00:15 – 00:25
-            </span>
+<span class="time-badge">
+16:50 – 19:10
+</span>
 
-            <span class="tag">
-                返回住宿
-            </span>
+<span class="tag">
+🗼 新世界
+</span>
 
-        </div>
+</div>
 
-        <div class="title">
-            🏨 返回 Apartment Hotel 11 Dotonbori
-        </div>
+<div class="title">
+🗼 通天閣、新世界商圈
+</div>
 
-        <div class="info-group">
+<div class="info-group">
 
-            <div class="info-row">
-                🚶 <b>移動：</b>
-                從道頓堀主街步行約 7-10 分鐘，即可輕鬆回到飯店休息。
-            </div>
+<div class="route-step">
 
-        </div>
+📍 <b>主要景點：</b>
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=%E9%81%93%E9%A0%93%E5%A0%80&destination=Apartment%20Hotel%2011%20Dotonbori%2010&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+通天閣、新世界本通商店街。
 
-            🗺️ 導航回飯店
+</div>
 
-        </a>
+<div class="route-step">
 
-    </div>
+🚶 新今宮 / 動物園前方向抵達後，
+依「通天閣」指示步行。
 
+</div>
 
+<div class="route-step">
 
-    <!-- DAY 1 - 14 -->
+⏱️ 依你自己的時間安排。
 
-    <div class="card">
+</div>
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                00:25+
-            </span>
+<button
+class="btn-nav"
+onclick="goMap(
+'通天閣 大阪'
+)">
 
-            <span class="tag">
-                🏪 24H 補給站
-            </span>
+🗺️ 地圖導航
 
-        </div>
+</button>
 
-        <div class="title">
-            🏪 飯店旁 LAWSON 購買宵夜飲品
-        </div>
+</div>
 
-        <div class="info-group">
 
-            <div class="info-row">
-                🚶 <b>位置：</b>
-                LAWSON 島之內二丁目店，距離飯店非常近。
-            </div>
 
-            <div class="info-row">
-                📍 <b>地址：</b>
-                大阪市中央區島之內 2-17-10
-            </div>
+<!-- DAY 1 - 7 -->
 
-            <div class="info-row">
-                ⏰ <b>時間：</b>
-                24小時營業（全年無休）
-            </div>
+<div class="card">
 
-            <div class="info-row">
-                💡 <b>推薦：</b>
-                進去買限定炸雞塊（L-chiki）或哈根達斯限定口味當宵夜，結束 Day 1！
-            </div>
+<div class="card-header">
 
-        </div>
+<span class="time-badge">
+19:10 起
+</span>
 
-        <a
-            class="btn-nav"
-            href="https://www.google.com/maps/dir/?api=1&origin=Apartment%20Hotel%2011%20Dotonbori%2010&destination=LAWSON%20%E5%B3%B6%E4%B9%8B%E5%85%A7%E4%BA%8C%E4%B8%81%E7%9B%AE%E5%BA%97&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+<span class="tag">
+🥩 晚餐
+</span>
 
-            🗺️ 飯店 → 最近LAWSON
+</div>
 
-        </a>
+<div class="title">
+🥩 通天閣 → 新宿燒肉 牛舌的檸檬
+</div>
 
-        <a
-            class="btn-nav"
-            style="margin-top:8px;"
-            href="https://www.google.com/maps/dir/?api=1&origin=LAWSON%20%E5%B3%B6%E4%B9%8B%E5%85%A7%E4%BA%8C%E4%B8%81%E7%9B%AE%E5%BA%97&destination=Apartment%20Hotel%2011%20Dotonbori%2010&travelmode=walking"
-            target="_blank"
-            rel="noopener noreferrer">
+<div class="info-group">
 
-            🏨 LAWSON → 回飯店
+<div class="transit-box">
 
-        </a>
+<div class="transit-title">
+① 通天閣 → 惠美須町站
+</div>
 
-    </div>
+<div class="route-step">
+
+🚶 步行至
+<b>Osaka Metro 堺筋線 惠美須町站</b>。
+
+</div>
+
+<div class="route-step">
+
+🏢 進站後尋找
+<b>堺筋線 / Sakaisuji Line</b>。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+天下茶屋方向
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 惠美須町 → 日本橋
+</div>
+
+<div class="route-step">
+
+🚇 <b>搭乘：</b>
+
+Osaka Metro 堺筋線
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+天下茶屋方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下一站：</b>
+
+日本橋
+
+</div>
+
+<div class="route-step">
+
+⏱️ 車程約數分鐘。
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+③ 日本橋 → 牛舌的檸檬
+</div>
+
+<div class="route-step">
+
+🚶 日本橋站出站後，
+依 Google Maps 步行導航。
+
+</div>
+
+<div class="route-step warning-text">
+
+⚠️ 你的訂位是19:30，
+建議不要抓最後一班車。
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'通天閣 大阪',
+'新宿焼肉 牛たんの檸檬 大阪'
+)">
+
+🗺️ 大眾運輸導航至牛舌的檸檬
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 8 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+牛舌後
+</span>
+
+<span class="tag">
+🛍️ 服飾
+</span>
+
+</div>
+
+<div class="title">
+🛍️ 牛舌的檸檬 → UNIQLO 心齋橋筋店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 牛舌餐廳離開後，
+依 Google Maps 步行導航前往心齋橋方向。
+
+</div>
+
+<div class="route-step">
+
+📍 <b>目的地：</b>
+
+UNIQLO 心齋橋筋店
+
+</div>
+
+<div class="route-step">
+
+💡 這段以步行最簡單，
+不需要為了短距離特別搭電車。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'新宿焼肉 牛たんの檸檬 大阪',
+'UNIQLO 心斎橋筋店'
+)">
+
+🚶 導航至 UNIQLO
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 9 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+UNIQLO 後
+</span>
+
+<span class="tag">
+🎀 Sanrio
+</span>
+
+</div>
+
+<div class="title">
+🎀 UNIQLO → Sanrio 心齋橋店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 <b>交通：</b>
+
+全程步行。
+
+</div>
+
+<div class="route-step">
+
+📍 沿心齋橋筋商店街前往 Sanrio。
+
+</div>
+
+<div class="route-step warning-text">
+
+⚠️ 你原本安排的時間如果已經超過
+Sanrio 實際營業時間，
+這一站要以當天官方公告為準。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'UNIQLO 心斎橋筋店',
+'サンリオ 心斎橋店'
+)">
+
+🚶 導航至 Sanrio
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 10 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+Sanrio 後
+</span>
+
+<span class="tag">
+🛍️ 夜間散策
+</span>
+
+</div>
+
+<div class="title">
+🛍️ 心齋橋筋商店街 → 道頓堀
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 沿心齋橋筋商店街往道頓堀方向。
+
+</div>
+
+<div class="route-step">
+
+🛍️ 晚間主要可逛：
+
+藥妝、唐吉訶德、便利商店等。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'心斎橋筋商店街 大阪',
+'道頓堀 大阪'
+)">
+
+🚶 導航至道頓堀
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 11 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+夜間
+</span>
+
+<span class="tag">
+🥢 美食
+</span>
+
+</div>
+
+<div class="title">
+🥢 味乃家御好燒 本店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 依 Google Maps 從目前位置步行至味乃家。
+
+</div>
+
+<div class="route-step warning-text">
+
+⚠️ 你原本安排在22:30之後，
+這家店的實際營業時間必須以當日官方公告確認。
+
+</div>
+
+<div class="route-step">
+
+💡 如果已經關店，
+再使用 Google Maps 尋找附近仍營業的店家。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goMap(
+'味乃家 本店 大阪'
+)">
+
+🗺️ 導航至味乃家
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 12 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+夜間
+</span>
+
+<span class="tag">
+🍓 甜點
+</span>
+
+</div>
+
+<div class="title">
+🍓 Strawberry Mania 道頓堀店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 依 Google Maps 從目前位置步行前往。
+
+</div>
+
+<div class="route-step warning-text">
+
+⚠️ 你原本安排23:40左右，
+實際營業時間可能已結束，
+不要把這家店視為23:40一定能買到。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goMap(
+'Strawberry Mania 道頓堀店'
+)">
+
+🗺️ 導航至草莓甜點
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 13 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+最後
+</span>
+
+<span class="tag">
+🏨 返回飯店
+</span>
+
+</div>
+
+<div class="title">
+🏨 道頓堀 → Apartment Hotel 11 Dotonbori
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 建議直接步行回飯店。
+
+</div>
+
+<div class="route-step">
+
+⏱️ 約7～15分鐘，
+依你最後所在位置而定。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'道頓堀 大阪',
+'Apartment Hotel 11 Dotonbori 10'
+)">
+
+🚶 導航回飯店
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 1 - 14 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+最後補給
+</span>
+
+<span class="tag">
+🏪 便利商店
+</span>
+
+</div>
+
+<div class="title">
+🏪 飯店最近的 LAWSON
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+📍 <b>搜尋方式：</b>
+
+以飯店「Apartment Hotel 11 Dotonbori 10」
+為中心搜尋最近的 LAWSON。
+
+</div>
+
+<div class="route-step">
+
+🚶 直接選擇距離飯店最近的分店。
+
+</div>
+
+<div class="route-step">
+
+💡 這一站不指定遠處的 LAWSON，
+避免為了便利商店多走路。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goNearestLawson()">
+
+🏪 尋找飯店最近 LAWSON
+
+</button>
+
+</div>
 
 </div>
 
@@ -1178,424 +1570,750 @@
 <div id="day2" class="day-content">
 
 
-    <!-- DAY 2 - 1 -->
+<div class="notice">
 
-    <div class="card">
+<b>📅 DAY 2｜2026/10/26（一）</b><br>
 
-        <div class="card-header">
+星期一。今天主要使用 Osaka Metro、京阪、JR。
+所有轉乘都把「方向」寫出來。
 
-            <span class="time-badge">
-                約70分鐘
-            </span>
+</div>
 
-            <span class="tag">
-                跨縣交通 680日圓
-            </span>
 
-        </div>
 
-        <div class="title">
-            ⛩️ 飯店 ➔ 伏見稻荷大社
-        </div>
+<!-- DAY 2 - 1 -->
 
-        <div class="info-group">
+<div class="card">
 
-            <div class="info-row">
-                🚶 <b>步驟1：</b>
-                飯店步行至地鐵日本橋站
-            </div>
+<div class="card-header">
 
-            <div class="info-row">
-                🚇 <b>步驟2：</b>
-                堺筋線 → 北濱站
-            </div>
+<span class="time-badge">
+早上
+</span>
 
-            <div class="info-row">
-                🚃 <b>步驟3：</b>
-                轉乘京阪電車往出町柳方向
-            </div>
+<span class="tag">
+🚇 Osaka Metro + 京阪
+</span>
 
-            <div class="info-row warning-text">
-                💡 普通、準急、急行皆可，避開特急/快速急行。
-            </div>
+</div>
 
-            <div class="info-row">
-                🚶 <b>抵達：</b>
-                京阪伏見稻荷站步行約5分鐘。
-            </div>
+<div class="title">
+⛩️ 飯店 → 伏見稻荷大社
+</div>
 
-        </div>
+<div class="info-group">
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Apartment Hotel 11 Dotonbori 10',
-                'Fushimi Inari Taisha'
-            )">
+<div class="transit-box">
 
-            🗺️ 地圖導航
+<div class="transit-title">
+① 飯店 → 日本橋站
+</div>
 
-        </button>
+<div class="route-step">
 
-    </div>
+🚶 從飯店步行至
+<b>Osaka Metro 日本橋站</b>。
 
+</div>
 
+</div>
 
-    <!-- DAY 2 - 2 -->
 
-    <div class="card">
+<div class="transit-box">
 
-        <div class="card-header">
+<div class="transit-title">
+② 日本橋 → 北濱
+</div>
 
-            <span class="time-badge">
-                約20分鐘
-            </span>
+<div class="route-step">
 
-            <span class="tag">
-                京阪電車 240日圓
-            </span>
+🚇 <b>搭乘：</b>
 
-        </div>
+Osaka Metro 堺筋線
 
-        <div class="title">
-            👘 伏見稻荷 ➔ 京都悠見着物
-        </div>
+</div>
 
-        <div class="info-group">
+<div class="route-step">
 
-            <div class="info-row">
-                🚶 <b>步驟1：</b>
-                步行至伏見稻荷站
-            </div>
+➡️ <b>方向：</b>
 
-            <div class="info-row">
-                🚃 <b>步驟2：</b>
-                京阪本線 → 祇園四條站
-            </div>
+天神橋筋六丁目 / 北千里方面
 
-            <div class="info-row">
-                🚶 <b>步驟3：</b>
-                1號或6號出口，步行約5–8分鐘
-            </div>
+</div>
 
-            <div class="info-row">
-                📸 <b>行程：</b>
-                換裝後前往清水寺。
-            </div>
+<div class="route-step">
 
-        </div>
+🎯 <b>下車：</b>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '京都悠見着物'
-            )">
+北濱站
 
-            🗺️ 導航至和服店
+</div>
 
-        </button>
+</div>
 
-    </div>
 
+<div class="transit-box">
 
+<div class="transit-title">
+③ 北濱 → 京阪
+</div>
 
-    <!-- DAY 2 - 3 -->
+<div class="transfer">
 
-    <div class="card">
+🚶 到北濱站後，
+依「京阪電車」指示轉乘。
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                20–30分鐘
-            </span>
+<div class="route-step">
 
-            <span class="tag">
-                公車 / 步行
-            </span>
+🚃 <b>京阪本線方向：</b>
 
-        </div>
+出町柳方面
 
-        <div class="title">
-            🥩 清水寺 ➔ 富之上 祇園本店
-        </div>
+</div>
 
-        <div class="info-group">
+<div class="route-step">
 
-            <div class="info-row">
-                📍 <b>地址：</b>
-                京都府京都市東山区常盤町161-1
-            </div>
+🎯 前往伏見稻荷。
 
-            <div class="info-row">
-                🚶 <b>路線：</b>
-                沿清水坂/三年坂下山，順四條通往西。
-            </div>
+</div>
 
-            <div class="info-row">
-                💡 <b>亮點：</b>
-                黑毛和牛/神戶牛壽喜燒。
-            </div>
+<div class="floor">
 
-        </div>
+📍 伏見稻荷站：
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店'
-            )">
+<b>1號月台：</b>
+三條・出町柳方面
 
-            🗺️ 地圖導航
+<b>2號月台：</b>
+淀屋橋・中之島方面
 
-        </button>
+</div>
 
-    </div>
+<div class="last-train">
 
+🌙 <b>回程末班：</b>
+伏見稻荷 → 大阪方向請看
+2號月台「淀屋橋 / 中之島方面」。
+</div>
 
+</div>
 
-    <!-- DAY 2 - 4 -->
+</div>
 
-    <div class="card">
+<button
+class="btn-nav"
+onclick="goRoute(
+'Apartment Hotel 11 Dotonbori 10',
+'Fushimi Inari Taisha'
+)">
 
-        <div class="card-header">
+🗺️ 大眾運輸導航
 
-            <span class="time-badge">
-                彈性
-            </span>
+</button>
 
-            <span class="tag">
-                全程步行
-            </span>
+</div>
 
-        </div>
 
-        <div class="title">
-            🛍️ 富之上 ➔ 錦市場 ➔ 八坂神社
-        </div>
 
-        <div class="info-group">
+<!-- DAY 2 - 2 -->
 
-            <div class="info-row">
-                🚶 <b>路線：</b>
-                飯後可漫步至錦市場，再前往八坂神社。
-            </div>
+<div class="card">
 
-        </div>
+<div class="card-header">
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                '京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店',
-                'Yasaka Shrine'
-            )">
+<span class="time-badge">
+伏見稻荷後
+</span>
 
-            🗺️ 導航至八坂神社
+<span class="tag">
+👘 京阪
+</span>
 
-        </button>
+</div>
 
-    </div>
+<div class="title">
+👘 伏見稻荷 → 祇園四條 → 京都悠見着物
+</div>
 
+<div class="info-group">
 
+<div class="transit-box">
 
-    <!-- DAY 2 - 5 -->
+<div class="transit-title">
+① 伏見稻荷站
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+🚉 前往
+<b>1號月台</b>。
 
-            <span class="time-badge">
-                約23分鐘
-            </span>
+</div>
 
-            <span class="tag">
-                市公車 230日圓
-            </span>
+<div class="route-step">
 
-        </div>
+➡️ <b>方向：</b>
 
-        <div class="title">
-            🗼 八坂神社 ➔ 京都塔 ➔ 京都車站
-        </div>
+三條・出町柳方面
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚶 <b>步驟1：</b>
-                八坂神社 → 祇園公車站
-            </div>
+</div>
 
-            <div class="info-row">
-                🚌 <b>步驟2：</b>
-                206 / 205號公車 → 京都站方向
-            </div>
 
-            <div class="info-row">
-                🗼 <b>步驟3：</b>
-                京都站前下車即到京都塔。
-            </div>
+<div class="transit-box">
 
-        </div>
+<div class="transit-title">
+② 伏見稻荷 → 祇園四條
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'Kyoto Tower'
-            )">
+<div class="route-step">
 
-            🗺️ 導航至京都塔
+🚃 搭京阪本線。
 
-        </button>
+</div>
 
-    </div>
+<div class="route-step">
 
+🎯 <b>下車：</b>
 
+祇園四條站
 
-    <!-- DAY 2 - 6 -->
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+⏱️ 約20分鐘上下，
+依列車種類而不同。
 
-            <span class="time-badge">
-                約50分鐘
-            </span>
+</div>
 
-            <span class="tag">
-                JR + 地鐵 820日圓
-            </span>
+</div>
 
-        </div>
 
-        <div class="title">
-            🥟 京都車站 ➔ 浪花一口餃子 Chao Chao
-        </div>
+<div class="transfer">
 
-        <div class="info-group">
+🚶 祇園四條站下車後，
+依出口前往四條通，
+再步行至和服店。
 
-            <div class="info-row">
-                🚄 <b>JR：</b>
-                京都 → 大阪站
-            </div>
+</div>
 
-            <div class="info-row">
-                🚇 <b>地鐵：</b>
-                梅田 → 難波
-            </div>
+</div>
 
-            <div class="info-row">
-                🚶 <b>出口：</b>
-                26-B出口附近。
-            </div>
+<button
+class="btn-nav"
+onclick="goRoute(
+'Fushimi Inari Station',
+'京都悠見着物'
+)">
 
-        </div>
+🗺️ 導航至和服店
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '浪花ひとくち餃子チャオチャオ 湊町店'
-            )">
+</button>
 
-            🗺️ 導航至餃子店
+</div>
 
-        </button>
 
-    </div>
 
+<!-- DAY 2 - 3 -->
 
+<div class="card">
 
-    <!-- DAY 2 - 7 -->
+<div class="card-header">
 
-    <div class="card">
+<span class="time-badge">
+和服 → 清水寺
+</span>
 
-        <div class="card-header">
+<span class="tag">
+👘 步行 / 公車
+</span>
 
-            <span class="time-badge">
-                15–20分鐘
-            </span>
+</div>
 
-            <span class="tag">
-                超市購物
-            </span>
+<div class="title">
+👘 京都悠見着物 → 清水寺
+</div>
 
-        </div>
+<div class="info-group">
 
-        <div class="title">
-            🛒 浪花一口餃子 ➔ LIFE 中央廣場難波店
-        </div>
+<div class="route-step">
 
-        <div class="info-group">
+🚶 依當日 Google Maps
+選擇步行或公車。
 
-            <div class="info-row">
-                📍 <b>位置：</b>
-                難波網塔大樓B1
-            </div>
+</div>
 
-            <div class="info-row">
-                🚶 <b>入口：</b>
-                26-C出口/地下連絡道。
-            </div>
+<div class="route-step">
 
-        </div>
+📍 前往清水寺。
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'ライフ なんば店'
-            )">
+</div>
 
-            🗺️ 地圖導航
+</div>
 
-        </button>
+<button
+class="btn-nav"
+onclick="goRoute(
+'京都悠見着物',
+'清水寺'
+)">
 
-    </div>
+🗺️ 導航至清水寺
 
+</button>
 
+</div>
 
-    <!-- DAY 2 - 8 -->
 
-    <div class="card">
 
-        <div class="card-header">
+<!-- DAY 2 - 4 -->
 
-            <span class="time-badge">
-                10–15分鐘
-            </span>
+<div class="card">
 
-            <span class="tag">
-                回飯店 190日圓
-            </span>
+<div class="card-header">
 
-        </div>
+<span class="time-badge">
+清水寺後
+</span>
 
-        <div class="title">
-            🏨 LIFE超市 ➔ 飯店 Check-in
-        </div>
+<span class="tag">
+🥩 晚餐
+</span>
 
-        <div class="info-group">
+</div>
 
-            <div class="info-row">
-                🚇 <b>推薦：</b>
-                難波站 → 日本橋站。
-            </div>
+<div class="title">
+🥩 清水寺 → 富之上 祇園本店
+</div>
 
-            <div class="info-row">
-                🚶 <b>備用：</b>
-                全程步行約18–20分鐘。
-            </div>
+<div class="info-group">
 
-        </div>
+<div class="route-step">
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Life Namba',
-                'Apartment Hotel 11 Dotonbori 10'
-            )">
+🚶 從清水寺沿清水坂、
+三年坂方向下山。
 
-            🗺️ 導航回飯店
+</div>
 
-        </button>
+<div class="route-step">
 
-    </div>
+➡️ 往祇園方向前進。
+
+</div>
+
+<div class="route-step">
+
+📍 京都府京都市東山区常盤町161-1
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'清水寺 京都',
+'京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店'
+)">
+
+🚶 導航至富之上
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 2 - 5 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+飯後
+</span>
+
+<span class="tag">
+🛍️ 京都散策
+</span>
+
+</div>
+
+<div class="title">
+🛍️ 富之上 → 錦市場 → 八坂神社
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 富之上 → 錦市場。
+
+</div>
+
+<div class="route-step">
+
+🛍️ 錦市場逛完後，
+再前往八坂神社。
+
+</div>
+
+<div class="route-step">
+
+📍 這段以步行為主。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店',
+'Yasaka Shrine'
+)">
+
+🗺️ 導航至八坂神社
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 2 - 6 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+八坂神社後
+</span>
+
+<span class="tag">
+🚌 京都市巴士
+</span>
+
+</div>
+
+<div class="title">
+🗼 八坂神社 → 京都塔
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 八坂神社 → 公車站
+</div>
+
+<div class="route-step">
+
+🚶 前往祇園一帶公車站。
+
+</div>
+
+</div>
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 祇園 → 京都站
+</div>
+
+<div class="route-step">
+
+🚌 可依 Google Maps
+選擇當時最適合的京都市巴士。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+京都站方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+京都站前
+
+</div>
+
+</div>
+
+<div class="route-step">
+
+🗼 京都塔就在京都站旁。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Yasaka Shrine',
+'Kyoto Tower'
+)">
+
+🗺️ 大眾運輸導航至京都塔
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 2 - 7 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+京都塔後
+</span>
+
+<span class="tag">
+🚆 JR + Metro
+</span>
+
+</div>
+
+<div class="title">
+🥟 京都站 → 大阪 → 浪花一口餃子 Chao Chao
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 京都站 → 大阪站
+</div>
+
+<div class="route-step">
+
+🚆 <b>JR京都線</b>
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+大阪・神戸方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+大阪站
+
+</div>
+
+</div>
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 大阪站 → 難波
+</div>
+
+<div class="route-step">
+
+🚇 前往 Osaka Metro
+御堂筋線梅田站。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+なんば / 天王寺方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+なんば站
+
+</div>
+
+<div class="last-train">
+
+🌙 <b>末班：</b>
+請依10/26當晚 Google Maps
+或站內電子看板確認。
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Kyoto Station',
+'浪花ひとくち餃子チャオチャオ 湊町店'
+)">
+
+🗺️ 大眾運輸導航至餃子店
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 2 - 8 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+餃子後
+</span>
+
+<span class="tag">
+🛒 超市
+</span>
+
+</div>
+
+<div class="title">
+🛒 浪花一口餃子 → LIFE 中央廣場難波店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 依 Google Maps 步行導航。
+
+</div>
+
+<div class="route-step">
+
+📍 難波網塔大樓附近。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goWalkRoute(
+'浪花ひとくち餃子チャオチャオ 湊町店',
+'ライフ なんば店'
+)">
+
+🚶 導航至 LIFE
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 2 - 9 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+最後
+</span>
+
+<span class="tag">
+🏨 回飯店
+</span>
+
+</div>
+
+<div class="title">
+🏨 LIFE → Apartment Hotel 11 Dotonbori
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+推薦方式
+</div>
+
+<div class="route-step">
+
+🚇 難波站 → 日本橋站。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+Osaka Metro 千日前線
+往南巽方面。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+日本橋。
+
+</div>
+
+<div class="route-step">
+
+🚶 再步行回飯店。
+
+</div>
+
+</div>
+
+<div class="last-train">
+
+🌙 <b>末班：</b>
+請於10/26當晚依日本橋站電子看板確認。
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Life Namba',
+'Apartment Hotel 11 Dotonbori 10'
+)">
+
+🗺️ 導航回飯店
+
+</button>
+
+</div>
 
 </div>
 
@@ -1608,193 +2326,338 @@
 <div id="day3" class="day-content">
 
 
-    <!-- DAY 3 - 1 -->
+<div class="notice">
 
-    <div class="card">
+<b>📅 DAY 3｜2026/10/27（二）</b><br>
 
-        <div class="card-header">
+USJ 日。你原本設定很早出發，所以這天特別注意第一班車與西九條轉 JR。
+</div>
 
-            <span class="time-badge">
-                約40分鐘
-            </span>
 
-            <span class="tag">
-                去程 阪神 + JR
-            </span>
 
-        </div>
+<!-- DAY 3 - 1 -->
 
-        <div class="title">
-            🎢 飯店 ➔ 日本環球影城 USJ
-        </div>
+<div class="card">
 
-        <div class="info-group">
+<div class="card-header">
 
-            <div class="info-row">
-                🚶 <b>步驟1：</b>
-                步行至近鐵日本橋站。
-            </div>
+<span class="time-badge">
+清晨
+</span>
 
-            <div class="info-row">
-                💳 <b>進站：</b>
-                使用Suica感應。
-            </div>
+<span class="tag">
+🎢 USJ
+</span>
 
-            <div class="timetable-box">
+</div>
 
-                <b>⏱️ 阪神難波線：</b><br>
+<div class="title">
+🎢 飯店 → 日本橋 → 西九條 → Universal City
+</div>
 
-                05:21 → 05:35 西九條<br>
+<div class="info-group">
 
-                備用：05:36 → 05:51
+<div class="transit-box">
 
-            </div>
+<div class="transit-title">
+① 飯店 → 近鐵日本橋
+</div>
 
-            <div class="info-row">
-                🚶 <b>步驟2：</b>
-                西九條站轉JR。
-            </div>
+<div class="route-step">
 
-            <div class="timetable-box">
+🚶 從飯店步行至
+<b>近鐵日本橋站</b>。
 
-                <b>⏱️ JR櫻島線：</b><br>
+</div>
 
-                05:40 → 05:45 環球城<br>
+<div class="route-step">
 
-                備用：05:58 → 06:03
+💳 使用 IC 卡進站。
 
-            </div>
+</div>
 
-            <div class="info-row">
-                🚶 <b>抵達：</b>
-                Universal Citywalk → USJ。
-            </div>
+</div>
 
-        </div>
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Apartment Hotel 11 Dotonbori 10',
-                'Universal Studios Japan'
-            )">
+<div class="transit-box">
 
-            🗺️ 地圖導航
+<div class="transit-title">
+② 日本橋 → 西九條
+</div>
 
-        </button>
+<div class="route-step">
 
-    </div>
+🚃 搭阪神難波線。
 
+</div>
 
+<div class="route-step">
 
-    <!-- DAY 3 - 2 -->
+➡️ <b>方向：</b>
 
-    <div class="card">
+大阪難波・尼崎・神戶方面，
+實際月台以當日電子看板為準。
 
-        <div class="card-header">
+</div>
 
-            <span class="time-badge">
-                深夜宵夜
-            </span>
+<div class="route-step">
 
-            <span class="tag">
-                回程 JR + 阪神
-            </span>
+🎯 <b>下車：</b>
 
-        </div>
+西九條。
 
-        <div class="title">
-            🍢 環球影城 ➔ BATTEN YOKATO
-        </div>
+</div>
 
-        <div class="info-group">
+<div class="transfer">
 
-            <div class="info-row warning-text">
-                ⚠️ 建議最晚23:00開始往車站移動。
-            </div>
+⚠️ 到西九條後不要直接出站。
+要轉 JR。
 
-            <div class="info-row">
-                🚶 Universal Citywalk → JR環球城站。
-            </div>
+</div>
 
-            <div class="info-row">
-                🚃 JR櫻島線 → 西九條站。
-            </div>
+</div>
 
-            <div class="info-row">
-                🚃 阪神難波線 → 大阪難波站。
-            </div>
 
-            <div class="info-row">
-                🚶 難波站 → 美國村。
-            </div>
+<div class="transit-box">
 
-        </div>
+<div class="transit-title">
+③ 西九條 → Universal City
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'BATTEN YOKATO AMERIKAMURA'
-            )">
+<div class="route-step">
 
-            🗺️ 導航至宵夜居酒屋
+🚶 西九條站站內尋找
+<b>JR 桜島線 / ゆめ咲線</b>。
 
-        </button>
+</div>
 
-    </div>
+<div class="route-step">
 
+➡️ <b>方向：</b>
 
+桜島方面
 
-    <!-- DAY 3 - 3 -->
+</div>
 
-    <div class="card">
+<div class="route-step">
 
-        <div class="card-header">
+🎯 <b>下車：</b>
 
-            <span class="time-badge">
-                深夜購物
-            </span>
+ユニバーサルシティ
 
-            <span class="tag">
-                步行約15分鐘
-            </span>
+</div>
 
-        </div>
+<div class="train">
 
-        <div class="title">
-            🛒 美國村 ➔ 唐吉訶德道頓堀店 ➔ 飯店
-        </div>
+<b>🚆 JR班次示例：</b><br>
 
-        <div class="info-group">
+西九條 → Universal City
+可搭往桜島方向的列車。
 
-            <div class="info-row">
-                🚶 宵夜後 → 唐吉訶德道頓堀店。
-            </div>
+官方時刻表會標示
+「普通 桜島行」。
 
-            <div class="info-row">
-                🚶 <b>選項A：</b>
-                步行回飯店約12–15分鐘。
-            </div>
+</div>
 
-            <div class="info-row">
-                🚇 <b>選項B：</b>
-                地鐵末班前搭千日前線。
-            </div>
+<div class="last-train">
 
-        </div>
+🌙 <b>回程末班：</b>
+Universal City → 西九條方向，
+請依當晚 JR 電子時刻表確認。
+</div>
 
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Don Quijote Dotonbori',
-                'Apartment Hotel 11 Dotonbori 10'
-            )">
+</div>
 
-            🗺️ 導航回飯店
+</div>
 
-        </button>
+<button
+class="btn-nav"
+onclick="goRoute(
+'Apartment Hotel 11 Dotonbori 10',
+'Universal Studios Japan'
+)">
 
-    </div>
+🗺️ 大眾運輸導航至 USJ
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 3 - 2 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+USJ結束後
+</span>
+
+<span class="tag">
+🍢 深夜
+</span>
+
+</div>
+
+<div class="title">
+🍢 USJ → 西九條 → 大阪難波 → BATTEN YOKATO
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① Universal City → 西九條
+</div>
+
+<div class="route-step">
+
+🚶 Universal City → JR Universal City站。
+
+</div>
+
+<div class="route-step">
+
+🚆 搭 JR 桜島線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+西九條方面
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 西九條 → 大阪難波
+</div>
+
+<div class="route-step">
+
+🚶 JR西九條站轉阪神。
+
+</div>
+
+<div class="route-step">
+
+🚃 搭阪神難波線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+大阪難波方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+大阪難波。
+
+</div>
+
+<div class="last-train">
+
+🌙 <b>重要：</b>
+這段不要抓最後一班車。
+USJ結束後建議提早離開，
+避免 JR → 阪神轉乘失敗。
+</div>
+
+</div>
+
+
+<div class="route-step">
+
+🚶 大阪難波 → 美國村 → BATTEN YOKATO。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Universal Studios Japan',
+'BATTEN YOKATO AMERIKAMURA'
+)">
+
+🗺️ 導航至宵夜居酒屋
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 3 - 3 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+深夜
+</span>
+
+<span class="tag">
+🛒 唐吉訶德
+</span>
+
+</div>
+
+<div class="title">
+🛒 美國村 → 唐吉訶德道頓堀 → 飯店
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 美國村 → 唐吉訶德道頓堀店。
+
+</div>
+
+<div class="route-step">
+
+🛒 購物後直接步行回飯店。
+
+</div>
+
+<div class="route-step">
+
+💡 深夜時段不建議為了短距離再搭地鐵。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Don Quijote Dotonbori',
+'Apartment Hotel 11 Dotonbori 10'
+)">
+
+🗺️ 導航回飯店
+
+</button>
+
+</div>
 
 </div>
 
@@ -1807,598 +2670,903 @@
 <div id="day4" class="day-content">
 
 
-    <!-- DAY 4 - 1 -->
+<div class="notice">
 
-    <div class="card">
+<b>📅 DAY 4｜2026/10/28（三）</b><br>
 
-        <div class="card-header">
-
-            <span class="time-badge">
-                08:00 – 09:00
-            </span>
-
-            <span class="tag">
-                起點
-            </span>
-
-        </div>
-
-        <div class="title">
-            🏨 住一道頓堀10號店
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                📍 <b>停留：</b>
-                1小時準備出門
-            </div>
-
-            <div class="info-row">
-                🚶 <b>後續：</b>
-                步行至日本橋站
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'Apartment Hotel 11 Dotonbori 10'
-            )">
-
-            🗺️ 飯店位置導航
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 2 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                09:00 – 10:00
-            </span>
-
-            <span class="tag">
-                景點參拜
-            </span>
-
-        </div>
-
-        <div class="title">
-            🔴 1. 飯店 ➔ 勝尾寺
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚇 <b>步驟1：</b>
-                前往箕面萱野站。
-            </div>
-
-            <div class="info-row">
-                🚌 <b>步驟2：</b>
-                箕面萱野站轉阪急巴士29號。
-            </div>
-
-            <div class="timetable-box">
-
-                <b>⏱️ 御堂筋線：</b><br>
-
-                07:15 → 07:50<br>
-                07:30 → 08:05
-
-                <br><br>
-
-                <b>⏱️ 箕面萱野 → 勝尾寺：</b><br>
-
-                08:10 → 08:32<br>
-                09:00 → 09:22
-
-            </div>
-
-            <div class="info-row">
-                🔴 <b>景點：</b>
-                勝運不倒翁與達摩。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Apartment Hotel 11 Dotonbori 10',
-                'Katsuo-ji'
-            )">
-
-            🗺️ 地圖導航
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 3 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                10:00 – 11:00
-            </span>
-
-            <span class="tag">
-                車程 / 美食
-            </span>
-
-        </div>
-
-        <div class="title">
-            🍱 2. 勝尾寺 ➔ Hozenji Yamakazu
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚌 勝尾寺 → 箕面萱野站
-            </div>
-
-            <div class="info-row">
-                🚇 箕面萱野 → 難波站
-            </div>
-
-            <div class="info-row">
-                🚶 難波站14號出口 → 法善寺橫丁
-            </div>
-
-            <div class="timetable-box">
-
-                <b>⏱️ 巴士：</b><br>
-
-                09:30 → 09:52<br>
-                10:18 → 10:40
-
-                <br><br>
-
-                <b>⏱️ 御堂筋線：</b><br>
-
-                09:58 → 10:31<br>
-                10:45 → 11:18
-
-            </div>
-
-            <div class="info-row">
-                🍱 <b>美食：</b>
-                炭火現烤鰻魚飯。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'Hozenji Yamakazu'
-            )">
-
-            🗺️ 導航至法善寺 Yamakazu
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 4 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                11:26 – 12:26
-            </span>
-
-            <span class="tag">
-                車程 / 景點
-            </span>
-
-        </div>
-
-        <div class="title">
-            🏯 3. 法善寺 Yamakazu ➔ 大阪城
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚶 法善寺 → 日本橋站
-            </div>
-
-            <div class="info-row">
-                🚇 日本橋 → 堺筋本町
-            </div>
-
-            <div class="info-row">
-                🚇 堺筋本町 → 谷町四丁目
-            </div>
-
-            <div class="info-row">
-                🚶 由出口步行進大阪城公園。
-            </div>
-
-            <div class="info-row">
-                🏯 <b>景點：</b>
-                大阪城公園與天守閣。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                'Hozenji Yamakazu',
-                'Osaka Castle'
-            )">
-
-            🗺️ 導航至大阪城
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 5 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                12:54 – 13:54
-            </span>
-
-            <span class="tag">
-                車程 / 美食
-            </span>
-
-        </div>
-
-        <div class="title">
-            🍜 4. 大阪城 ➔ 雞湯拉麵 座銀
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚶 大阪城 → 谷町四丁目站
-            </div>
-
-            <div class="info-row">
-                🚇 中央線 → 本町站
-            </div>
-
-            <div class="info-row">
-                🚶 步行至座銀南船場店。
-            </div>
-
-            <div class="info-row">
-                🍜 <b>美食：</b>
-                濃厚雞白湯拉麵。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '雞湯拉麵 座銀 南船場店'
-            )">
-
-            🗺️ 導航至座銀拉麵
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 6 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                14:18 – 15:18
-            </span>
-
-            <span class="tag">
-                展望台
-            </span>
-
-        </div>
-
-        <div class="title">
-            🏙️ 5. 座銀 ➔ Harukas 300
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚶 前往心齋橋/本町站。
-            </div>
-
-            <div class="info-row">
-                🚇 御堂筋線 → 天王寺站。
-            </div>
-
-            <div class="info-row">
-                🏙️ 前往Abeno Harukas 60樓。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                'HARUKAS 300 Observation Deck'
-            )">
-
-            🗺️ 導航至 Harukas 300
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 7 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                15:39 – 16:39
-            </span>
-
-            <span class="tag">
-                美食
-            </span>
-
-        </div>
-
-        <div class="title">
-            🥩 6. Harukas 300 ➔ 和牛燒肉モウモウ 南堀江店
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚇 天王寺 → 心齋橋/難波。
-            </div>
-
-            <div class="info-row">
-                🚶 步行至南堀江。
-            </div>
-
-            <div class="info-row">
-                🥩 <b>美食：</b>
-                高品質和牛燒肉。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goMap(
-                '和牛燒肉モウモウ 南堀江店'
-            )">
-
-            🗺️ 導航至和牛燒肉モウモウ
-
-        </button>
-
-    </div>
-
-
-
-    <!-- DAY 4 - 8 -->
-
-    <div class="card">
-
-        <div class="card-header">
-
-            <span class="time-badge">
-                16:58 起
-            </span>
-
-            <span class="tag">
-                終點
-            </span>
-
-        </div>
-
-        <div class="title">
-            🏨 7. 和牛燒肉モウモウ ➔ 飯店
-        </div>
-
-        <div class="info-group">
-
-            <div class="info-row">
-                🚶 <b>選項A：</b>
-                南堀江 → 道頓堀 → 飯店。
-            </div>
-
-            <div class="info-row">
-                🚇 <b>選項B：</b>
-                難波站 → 日本橋站。
-            </div>
-
-            <div class="info-row">
-                🏁 回飯店休息、整理行李。
-            </div>
-
-        </div>
-
-        <button
-            class="btn-nav"
-            onclick="goRoute(
-                '和牛燒肉モウモウ 南堀江店',
-                'Apartment Hotel 11 Dotonbori 10'
-            )">
-
-            🗺️ 導航回飯店
-
-        </button>
-
-    </div>
+勝尾寺是今天最需要注意班次的一段。
+阪急巴士官方資料目前確認有「箕面萱野駅～勝尾寺」路線，系統標示為30系統；因此不要再寫成29號巴士。:contentReference[oaicite:1]{index=1}
 
 </div>
 
 
 
-<!-- ================================================= -->
-<!-- ===================== JAVASCRIPT ================= -->
-<!-- ================================================= -->
+<!-- DAY 4 - 1 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+早上
+</span>
+
+<span class="tag">
+🏨 起點
+</span>
+
+</div>
+
+<div class="title">
+🏨 飯店 → 日本橋站
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 從 Apartment Hotel 11 Dotonbori
+步行至日本橋站。
+
+</div>
+
+<div class="route-step">
+
+🚇 之後搭 Osaka Metro
+前往箕面萱野。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goMap(
+'Apartment Hotel 11 Dotonbori 10'
+)">
+
+🗺️ 飯店位置導航
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 2 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+早上
+</span>
+
+<span class="tag">
+🔴 勝尾寺
+</span>
+
+</div>
+
+<div class="title">
+🔴 飯店 → 箕面萱野 → 勝尾寺
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 日本橋 → 箕面萱野
+</div>
+
+<div class="route-step">
+
+🚇 日本橋站前往
+Osaka Metro。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+御堂筋線北行，
+往新大阪 / 千里中央方向。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>終點：</b>
+
+箕面萱野。
+
+</div>
+
+<div class="transfer">
+
+⚠️ 如果列車只到新大阪、
+中津或千里中央，
+要依電子看板確認是否需要轉乘。
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 箕面萱野 → 勝尾寺
+</div>
+
+<div class="route-step">
+
+🚌 <b>阪急巴士：</b>
+
+箕面萱野駅 → 勝尾寺
+
+</div>
+
+<div class="route-step">
+
+🔢 <b>系統：</b>
+
+30系統
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+勝尾寺方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+勝尾寺
+
+</div>
+
+<div class="last-train">
+
+⚠️ <b>重要：</b>
+這段巴士班次不像都市地鐵那麼密集，
+一定要在當天出發前再確認。
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Apartment Hotel 11 Dotonbori 10',
+'Katsuo-ji'
+)">
+
+🗺️ 大眾運輸導航至勝尾寺
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 3 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+勝尾寺後
+</span>
+
+<span class="tag">
+🍱 午餐
+</span>
+
+</div>
+
+<div class="title">
+🍱 勝尾寺 → 箕面萱野 → 難波 → Hozenji Yamakazu
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 勝尾寺 → 箕面萱野
+</div>
+
+<div class="route-step">
+
+🚌 搭阪急巴士返回
+<b>箕面萱野駅</b>。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+箕面萱野方面
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 箕面萱野 → 難波
+</div>
+
+<div class="route-step">
+
+🚇 搭北大阪急行 / Osaka Metro
+往南。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+なかもず / 難波方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+なんば。
+
+</div>
+
+</div>
+
+
+<div class="route-step">
+
+🚶 難波站 → 法善寺橫丁。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Katsuo-ji',
+'Hozenji Yamakazu'
+)">
+
+🗺️ 大眾運輸導航至 Yamakazu
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 4 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+午餐後
+</span>
+
+<span class="tag">
+🏯 大阪城
+</span>
+
+</div>
+
+<div class="title">
+🏯 法善寺 Yamakazu → 大阪城
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 法善寺 → 日本橋
+</div>
+
+<div class="route-step">
+
+🚶 步行至
+Osaka Metro 日本橋站。
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 日本橋 → 堺筋本町
+</div>
+
+<div class="route-step">
+
+🚇 搭堺筋線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+天神橋筋六丁目 / 北千里方面
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+堺筋本町。
+
+</div>
+
+</div>
+
+
+<div class="transit-box">
+
+<div class="transit-title">
+③ 堺筋本町 → 谷町四丁目
+</div>
+
+<div class="route-step">
+
+🚇 轉中央線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+夢洲方面或生駒方面，
+以當日電子看板為準。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下一站：</b>
+
+谷町四丁目。
+
+</div>
+
+</div>
+
+
+<div class="route-step">
+
+🚶 谷町四丁目 → 大阪城公園。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Hozenji Yamakazu',
+'Osaka Castle'
+)">
+
+🗺️ 大眾運輸導航至大阪城
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 5 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+大阪城後
+</span>
+
+<span class="tag">
+🍜 拉麵
+</span>
+
+</div>
+
+<div class="title">
+🍜 大阪城 → 雞湯拉麵 座銀 南船場店
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 大阪城 → 谷町四丁目
+</div>
+
+<div class="route-step">
+
+🚶 步行至谷町四丁目站。
+
+</div>
+
+</div>
+
+<div class="transit-box">
+
+<div class="transit-title">
+② 谷町四丁目 → 本町
+</div>
+
+<div class="route-step">
+
+🚇 搭中央線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+夢洲 / コスモスクエア方向。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+本町。
+
+</div>
+
+</div>
+
+<div class="route-step">
+
+🚶 本町 → 座銀南船場店。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'Osaka Castle',
+'雞湯拉麵 座銀 南船場店'
+)">
+
+🗺️ 導航至座銀
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 6 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+座銀後
+</span>
+
+<span class="tag">
+🏙️ Harukas 300
+</span>
+
+</div>
+
+<div class="title">
+🏙️ 座銀 → Harukas 300
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 本町 → 天王寺
+</div>
+
+<div class="route-step">
+
+🚇 搭御堂筋線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+なかもず方面。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+天王寺。
+
+</div>
+
+</div>
+
+<div class="route-step">
+
+🏙️ 天王寺站依
+「Abeno Harukas / Harukas 300」
+方向前往。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'雞湯拉麵 座銀 南船場店',
+'HARUKAS 300 Observation Deck'
+)">
+
+🗺️ 導航至 Harukas 300
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 7 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+Harukas後
+</span>
+
+<span class="tag">
+🥩 和牛
+</span>
+
+</div>
+
+<div class="title">
+🥩 Harukas 300 → 和牛燒肉モウモウ 南堀江店
+</div>
+
+<div class="info-group">
+
+<div class="transit-box">
+
+<div class="transit-title">
+① 天王寺 → 心齋橋
+</div>
+
+<div class="route-step">
+
+🚇 御堂筋線。
+
+</div>
+
+<div class="route-step">
+
+➡️ <b>方向：</b>
+
+千里中央 / 新大阪方面。
+
+</div>
+
+<div class="route-step">
+
+🎯 <b>下車：</b>
+
+心齋橋。
+
+</div>
+
+</div>
+
+<div class="route-step">
+
+🚶 心齋橋 → 南堀江。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'HARUKAS 300 Observation Deck',
+'和牛燒肉モウモウ 南堀江店'
+)">
+
+🗺️ 導航至和牛燒肉モウモウ
+
+</button>
+
+</div>
+
+
+
+<!-- DAY 4 - 8 -->
+
+<div class="card">
+
+<div class="card-header">
+
+<span class="time-badge">
+最後
+</span>
+
+<span class="tag">
+🏨 回飯店
+</span>
+
+</div>
+
+<div class="title">
+🏨 南堀江 → Apartment Hotel 11 Dotonbori
+</div>
+
+<div class="info-group">
+
+<div class="route-step">
+
+🚶 <b>選項 A：</b>
+
+直接步行回道頓堀飯店。
+
+</div>
+
+<div class="transit-box">
+
+<div class="transit-title">
+選項 B｜搭地鐵
+</div>
+
+<div class="route-step">
+
+🚇 前往難波。
+
+</div>
+
+<div class="route-step">
+
+➡️ 再轉千日前線。
+
+</div>
+
+<div class="route-step">
+
+🎯 日本橋下車。
+
+</div>
+
+<div class="route-step">
+
+🚶 日本橋 → 飯店。
+
+</div>
+
+</div>
+
+<div class="last-train">
+
+🌙 <b>末班車：</b>
+
+如果選搭地鐵，
+不要壓最後一班。
+建議直接用 Google Maps
+選「大眾運輸」查看當時末班。
+
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goRoute(
+'和牛燒肉モウモウ 南堀江店',
+'Apartment Hotel 11 Dotonbori 10'
+)">
+
+🗺️ 導航回飯店
+
+</button>
+
+</div>
+
+</div>
+
+
 
 <script>
 
 
-    /* ==========================================
-       DAY 分頁切換
-       ========================================== */
+function switchDay(day) {
 
-    function switchDay(day) {
+    document
+        .querySelectorAll('.day-content')
+        .forEach(function(el) {
 
-        document
-            .querySelectorAll('.day-content')
-            .forEach(function(el) {
-
-                el.classList.remove('active');
-
-            });
-
-
-        document
-            .querySelectorAll('.tab-btn')
-            .forEach(function(el) {
-
-                el.classList.remove('active');
-
-            });
-
-
-        const target =
-            document.getElementById(
-                'day' + day
-            );
-
-        if (target) {
-
-            target.classList.add('active');
-
-        }
-
-
-        const button =
-            document.getElementById(
-                'btn-d' + day
-            );
-
-        if (button) {
-
-            button.classList.add('active');
-
-        }
-
-
-        window.scrollTo({
-
-            top: 0,
-
-            behavior: 'smooth'
+            el.classList.remove('active');
 
         });
 
-    }
+    document
+        .querySelectorAll('.tab-btn')
+        .forEach(function(el) {
 
+            el.classList.remove('active');
 
+        });
 
-    /* ==========================================
-       Google Maps：單一目的地
-       ========================================== */
-
-    function goMap(destination) {
-
-        const encodedDestination =
-            encodeURIComponent(
-                destination
-            );
-
-
-        const url =
-            'https://www.google.com/maps/dir/?api=1' +
-            '&destination=' +
-            encodedDestination +
-            '&travelmode=transit';
-
-
-        window.open(
-            url,
-            '_blank',
-            'noopener,noreferrer'
+    const target =
+        document.getElementById(
+            'day' + day
         );
 
+    if(target) {
+
+        target.classList.add('active');
+
     }
 
-
-
-    /* ==========================================
-       Google Maps：起點 → 終點
-       ========================================== */
-
-    function goRoute(
-        origin,
-        destination
-    ) {
-
-        const encodedOrigin =
-            encodeURIComponent(
-                origin
-            );
-
-        const encodedDestination =
-            encodeURIComponent(
-                destination
-            );
-
-
-        const url =
-            'https://www.google.com/maps/dir/?api=1' +
-            '&origin=' +
-            encodedOrigin +
-            '&destination=' +
-            encodedDestination +
-            '&travelmode=transit';
-
-
-        window.open(
-            url,
-            '_blank',
-            'noopener,noreferrer'
+    const button =
+        document.getElementById(
+            'btn-d' + day
         );
 
+    if(button) {
+
+        button.classList.add('active');
+
     }
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:'smooth'
+
+    });
+
+}
+
+
+
+function goMap(destination) {
+
+    const encodedDestination =
+        encodeURIComponent(destination);
+
+    const url =
+        'https://www.google.com/maps/dir/?api=1' +
+        '&destination=' +
+        encodedDestination +
+        '&travelmode=transit';
+
+    window.open(
+        url,
+        '_blank',
+        'noopener,noreferrer'
+    );
+
+}
+
+
+
+function goRoute(origin,destination) {
+
+    const encodedOrigin =
+        encodeURIComponent(origin);
+
+    const encodedDestination =
+        encodeURIComponent(destination);
+
+    const url =
+        'https://www.google.com/maps/dir/?api=1' +
+        '&origin=' +
+        encodedOrigin +
+        '&destination=' +
+        encodedDestination +
+        '&travelmode=transit';
+
+    window.open(
+        url,
+        '_blank',
+        'noopener,noreferrer'
+    );
+
+}
+
+
+
+function goWalkRoute(origin,destination) {
+
+    const encodedOrigin =
+        encodeURIComponent(origin);
+
+    const encodedDestination =
+        encodeURIComponent(destination);
+
+    const url =
+        'https://www.google.com/maps/dir/?api=1' +
+        '&origin=' +
+        encodedOrigin +
+        '&destination=' +
+        encodedDestination +
+        '&travelmode=walking';
+
+    window.open(
+        url,
+        '_blank',
+        'noopener,noreferrer'
+    );
+
+}
+
+
+
+function goNearestLawson() {
+
+    const query =
+        encodeURIComponent(
+            'LAWSON near Apartment Hotel 11 Dotonbori 10'
+        );
+
+    const url =
+        'https://www.google.com/maps/search/?api=1' +
+        '&query=' +
+        query;
+
+    window.open(
+        url,
+        '_blank',
+        'noopener,noreferrer'
+    );
+
+}
+
 
 </script>
 
