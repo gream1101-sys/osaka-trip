@@ -78,39 +78,60 @@ h1 {
 
 .tab-container {
     display:flex;
+
     background-color:#e3e3e8;
+
     border-radius:10px;
+
     padding:2px;
+
     margin-bottom:20px;
+
     position:sticky;
+
     top:8px;
+
     z-index:100;
 }
 
 .tab-btn {
     flex:1;
+
     padding:9px 0;
+
     text-align:center;
+
     font-size:12px;
+
     font-weight:600;
+
     border:none;
+
     background:transparent;
+
     color:var(--text-sub);
+
     border-radius:8px;
+
     cursor:pointer;
+
     -webkit-appearance:none;
 }
 
 .tab-btn.active {
     background-color:#ffffff;
+
     color:var(--text-main);
+
     box-shadow:
         0 2px 4px rgba(0,0,0,0.1);
 }
 
 .day-content {
     display:none;
+
     flex-direction:column;
+
     gap:16px;
 }
 
@@ -120,17 +141,24 @@ h1 {
 
 .card {
     background-color:var(--card-bg);
+
     border-radius:16px;
+
     padding:16px;
+
     box-shadow:
         0 2px 8px rgba(0,0,0,0.04);
 }
 
 .card-header {
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:8px;
+
     margin-bottom:10px;
 }
 
@@ -139,149 +167,235 @@ h1 {
         rgba(0,122,255,0.1);
 
     color:var(--primary);
+
     font-weight:600;
+
     font-size:13px;
+
     padding:
         4px 10px;
+
     border-radius:20px;
 }
 
 .tag {
     display:inline-block;
+
     font-size:12px;
+
     padding:
         2px 8px;
+
     border-radius:6px;
+
     background-color:#f2f2f7;
+
     color:var(--text-sub);
+
     text-align:right;
 }
 
 .title {
     font-size:17px;
+
     font-weight:600;
+
     margin:
         0 0 8px 0;
 }
 
 .info-group {
     font-size:14px;
+
     line-height:1.55;
+
     margin-bottom:12px;
 }
 
 .info-row {
     display:flex;
+
     align-items:flex-start;
+
     gap:6px;
+
     margin-bottom:7px;
 }
 
 .warning-text {
     color:var(--accent-red);
+
     font-weight:600;
 }
 
 .transport-box {
+
     background:#eef7ff;
+
     border-left:4px solid var(--primary);
+
     border-radius:10px;
+
     padding:11px;
+
     margin:
         10px 0;
+
     font-size:13px;
+
     line-height:1.65;
 }
 
 .transport-title {
+
     font-weight:700;
+
     color:#0066cc;
+
     margin-bottom:5px;
+
 }
 
 .transfer-box {
+
     background:#f5f5f7;
+
     border-radius:10px;
+
     padding:11px;
+
     margin:
         10px 0;
+
     font-size:13px;
+
     line-height:1.65;
 }
 
 .train-box {
+
     background:#fff8e8;
+
     border-left:4px solid var(--accent-orange);
+
     border-radius:10px;
+
     padding:11px;
+
     margin:
         10px 0;
+
     font-size:13px;
+
     line-height:1.65;
 }
 
 .last-train {
+
     background:#fff0f0;
+
     border-left:4px solid var(--accent-red);
+
     border-radius:10px;
+
     padding:10px;
+
     margin-top:8px;
+
     font-size:13px;
+
     line-height:1.6;
+
     color:#b42318;
 }
 
 .good-box {
+
     background:#effaf2;
+
     border-left:4px solid var(--accent-green);
+
     border-radius:10px;
+
     padding:10px;
+
     margin-top:8px;
+
     font-size:13px;
+
     line-height:1.6;
 }
 
 .timetable-box {
+
     background:#f2f2f7;
+
     border-radius:10px;
+
     padding:10px;
+
     margin:
         8px 0 10px 0;
+
     font-size:13px;
+
     line-height:1.6;
 }
 
 .btn-nav {
+
     display:block;
+
     width:100%;
+
     text-align:center;
+
     background-color:var(--primary);
+
     color:white;
+
     font-weight:600;
+
     font-size:14px;
+
     padding:10px 0;
+
     border-radius:10px;
+
     cursor:pointer;
+
     border:none;
+
     box-sizing:border-box;
+
     text-decoration:none;
+
     -webkit-appearance:none;
+
     transition:
         opacity 0.15s ease,
         transform 0.1s ease;
 }
 
 .btn-nav:active {
+
     opacity:0.8;
+
     transform:scale(0.98);
 }
 
 .day-note {
+
     background:#ffffff;
+
     border-radius:14px;
+
     padding:14px;
+
     font-size:13px;
+
     line-height:1.6;
+
     box-shadow:
         0 2px 8px rgba(0,0,0,0.04);
 }
@@ -289,6 +403,7 @@ h1 {
 @media (max-width:480px) {
 
     body {
+
         padding:
             12px
             12px
@@ -598,7 +713,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🐕 飯店 ➔ 御津宮（御津八幡宮）（09:00–17:00）
+🐕 飯店 ➔ 御津宮（御津八幡宮）
 </div>
 
 <div class="info-group">
@@ -651,7 +766,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-👹 御津宮 ➔ 難波八阪神社（06:30–17:00）
+👹 御津宮 ➔ 難波八阪神社
 </div>
 
 <div class="info-group">
@@ -836,7 +951,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🗼 暢遊通天閣、新世界商圈（通天閣：09:00–21:00）
+🗼 暢遊通天閣、新世界商圈
 </div>
 
 <div class="info-group">
@@ -982,7 +1097,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🛍️ 餐廳 ➔ UNIQLO 心齋橋筋店（11:00–21:00）
+🛍️ 餐廳 ➔ UNIQLO 心齋橋筋店
 </div>
 
 <div class="info-group">
@@ -1036,7 +1151,7 @@ UNIQLO之後
 </div>
 
 <div class="title">
-🎀 UNIQLO ➔ Sanrio 心齋橋店（11:00–20:00）
+🎀 UNIQLO ➔ Sanrio 心齋橋店
 </div>
 
 <div class="info-group">
@@ -1089,7 +1204,7 @@ Sanrio之後
 </div>
 
 <div class="title">
-🛍️ 心齋橋筋商店街夜巡（各店鋪營業時間不同）
+🛍️ 心齋橋筋商店街夜巡
 </div>
 
 <div class="info-group">
@@ -1143,7 +1258,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-🥢 味乃家御好燒 本店（11:00–22:00）
+🥢 味乃家御好燒 本店
 </div>
 
 <div class="info-group">
@@ -1200,7 +1315,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🍓 Strawberry Mania 道頓堀店（11:00–22:00）
+🍓 Strawberry Mania 道頓堀店
 </div>
 
 <div class="info-group">
@@ -1302,7 +1417,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-🏪 飯店最近 LAWSON（24小時）
+🏪 飯店最近 LAWSON
 </div>
 
 <div class="info-group">
@@ -1379,7 +1494,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-⛩️ 飯店 ➔ 伏見稻荷大社（05:00–18:00）
+⛩️ 飯店 ➔ 伏見稻荷大社
 </div>
 
 <div class="info-group">
@@ -1483,7 +1598,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-👘 伏見稻荷 ➔ 京都悠見着物（依店家公告）
+👘 伏見稻荷 ➔ 京都悠見着物
 </div>
 
 <div class="info-group">
@@ -1567,7 +1682,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🥩 清水寺 ➔ 富之上 祇園本店（依店家公告）
+🥩 清水寺 ➔ 富之上 祇園本店
 </div>
 
 <div class="info-group">
@@ -1625,7 +1740,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🛍️ 富之上 ➔ 錦市場 ➔ 八坂神社（各店鋪營業時間不同）
+🛍️ 富之上 ➔ 錦市場 ➔ 八坂神社
 </div>
 
 <div class="info-group">
@@ -1681,25 +1796,89 @@ onclick="goRoute(
 
 <div class="transport-box">
 
-🚶 八坂神社 → 祇園一帶公車站。<br>
+<div class="transport-title">
+🚌 八坂神社 → 京都站：京都市巴士
+</div>
 
-🚌 搭京都市巴士。<br>
+🚶 八坂神社 → 步行前往「祇園」一帶的京都市巴士站。<br><br>
 
-➡️ <b>方向：京都站方向</b><br>
+🚌 <b>主要搭乘：京都市巴士 206 系統</b><br>
 
-📍 目標：<b>京都駅前</b><br>
+📍 <b>目的地：</b>京都駅前<br>
 
-🗼 下車後就是京都塔／京都車站。
+➡️ <b>方向：</b>京都駅前方向<br>
+
+📍 <b>下車：</b>京都駅前<br>
+
+⏱️ <b>車程：</b>依當日道路交通狀況而定。<br><br>
+
+⚠️ <b>看到「206」時，一定要確認車頭／站牌顯示的是「京都駅」方向。</b>
+
+</div>
+
+
+<div class="transfer-box">
+
+<b>🚌 205、206 到底是什麼？</b><br><br>
+
+<b>205系統</b>＝京都市巴士的205號路線。<br>
+
+主要經過京都駅前、四条河原町、洛北高校前、金閣寺道、西大路七条等地，屬於循環路線。<br><br>
+
+<b>206系統</b>＝京都市巴士的206號路線。<br>
+
+會經過：
+<br>
+京都駅前 → 東山七条 → 五条坂 → 清水道 → 祇園 → 北大路方向等地。<br><br>
+
+👉 <b>你現在是從八坂神社／祇園前往京都站，所以看到206時，重點不是只看「206」，而是看它的行先。</b>
+
 </div>
 
 
 <div class="train-box">
 
-<b>⚠️ 原本寫「206 / 205」：</b><br><br>
+<b>🚌 實際搭車判斷方式</b><br><br>
 
-205、206 都可能往京都站方向，但實際乘車位置與方向要看當日站牌。<br>
+① 先找到「祇園」一帶的京都市巴士站。<br><br>
 
-<b>不要只看車號，一定要看車頭「京都駅」方向。</b>
+② 看站牌／電子看板是否有：<br>
+
+<b>206系統</b><br>
+
+<b>京都駅前方向</b><br><br>
+
+③ 上車前再確認車頭顯示：<br>
+
+<b>「206 京都駅」／「京都駅前」</b><br><br>
+
+④ 確認無誤後再上車。<br><br>
+
+⚠️ <b>不要只看到「206」三個數字就直接上車。</b><br>
+
+206是循環系統，同一個系統會有不同方向，方向看錯就可能坐反。
+
+</div>
+
+
+<div class="good-box">
+
+💡 <b>最簡單記法：</b><br><br>
+
+你這趟是：<br>
+
+<b>八坂神社 → 祇園 → 京都駅前</b><br><br>
+
+看到 <b>206</b> 時：<br>
+
+➡️ 找「<b>京都駅前</b>」方向<br>
+
+➡️ 搭車<br>
+
+➡️ 在「<b>京都駅前</b>」下車<br>
+
+➡️ 下車後就是京都車站，京都塔就在車站前方。
+
 </div>
 
 
@@ -1707,7 +1886,14 @@ onclick="goRoute(
 
 <b>🛑 公車末班：</b><br>
 
-京都市巴士不同路線末班時間不同，且站牌會有調整。這段建議不要拖到太晚才移動。
+205、206 都是京都市巴士的系統編號，並不是「末班車種類」。<br><br>
+
+京都市巴士不同路線、方向及日期的末班時間不同。<br>
+
+你是10/26（一）晚上移動，因此實際搭車前請看當日「祇園」站牌的206系統時刻表。<br><br>
+
+⚠️ <b>不要為了省幾分鐘拖到最後一班，建議提早前往京都站。</b>
+
 </div>
 
 </div>
@@ -1743,7 +1929,7 @@ JR＋大阪Metro
 </div>
 
 <div class="title">
-🥟 京都車站 ➔ 浪花一口餃子 Chao Chao（依店家公告）
+🥟 京都車站 ➔ 浪花一口餃子 Chao Chao
 </div>
 
 <div class="info-group">
@@ -1818,7 +2004,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🛒 浪花一口餃子 ➔ LIFE 中央廣場難波店（09:30–24:00）
+🛒 浪花一口餃子 ➔ LIFE 中央廣場難波店
 </div>
 
 <div class="info-group">
@@ -1939,7 +2125,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-🎢 飯店 ➔ 日本環球影城 USJ（依官方當日營業時間）
+🎢 飯店 ➔ 日本環球影城 USJ
 </div>
 
 <div class="info-group">
@@ -2072,7 +2258,7 @@ JR＋阪神
 </div>
 
 <div class="title">
-🍢 環球影城 ➔ BATTEN YOKATO（依店家公告）
+🍢 環球影城 ➔ BATTEN YOKATO
 </div>
 
 <div class="info-group">
@@ -2158,7 +2344,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🛒 美國村 ➔ 唐吉訶德道頓堀店（24小時） ➔ 飯店
+🛒 美國村 ➔ 唐吉訶德道頓堀店 ➔ 飯店
 </div>
 
 <div class="info-group">
@@ -2278,7 +2464,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🔴 1. 飯店 ➔ 勝尾寺（08:00–17:00）
+🔴 1. 飯店 ➔ 勝尾寺
 </div>
 
 <div class="info-group">
@@ -2389,7 +2575,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-🍱 2. 勝尾寺 ➔ Hozenji Yamakazu（依店家公告）
+🍱 2. 勝尾寺 ➔ Hozenji Yamakazu
 </div>
 
 <div class="info-group">
@@ -2462,7 +2648,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🏯 3. 法善寺 Yamakazu ➔ 大阪城（09:00–17:00）
+🏯 3. 法善寺 Yamakazu ➔ 大阪城
 </div>
 
 <div class="info-group">
@@ -2531,7 +2717,7 @@ onclick="goRoute(
 </div>
 
 <div class="title">
-🍜 4. 大阪城 ➔ 雞湯拉麵 座銀（11:00–22:00）
+🍜 4. 大阪城 ➔ 雞湯拉麵 座銀
 </div>
 
 <div class="info-group">
@@ -2593,7 +2779,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🏙️ 5. 座銀 ➔ Harukas 300（09:00–22:00）
+🏙️ 5. 座銀 ➔ Harukas 300
 </div>
 
 <div class="info-group">
@@ -2660,7 +2846,7 @@ onclick="goMap(
 </div>
 
 <div class="title">
-🥩 6. Harukas 300 ➔ 和牛燒肉モウモウ 南堀江店（依店家公告）
+🥩 6. Harukas 300 ➔ 和牛燒肉モウモウ 南堀江店
 </div>
 
 <div class="info-group">
