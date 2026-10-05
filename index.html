@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -13,10 +13,6 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* ================================================= */
-/* ==================== 基本設定 ==================== */
-/* ================================================= */
-
 :root {
     --bg-color:#f2f2f7;
     --card-bg:#ffffff;
@@ -30,10 +26,6 @@ content="width=device-width, initial-scale=1.0">
 
 * {
     box-sizing:border-box;
-}
-
-html {
-    scroll-behavior:smooth;
 }
 
 body {
@@ -57,15 +49,6 @@ body {
     -webkit-tap-highlight-color:transparent;
 }
 
-button {
-    font-family:inherit;
-}
-
-
-/* ================================================= */
-/* ====================== 標題 ====================== */
-/* ================================================= */
-
 header {
     text-align:center;
     margin-bottom:16px;
@@ -85,29 +68,16 @@ h1 {
 
 .date-label {
     display:inline-block;
-
     margin-top:8px;
-
     padding:5px 10px;
-
     border-radius:20px;
-
     background:#e8f2ff;
-
     color:#007aff;
-
     font-size:12px;
-
     font-weight:700;
 }
 
-
-/* ================================================= */
-/* ===================== DAY 分頁 =================== */
-/* ================================================= */
-
 .tab-container {
-
     display:flex;
 
     background-color:#e3e3e8;
@@ -123,11 +93,9 @@ h1 {
     top:8px;
 
     z-index:100;
-
 }
 
 .tab-btn {
-
     flex:1;
 
     padding:9px 0;
@@ -149,63 +117,63 @@ h1 {
     cursor:pointer;
 
     -webkit-appearance:none;
-
-    appearance:none;
-
 }
 
 .tab-btn.active {
-
     background-color:#ffffff;
 
     color:var(--text-main);
 
     box-shadow:
         0 2px 4px rgba(0,0,0,0.1);
-
 }
 
-
-/* ================================================= */
-/* ==================== DAY CONTENT ================= */
-/* ================================================= */
-
 .day-content {
-
     display:none;
 
     flex-direction:column;
 
-    gap:16px;
-
+    gap:12px;
 }
 
 .day-content.active {
-
     display:flex;
-
 }
 
+.day-note {
+    background:#ffffff;
 
-/* ================================================= */
-/* ======================= 卡片 ===================== */
-/* ================================================= */
+    border-radius:14px;
 
-.card {
+    padding:14px;
 
-    background-color:var(--card-bg);
+    font-size:13px;
 
-    border-radius:16px;
-
-    padding:16px;
+    line-height:1.6;
 
     box-shadow:
         0 2px 8px rgba(0,0,0,0.04);
 
+    margin-bottom:4px;
+}
+
+
+/* ================================================= */
+/* ================= 折疊卡片 ====================== */
+/* ================================================= */
+
+.card {
+    background-color:var(--card-bg);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.04);
 }
 
 .card-header {
-
     display:flex;
 
     justify-content:space-between;
@@ -214,12 +182,121 @@ h1 {
 
     gap:8px;
 
-    margin-bottom:10px;
+    padding:16px;
+
+    margin:0;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    transition:
+        background-color 0.15s ease;
+}
+
+.card-header:active {
+    background:#f2f2f7;
+}
+
+.card-header-left {
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    min-width:0;
+
+    flex:1;
+}
+
+.card-header-right {
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    flex-shrink:0;
+}
+
+.collapse-icon {
+    width:24px;
+
+    height:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#f2f2f7;
+
+    color:#8e8e93;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    line-height:1;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.card.open .collapse-icon {
+    background:#e8f2ff;
+
+    color:var(--primary);
+
+    transform:rotate(180deg);
+}
+
+.card-body {
+    display:none;
+
+    padding:
+        0
+        16px
+        16px
+        16px;
+}
+
+.card.open .card-body {
+    display:block;
+
+    animation:
+        cardOpen
+        0.18s
+        ease-out;
+}
+
+@keyframes cardOpen {
+
+    from {
+        opacity:0;
+        transform:translateY(-4px);
+    }
+
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
 
 }
 
-.time-badge {
 
+/* ================================================= */
+/* ================== 卡片內容 ====================== */
+/* ================================================= */
+
+.time-badge {
     background-color:
         rgba(0,122,255,0.1);
 
@@ -234,16 +311,16 @@ h1 {
 
     border-radius:20px;
 
+    white-space:nowrap;
 }
 
 .tag {
-
     display:inline-block;
 
     font-size:12px;
 
     padding:
-        2px 8px;
+        4px 8px;
 
     border-radius:6px;
 
@@ -253,36 +330,28 @@ h1 {
 
     text-align:right;
 
+    white-space:nowrap;
 }
 
 .title {
-
     font-size:17px;
 
     font-weight:600;
 
-    margin:
-        0 0 8px 0;
+    margin:0;
 
+    line-height:1.4;
 }
 
-
-/* ================================================= */
-/* ====================== 文字資訊 ================== */
-/* ================================================= */
-
 .info-group {
-
     font-size:14px;
 
     line-height:1.55;
 
     margin-bottom:12px;
-
 }
 
 .info-row {
-
     display:flex;
 
     align-items:flex-start;
@@ -290,21 +359,13 @@ h1 {
     gap:6px;
 
     margin-bottom:7px;
-
 }
 
 .warning-text {
-
     color:var(--accent-red);
 
     font-weight:600;
-
 }
-
-
-/* ================================================= */
-/* ==================== 交通資訊框 ================== */
-/* ================================================= */
 
 .transport-box {
 
@@ -322,7 +383,6 @@ h1 {
     font-size:13px;
 
     line-height:1.65;
-
 }
 
 .transport-title {
@@ -349,7 +409,6 @@ h1 {
     font-size:13px;
 
     line-height:1.65;
-
 }
 
 .train-box {
@@ -368,7 +427,6 @@ h1 {
     font-size:13px;
 
     line-height:1.65;
-
 }
 
 .last-train {
@@ -388,7 +446,6 @@ h1 {
     line-height:1.6;
 
     color:#b42318;
-
 }
 
 .good-box {
@@ -406,7 +463,6 @@ h1 {
     font-size:13px;
 
     line-height:1.6;
-
 }
 
 .timetable-box {
@@ -423,13 +479,7 @@ h1 {
     font-size:13px;
 
     line-height:1.6;
-
 }
-
-
-/* ================================================= */
-/* ==================== 導航按鈕 ==================== */
-/* ================================================= */
 
 .btn-nav {
 
@@ -461,12 +511,9 @@ h1 {
 
     -webkit-appearance:none;
 
-    appearance:none;
-
     transition:
         opacity 0.15s ease,
         transform 0.1s ease;
-
 }
 
 .btn-nav:active {
@@ -474,34 +521,11 @@ h1 {
     opacity:0.8;
 
     transform:scale(0.98);
-
 }
 
 
 /* ================================================= */
-/* ====================== DAY 備註 ================== */
-/* ================================================= */
-
-.day-note {
-
-    background:#ffffff;
-
-    border-radius:14px;
-
-    padding:14px;
-
-    font-size:13px;
-
-    line-height:1.6;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,0.04);
-
-}
-
-
-/* ================================================= */
-/* ===================== 手機版 ===================== */
+/* =================== 手機版 ======================= */
 /* ================================================= */
 
 @media (max-width:480px) {
@@ -513,60 +537,85 @@ h1 {
             12px
             30px
             12px;
-
     }
 
     h1 {
-
         font-size:21px;
-
     }
 
-    .card {
-
+    .card-header {
         padding:14px;
+    }
 
+    .card-body {
+        padding:
+            0
+            14px
+            14px
+            14px;
     }
 
     .title {
-
         font-size:16px;
-
     }
 
     .info-group {
-
         font-size:13.5px;
+    }
 
+    .time-badge {
+        font-size:12px;
+    }
+
+    .tag {
+        font-size:11px;
     }
 
 }
 
 
 /* ================================================= */
-/* ================== 超小螢幕修正 ================== */
+/* ============== 點擊展開全部 / 收合全部 ========== */
 /* ================================================= */
 
-@media (max-width:360px) {
+.collapse-control {
 
-    .tab-btn {
+    display:flex;
 
-        font-size:11px;
+    gap:8px;
 
-    }
+    margin-bottom:12px;
+}
 
-    .time-badge {
+.collapse-control button {
 
-        font-size:12px;
+    flex:1;
 
-    }
+    border:none;
 
-    .tag {
+    background:#ffffff;
 
-        font-size:11px;
+    color:var(--primary);
 
-    }
+    border-radius:10px;
 
+    padding:9px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.04);
+}
+
+.collapse-control button:active {
+
+    transform:scale(0.98);
+
+    opacity:0.8;
 }
 
 </style>
@@ -577,16 +626,12 @@ h1 {
 <body>
 
 
-<!-- ================================================= -->
-<!-- ======================= HEADER =================== -->
-<!-- ================================================= -->
-
 <header>
 
 <h1>⛩️ osaka 自由行導航</h1>
 
 <p class="subtitle">
-點擊上方分頁即可切換天數
+點擊行程即可展開詳細交通資訊
 </p>
 
 <div id="dateLabel" class="date-label">
@@ -595,10 +640,6 @@ DAY 1｜2026/10/25（日）
 
 </header>
 
-
-<!-- ================================================= -->
-<!-- ===================== DAY TABS =================== -->
-<!-- ================================================= -->
 
 <div class="tab-container">
 
@@ -633,6 +674,7 @@ DAY 4
 </div>
 
 
+
 <!-- ================================================= -->
 <!-- ======================= DAY 1 ==================== -->
 <!-- ================================================= -->
@@ -644,34 +686,61 @@ DAY 4
 
 <b>📅 DAY 1｜2026/10/25（日）</b><br>
 
-神戶機場 → 神戶三宮 → 大阪難波 → 飯店 Check-in → 御津宮 → 難波八阪神社 → 南海難波 → 新世界 → 牛舌的檸檬 19:30 → UNIQLO → Sanrio → 心齋橋／道頓堀 → 味乃家 → Strawberry Mania → LAWSON 瓦屋町三丁目店 → 飯店
+神戶機場 → 三宮 → 大阪難波 → 飯店 → 御津宮 → 難波八阪神社 → 南海難波 → 新世界 → 牛舌的檸檬 → 後續行程
 
 </div>
 
 
-<!-- ================= DAY 1 - 1 ================= -->
+<div class="collapse-control">
+
+<button onclick="openAll(1)">
+＋ 全部展開
+</button>
+
+<button onclick="closeAll(1)">
+− 全部收合
+</button>
+
+</div>
+
+
+<!-- DAY 1 - 1 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 12:30 起
 </span>
 
-<span class="tag">
-💰 約760円
+<span class="title">
+🛬 神戶機場 ➔ 阪神三宮站 ➔ 大阪難波站
 </span>
 
 </div>
 
-<div class="title">
-🛬 神戶機場 ➔ 神戶三宮 ➔ 大阪難波站
+<div class="card-header-right">
+
+<span class="tag">
+💰 約760円
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
+</div>
+
 </div>
 
 
-<div class="info-group">
+<div class="card-body">
 
+<div class="info-group">
 
 <div class="transport-box">
 
@@ -683,7 +752,7 @@ DAY 4
 
 📍 <b>起點：</b>神戶機場站<br>
 
-📍 <b>方向：</b>三宮方面<br>
+📍 <b>方向：</b>「三宮方面」<br>
 
 💰 <b>車資：</b>約340日圓<br>
 
@@ -691,7 +760,7 @@ DAY 4
 
 🏢 <b>位置：</b>抵達神戶機場後，依「ポートライナー / Port Liner」指標前往機場站搭車。<br>
 
-🚃 <b>搭乘：</b>看到「三宮方面」即可搭乘。
+🚃 <b>搭乘：</b>看到「三宮方面」就可以搭，不需要搭往其他方向的車。
 
 </div>
 
@@ -706,7 +775,7 @@ DAY 4
 
 14:00　14:07　14:15　14:20　14:27　14:35　14:40　14:47　14:54<br><br>
 
-<b>➡️ 班距約5～10分鐘。</b>
+<b>➡️ 班距大約 5～10 分鐘。</b>
 
 </div>
 
@@ -717,26 +786,27 @@ DAY 4
 
 ① Port Liner 抵達「神戶三宮」後下車。<br>
 
-② 找<b>「阪神電車／阪神神戸三宮」</b>。<br>
+② 不要跟著 JR 轉乘，要找：
+<b>「阪神電車 / 阪神神戸三宮」</b>。<br>
 
 ③ 往地下阪神神戶三宮站。<br>
 
-④ 找阪神本線／阪神なんば線月台。<br>
+④ 找阪神本線／阪神なんば線的月台。<br>
 
-⑤ <b>方向：近鉄奈良方面</b>。<br>
+⑤ <b>方向要搭「近鉄奈良方面」</b>。<br>
 
-⑥ 優先找<b>快速急行・近鉄奈良行</b>。<br>
+⑥ 最方便是搭：
+<b>「快速急行・近鉄奈良行」</b>。<br>
 
-⑦ 若為直通車，可直接前往<b>大阪難波</b>，不用在尼崎轉車。
+⑦ 這種列車會直通阪神なんば線，
+<b>不用在尼崎轉車</b>，直接到「大阪難波」。
 
 </div>
 
 
 <div class="train-box">
 
-<b>🚃 神戶三宮 → 大阪難波</b><br><br>
-
-推薦原本規劃的班次：<br><br>
+<b>🚃 神戶三宮 → 大阪難波：推薦班次</b><br><br>
 
 13:12 → 約13:53<br>
 
@@ -750,21 +820,22 @@ DAY 4
 
 14:52 → 約15:33<br><br>
 
-⚠️ 實際10/25班次請以當日電子看板為準。<br>
+⚠️ <b>優先找「快速急行・近鉄奈良行」。</b><br>
 
-優先確認<b>「快速急行」＋「近鉄奈良方面」</b>。
+不要看到任何往大阪方向的車就直接上車，先看電子看板的<b>「種別」與「行先」</b>。
 
 </div>
 
 
 <div class="last-train">
 
-<b>🛑 回程末班車提醒</b><br>
+<b>🛑 末班車提醒</b><br>
 
-阪神線、阪神なんば線晚間仍有列車，但回程如果需要從大阪難波回神戶，請以當晚電子看板確認「神戶三宮方面」列車。
+阪神線、阪神なんば線晚間仍有列車，但末班時間會依日期及方向不同。<br>
+
+回程如果需要從大阪難波回神戶，請在 Google Maps / 車站電子看板確認當晚最後一班「神戶三宮方面」列車，不要只看「大阪難波站末班」。
 
 </div>
-
 
 </div>
 
@@ -782,26 +853,45 @@ onclick="goRoute(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 2 ================= -->
+
+
+<!-- DAY 1 - 2 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 抵達大阪難波後
 </span>
 
-<span class="tag">
-🧳 大行李
+<span class="title">
+🏨 大阪難波站 ➔ 飯店 Check-in 放行李
 </span>
 
 </div>
 
-<div class="title">
-🏨 大阪難波站 ➔ 飯店 Check-in 放行李
+<div class="card-header-right">
+
+<span class="tag">
+大行李接駁
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -838,26 +928,45 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 3 ================= -->
+
+
+<!-- DAY 1 - 3 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 14:32 – 15:05
 </span>
 
-<span class="tag">
-景點參拜
+<span class="title">
+🐕 飯店 ➔ 御津宮（御津八幡宮）
 </span>
 
 </div>
 
-<div class="title">
-🐕 飯店 ➔ 御津宮（御津八幡宮）
+<div class="card-header-right">
+
+<span class="tag">
+景點參拜
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -890,26 +999,45 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 4 ================= -->
+
+
+<!-- DAY 1 - 4 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 15:17 – 15:50
 </span>
 
-<span class="tag">
-景點參拜
+<span class="title">
+👹 御津宮 ➔ 難波八阪神社
 </span>
 
 </div>
 
-<div class="title">
-👹 御津宮 ➔ 難波八阪神社
+<div class="card-header-right">
+
+<span class="tag">
+景點參拜
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -947,26 +1075,45 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 5 ================= -->
+
+
+<!-- DAY 1 - 5 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 16:01 起
 </span>
 
-<span class="tag">
-南海高野線
+<span class="title">
+🍙 飯糰（站內排隊）➔ 南海難波站 ➔ 新世界
 </span>
 
 </div>
 
-<div class="title">
-🍙 飯糰 ➔ 南海難波站 ➔ 新世界
+<div class="card-header-right">
+
+<span class="tag">
+南海高野線
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -980,16 +1127,19 @@ onclick="goMap(
 
 📍 進站後往<b>3樓北改札</b>方向。<br>
 
-🍙 先購買站內飯糰，再搭車。
+🍙 飯糰位於站內，先買飯糰再搭車。
 
 </div>
 
 
 <div class="transfer-box">
 
-<b>🚃 南海高野線</b><br><br>
+<b>🚃 南海高野線：務必看「車種」</b><br><br>
 
-你的行程指定：<b>各駅停車／普通車</b>。<br><br>
+你的行程指定：
+<b>「各駅停車／普通車」</b>。<br><br>
+
+如果你的目標是從南海難波前往新今宮／新世界，<b>各駅停車最不容易搞錯</b>。<br><br>
 
 電子看板看到：<br>
 
@@ -997,9 +1147,34 @@ onclick="goMap(
 
 <b>普通 → 可以搭</b><br>
 
-準急／急行雖然可能停新今宮，但不是你指定的普通車。<br><br>
+準急 → 可到新今宮，但不是你指定的普通車<br>
+
+急行 → 也會停新今宮，但不要把它當成「普通車」<br>
+
+快速急行 → 不需要搭這個去新世界<br><br>
 
 <b>方向：</b>橋本／河內長野／林間田園都市等高野線方向。
+
+</div>
+
+
+<div class="train-box">
+
+<b>📅 10/25（日）南海高野線重點</b><br><br>
+
+南海難波出發前，直接看月台電子看板。<br>
+
+例如週末時段可看到：<br>
+
+各停 → 新今宮方向<br>
+
+準急 → 新今宮方向<br>
+
+急行 → 新今宮方向<br><br>
+
+⚠️ <b>你要找的是「各駅停車／普通」</b>。<br>
+
+不要只看「南海高野線」，一定要看車種。
 
 </div>
 
@@ -1012,11 +1187,13 @@ onclick="goMap(
 
 🚃 <b>線路：</b>南海高野線<br>
 
+➡️ <b>方向：</b>高野山／河內長野方向的列車<br>
+
 📍 <b>下車：</b>新今宮站<br>
 
 ⏱️ <b>車程：</b>約4～5分鐘<br>
 
-🚶 下車後步行前往通天閣、新世界。
+🚶 新今宮站下車後，再步行前往通天閣、新世界。
 
 </div>
 
@@ -1025,45 +1202,66 @@ onclick="goMap(
 
 <b>🛑 末班車：</b><br>
 
-晚間仍有班次，但實際車種及末班時間會依日期變動。當晚直接看南海難波站電子看板最安全。
+南海難波 → 新今宮晚間仍有班次，但不要只記一個固定末班時間。<br>
+
+因為不同車種、平日／週末及臨時班次會變動，當天晚上直接看南海難波站電子看板最安全。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
-onclick="goRoute(
-'難波八阪神社 大阪',
-'Shin-Imamiya Station'
+onclick="goMap(
+'南海難波站 大阪'
 )">
 
-🗺️ 導航至新今宮站
+🗺️ 導航至南海難波站
 
 </button>
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 6 ================= -->
+
+
+<!-- DAY 1 - 6 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 16:50 – 19:10
 </span>
 
-<span class="tag">
-新世界慢活
+<span class="title">
+🗼 暢遊通天閣、新世界商圈
 </span>
 
 </div>
 
-<div class="title">
-🗼 暢遊通天閣、新世界商圈
+<div class="card-header-right">
+
+<span class="tag">
+新世界慢活
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -1083,7 +1281,7 @@ onclick="goRoute(
 </div>
 
 <div class="info-row warning-text">
-⚠️ 19:10左右離開，前往晚餐。
+⚠️ 建議19:10左右離開前往晚餐。
 </div>
 
 </div>
@@ -1100,73 +1298,105 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 7 ================= -->
+
+
+<!-- DAY 1 - 7 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
-19:10 – 19:30
+19:10 – 20:30
 </span>
+
+<span class="title">
+🥢 通天閣 ➔ 新宿燒肉 牛舌的檸檬
+</span>
+
+</div>
+
+<div class="card-header-right">
 
 <span class="tag">
-🚇 地鐵
+地鐵美食
+</span>
+
+<span class="collapse-icon">
+＋
 </span>
 
 </div>
 
-<div class="title">
-🥢 通天閣 ➔ 牛舌的檸檬
 </div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
 <div class="transport-title">
-🚇 惠美須町 → 日本橋
+🚇 電車路線
 </div>
 
-① 通天閣／新世界 → 惠美須町站。<br>
+① 通天閣／新世界 → 惠美須町站<br>
 
-② 搭大阪Metro<b>堺筋線</b>。<br>
+② 搭大阪Metro 堺筋線<br>
 
-③ <b>方向：天神橋筋六丁目方面</b>。<br>
+③ <b>方向：天神橋筋六丁目方面</b><br>
 
-④ 惠美須町 → 日本橋。<br>
+④ 惠美須町 → 日本橋<br>
 
-⑤ 日本橋站下車。<br>
+⑤ <b>日本橋站下車</b><br>
 
-⑥ 再依 Google Maps 步行至牛舌的檸檬。
+⑥ 依 Google Maps 步行至牛舌的檸檬。
 
 </div>
 
 
-<div class="good-box">
+<div class="train-box">
 
-⏰ <b>19:30 已訂位。</b><br><br>
+<b>📅 10/25（日）</b><br><br>
 
-19:10左右從新世界離開，目標是19:25左右抵達餐廳附近，預留找路時間。
+19:00～20:00 時段堺筋線班距通常不長。<br>
+
+你不需要特別等某一班，只要確認：<br>
+
+<b>「天神橋筋六丁目方面」</b>
+
+即可。
 
 </div>
 
 
 <div class="last-train">
 
-<b>⚠️ 注意：</b><br>
+<b>🛑 末班車提醒：</b><br>
 
-這段不是追末班車問題，而是要避免因為新世界逛太晚導致19:30訂位遲到。
+如果之後還要從日本橋往其他地方移動，請注意大阪Metro末班車。<br>
+
+你這段是在晚餐前移動，19:10左右出發基本上不需要擔心末班問題。
 
 </div>
 
+
+<div class="info-row warning-text">
+⚠️ 牛舌的檸檬已訂位19:30，建議不要壓最後一班車。
 </div>
+
+</div>
+
 
 <button
 class="btn-nav"
-onclick="goRoute(
-'通天閣 大阪',
+onclick="goMap(
 '新宿焼肉 牛たんの檸檬 大阪'
 )">
 
@@ -1176,94 +1406,61 @@ onclick="goRoute(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 8 ================= -->
+
+
+<!-- DAY 1 - 8 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
 
-<span class="time-badge">
-19:30 起
-</span>
-
-<span class="tag">
-🥩 已訂位
-</span>
-
-</div>
-
-<div class="title">
-🥩 新宿燒肉 牛舌的檸檬
-</div>
-
-<div class="info-group">
-
-<div class="info-row">
-⏰ <b>訂位時間：</b>
-19:30
-</div>
-
-<div class="info-row">
-🍽️ <b>內容：</b>
-牛舌燒肉。
-</div>
-
-<div class="info-row">
-💡 <b>提醒：</b>
-19:30是固定訂位時間，前面新世界行程以準時抵達為優先。
-</div>
-
-</div>
-
-<button
-class="btn-nav"
-onclick="goMap(
-'新宿焼肉 牛たんの檸檬 大阪'
-)">
-
-🗺️ 餐廳導航
-
-</button>
-
-</div>
-
-
-<!-- ================= DAY 1 - 9 ================= -->
-
-<div class="card">
-
-<div class="card-header">
+<div class="card-header-left">
 
 <span class="time-badge">
 牛舌之後
 </span>
 
-<span class="tag">
-👕 UNIQLO
+<span class="title">
+🛍️ 餐廳 ➔ UNIQLO 心齋橋筋店
 </span>
 
 </div>
 
-<div class="title">
-🛍️ 牛舌的檸檬 ➔ UNIQLO 心齋橋筋店
+<div class="card-header-right">
+
+<span class="tag">
+服飾掃貨
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="info-row">
 🚶 <b>移動：</b>
-餐廳 → UNIQLO 心齋橋筋店。
+依 Google Maps 步行約10～15分鐘。
 </div>
 
 <div class="info-row">
-⏱️ <b>方式：</b>
-依 Google Maps 即時判斷步行／交通。
+📍 <b>方向：</b>
+往心齋橋筋商店街。
 </div>
 
 <div class="info-row">
 💡 <b>提醒：</b>
-不再把20:30寫死，實際依牛舌用餐結束時間調整。
+你這裡時間自己安排，不再綁死原本20:30。
 </div>
 
 </div>
@@ -1281,26 +1478,45 @@ onclick="goRoute(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 10 ================= -->
+
+
+<!-- DAY 1 - 9 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 UNIQLO之後
 </span>
 
-<span class="tag">
-🎀 Sanrio
+<span class="title">
+🎀 UNIQLO ➔ Sanrio 心齋橋店
 </span>
 
 </div>
 
-<div class="title">
-🎀 UNIQLO ➔ Sanrio 心齋橋店
+<div class="card-header-right">
+
+<span class="tag">
+卡通周邊
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -1311,11 +1527,11 @@ UNIQLO之後
 
 <div class="info-row">
 📍 <b>方向：</b>
-沿心齋橋筋商店街前進。
+依商店街往心齋橋方向。
 </div>
 
 <div class="info-row warning-text">
-⚠️ Sanrio實際營業時間請以10/25當日官方資訊為準。
+⚠️ 原本20:00打烊設定，請以10/25當日官方營業時間為準。
 </div>
 
 </div>
@@ -1333,32 +1549,51 @@ onclick="goRoute(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 11 ================= -->
+
+
+<!-- DAY 1 - 10 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 Sanrio之後
 </span>
 
-<span class="tag">
-🌃 夜間散策
+<span class="title">
+🛍️ 心齋橋筋商店街夜巡
 </span>
 
 </div>
 
-<div class="title">
-🛍️ 心齋橋筋商店街 ➔ 道頓堀
+<div class="card-header-right">
+
+<span class="tag">
+夜間散策
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="info-row">
 🚶 <b>路線：</b>
-心齋橋筋商店街往道頓堀方向。
+沿心齋橋筋商店街往道頓堀方向。
 </div>
 
 <div class="info-row">
@@ -1367,8 +1602,8 @@ Sanrio之後
 </div>
 
 <div class="info-row">
-💡 <b>方式：</b>
-依當時營業狀況自由逛。
+💡 <b>提醒：</b>
+服飾店多數較早打烊，這段主要以夜間仍營業的店家為主。
 </div>
 
 </div>
@@ -1386,26 +1621,45 @@ onclick="goRoute(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 12 ================= -->
+
+
+<!-- DAY 1 - 11 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 後續晚餐
 </span>
 
-<span class="tag">
-🥢 御好燒
+<span class="title">
+🥢 味乃家御好燒 本店
 </span>
 
 </div>
 
-<div class="title">
-🥢 味乃家御好燒 本店
+<div class="card-header-right">
+
+<span class="tag">
+御好燒
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -1415,17 +1669,17 @@ onclick="goRoute(
 </div>
 
 <div class="info-row">
-🍳 <b>特色：</b>
-大阪御好燒。
+📍 <b>地址方向：</b>
+難波・心齋橋一帶。
 </div>
 
 <div class="info-row warning-text">
-⚠️ 實際抵達時間依前面UNIQLO、Sanrio及逛街時間調整。
+⚠️ 你原本排的22:30已經接近／超過部分營業時段，請10/25當天確認營業狀態。
 </div>
 
 <div class="info-row">
-💡 <b>備用：</b>
-若已打烊，可改附近深夜餐飲。
+🍜 <b>備用：</b>
+若已打烊，可改附近深夜拉麵。
 </div>
 
 </div>
@@ -1442,41 +1696,61 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 13 ================= -->
+
+
+<!-- DAY 1 - 12 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
-味乃家之後
+晚餐之後
 </span>
+
+<span class="title">
+🍓 Strawberry Mania 道頓堀店
+</span>
+
+</div>
+
+<div class="card-header-right">
 
 <span class="tag">
-🍓 甜點
+深夜甜點
+</span>
+
+<span class="collapse-icon">
+＋
 </span>
 
 </div>
 
-<div class="title">
-🍓 味乃家 ➔ Strawberry Mania 道頓堀店
 </div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="info-row">
 🚶 <b>移動：</b>
-由味乃家方向步行前往道頓堀。
+由味乃家方向步行至道頓堀主街。
 </div>
 
 <div class="info-row">
-🍓 <b>目的地：</b>
-Strawberry Mania 道頓堀店。
+🍓 <b>提醒：</b>
+營業時間請以10/25當日店家公告為準。
 </div>
 
-<div class="info-row warning-text">
-⚠️ 實際營業時間請以10/25當日店家公告為準。
+<div class="info-row">
+💡 <b>備用：</b>
+若打烊，可改道頓堀周邊深夜商店。
 </div>
 
 </div>
@@ -1493,100 +1767,56 @@ onclick="goMap(
 
 </div>
 
+</div>
 
-<!-- ================= DAY 1 - 14 ================= -->
+
+
+<!-- DAY 1 - 13 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
 
-<span class="time-badge">
-草莓甜點之後
-</span>
-
-<span class="tag">
-🏪 LAWSON
-</span>
-
-</div>
-
-<div class="title">
-🏪 Strawberry Mania ➔ LAWSON 瓦屋町三丁目店
-</div>
-
-<div class="info-group">
-
-<div class="info-row">
-🚶 <b>移動：</b>
-由道頓堀方向返回飯店附近。
-</div>
-
-<div class="info-row">
-🏪 <b>補給：</b>
-LAWSON 瓦屋町三丁目店。
-</div>
-
-<div class="info-row">
-🥤 <b>用途：</b>
-飲料、宵夜、飯糰、甜點等。
-</div>
-
-<div class="info-row">
-💡 <b>順序：</b>
-先到LAWSON補給，再回飯店。
-</div>
-
-</div>
-
-<button
-class="btn-nav"
-onclick="goRoute(
-'Strawberry Mania 道頓堀店',
-'LAWSON 瓦屋町三丁目店'
-)">
-
-🗺️ 導航至LAWSON
-
-</button>
-
-</div>
-
-
-<!-- ================= DAY 1 - 15 ================= -->
-
-<div class="card">
-
-<div class="card-header">
+<div class="card-header-left">
 
 <span class="time-badge">
 最後
 </span>
 
-<span class="tag">
-🏨 返回住宿
+<span class="title">
+🏨 返回 Apartment Hotel 11 Dotonbori
 </span>
 
 </div>
 
-<div class="title">
-🏨 LAWSON 瓦屋町三丁目店 ➔ 飯店
+<div class="card-header-right">
+
+<span class="tag">
+返回住宿
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="info-row">
 🚶 <b>交通：</b>
-LAWSON → Apartment Hotel 11 Dotonbori 10。
+道頓堀 → 飯店步行。
 </div>
 
 <div class="info-row">
-⏱️ <b>方式：</b>
-依 Google Maps 即時導航。
-</div>
-
-<div class="info-row">
-🏁 <b>DAY 1：</b>
-回飯店休息。
+⏱️ <b>時間：</b>
+約7～10分鐘。
 </div>
 
 </div>
@@ -1594,7 +1824,7 @@ LAWSON → Apartment Hotel 11 Dotonbori 10。
 <button
 class="btn-nav"
 onclick="goRoute(
-'LAWSON 瓦屋町三丁目店',
+'Dotonbori Osaka',
 'Apartment Hotel 11 Dotonbori 10'
 )">
 
@@ -1604,8 +1834,86 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
+
+<!-- DAY 1 - 14 -->
+
+<div class="card">
+
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
+
+<span class="time-badge">
+最後補給
+</span>
+
+<span class="title">
+🏪 飯店最近 LAWSON
+</span>
 
 </div>
+
+<div class="card-header-right">
+
+<span class="tag">
+🏪 24H 補給站
+</span>
+
+<span class="collapse-icon">
+＋
+</span>
+
+</div>
+
+</div>
+
+
+<div class="card-body">
+
+<div class="info-group">
+
+<div class="info-row">
+📍 <b>位置：</b>
+以 Apartment Hotel 11 Dotonbori 10 為中心搜尋最近 LAWSON。
+</div>
+
+<div class="info-row">
+🚶 <b>方式：</b>
+回飯店後再用導航確認當下最近分店。
+</div>
+
+<div class="info-row">
+🥤 <b>用途：</b>
+飲料、宵夜、飯糰、甜點等。
+</div>
+
+<div class="info-row warning-text">
+⚠️ 這裡刻意不寫死店名，避免飯店附近 Lawson 分店資料變動造成你跑錯。
+</div>
+
+</div>
+
+<button
+class="btn-nav"
+onclick="goMap(
+'LAWSON near Apartment Hotel 11 Dotonbori 10'
+)">
+
+🗺️ 導航最近LAWSON
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
 
 
 <!-- ================================================= -->
@@ -1624,63 +1932,93 @@ onclick="goRoute(
 </div>
 
 
+<div class="collapse-control">
+
+<button onclick="openAll(2)">
+＋ 全部展開
+</button>
+
+<button onclick="closeAll(2)">
+− 全部收合
+</button>
+
+</div>
+
+
+
 <!-- DAY 2 - 1 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 早上出發
 </span>
 
-<span class="tag">
-大阪Metro＋京阪
+<span class="title">
+⛩️ 飯店 ➔ 伏見稻荷大社
 </span>
 
 </div>
 
-<div class="title">
-⛩️ 飯店 ➔ 伏見稻荷大社
+<div class="card-header-right">
+
+<span class="tag">
+大阪Metro＋京阪
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
 <div class="transport-title">
-🚇 飯店 → 日本橋站
+🚇 第一段：飯店 → 日本橋站
 </div>
 
-🏨 飯店步行前往近鐵日本橋／大阪Metro日本橋站。<br>
+🏨 飯店步行前往「近鐵日本橋／大阪Metro 日本橋站」。<br>
 
-📍 找千日前線／堺筋線指標。
+📍 找<b>千日前線／堺筋線</b>指標。
 
 </div>
 
 
 <div class="transfer-box">
 
-<b>🚇 日本橋 → 北濱</b><br><br>
+<b>🚇 第二段：日本橋 → 北濱</b><br><br>
 
-搭大阪Metro堺筋線。<br>
+搭大阪Metro <b>堺筋線</b>。<br>
 
 ➡️ <b>方向：天神橋筋六丁目／北千里方向</b><br>
 
-📍 北濱站下車後依京阪電車指標轉乘。
+📍 日本橋 → 北濱<br>
+
+到北濱後不要出站亂走，依<b>京阪電車</b>指標轉乘。
 
 </div>
 
 
 <div class="transfer-box">
 
-<b>🚃 北濱 → 伏見稻荷</b><br><br>
+<b>🚃 第三段：北濱 → 伏見稻荷</b><br><br>
 
 搭京阪本線。<br>
 
 ➡️ <b>方向：出町柳方面</b><br>
 
-📍 下車：伏見稻荷站。<br>
+📍 下車：<b>伏見稻荷站</b><br>
 
 🚶 出站後步行約5分鐘到伏見稻荷大社。
 
@@ -1689,15 +2027,31 @@ onclick="goRoute(
 
 <div class="train-box">
 
-<b>🚃 京阪車種判斷</b><br><br>
+<b>🚃 京阪車種：伏見稻荷站實際停靠判斷</b><br><br>
 
-不要只用「普通／急行／特急」判斷。<br><br>
+目前京阪官方站點資訊列出的停車車種包含：<br><br>
 
-① 確認方向：<b>出町柳方面</b><br>
+快速特急「洛楽」<br>
+特急<br>
+通勤快急<br>
+快速急行<br>
+急行<br>
+通勤準急<br>
+準急<br>
+區間急行<br>
+普通<br><br>
 
-② 看電子看板是否顯示<b>伏見稲荷</b>停靠。<br>
+⚠️ <b>所以不能再寫「特急不要搭，因為不一定停伏見稻荷」。</b><br><br>
 
-③ 有停伏見稻荷即可搭乘。
+你實際搭車時，最簡單的判斷方式是：<br>
+
+① 先確認方向：<b>出町柳方面</b><br>
+
+② 再看電子看板／月台資訊是否顯示<b>「伏見稲荷」</b>。<br>
+
+③ 顯示停靠伏見稻荷即可搭乘。<br><br>
+
+💡 <b>不要只用「普通／急行／特急」判斷，直接看目的地與停靠站最安全。</b>
 
 </div>
 
@@ -1706,11 +2060,12 @@ onclick="goRoute(
 
 <b>🛑 回程末班車：</b><br>
 
-伏見稻荷 → 大阪方向晚間仍有列車，回程以京阪電子看板為準。
+伏見稻荷 → 大阪方向晚間仍有京阪列車，但回程時不要只記固定時間，當天請看京阪電子看板。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -1725,26 +2080,43 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 2 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 伏見稻荷之後
 </span>
 
-<span class="tag">
-京阪本線
+<span class="title">
+👘 伏見稻荷 ➔ 京都悠見着物
 </span>
 
 </div>
 
-<div class="title">
-👘 伏見稻荷 ➔ 京都悠見着物
+<div class="card-header-right">
+
+<span class="tag">
+京阪本線
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -1752,13 +2124,13 @@ onclick="goRoute(
 
 🚶 伏見稻荷大社 → 京阪伏見稻荷站<br>
 
-🚃 搭京阪本線。<br>
+🚃 搭<b>京阪本線</b><br>
 
 ➡️ <b>方向：出町柳方面</b><br>
 
-📍 下車：祇園四條站。<br>
+📍 下車：<b>祇園四條站</b><br>
 
-🚶 再依Google Maps前往京都悠見着物。
+🚶 再依 Google Maps 前往京都悠見着物。
 
 </div>
 
@@ -1773,11 +2145,21 @@ onclick="goRoute(
 
 準急：約8～9分鐘<br><br>
 
-⚠️ <b>方向一定是出町柳方面。</b>
+⚠️ <b>方向一定是「出町柳方面」</b>。
+
+</div>
+
+
+<div class="last-train">
+
+<b>🛑 末班車：</b><br>
+
+祇園四條 → 伏見稻荷／大阪方向，晚上仍有列車；實際末班請當天以京阪站內電子看板為準。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -1791,37 +2173,49 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 3 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 和服後
 </span>
 
-<span class="tag">
-步行／公車
+<span class="title">
+🥩 清水寺 ➔ 富之上 祇園本店
 </span>
 
 </div>
 
-<div class="title">
-🥩 清水寺 ➔ 富之上 祇園本店
+<div class="card-header-right">
+
+<span class="tag">
+步行 / 公車
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="info-row">
 🚶 <b>路線：</b>
-和服店 → 清水寺。
-</div>
-
-<div class="info-row">
-🚶 <b>前往：</b>
-清水寺參拜後沿清水坂、三年坂方向下山。
+依原本順序由和服店 → 清水寺。
 </div>
 
 <div class="info-row">
@@ -1830,11 +2224,17 @@ onclick="goMap(
 </div>
 
 <div class="info-row">
-🥩 <b>特色：</b>
+🚶 <b>前往：</b>
+清水寺參拜後沿清水坂、三年坂方向下山。
+</div>
+
+<div class="info-row">
+💡 <b>特色：</b>
 黑毛和牛／神戶牛壽喜燒。
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -1848,26 +2248,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 4 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 飯後
 </span>
 
-<span class="tag">
-全程步行
+<span class="title">
+🛍️ 富之上 ➔ 錦市場 ➔ 八坂神社
 </span>
 
 </div>
 
-<div class="title">
-🛍️ 富之上 ➔ 錦市場 ➔ 八坂神社
+<div class="card-header-right">
+
+<span class="tag">
+全程步行
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -1878,10 +2295,11 @@ onclick="goMap(
 
 <div class="info-row">
 💡 <b>方式：</b>
-維持原本步行順序。
+這段維持你原本的步行順序。
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -1896,57 +2314,84 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 5 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 八坂神社之後
 </span>
 
-<span class="tag">
-京都市巴士
+<span class="title">
+🗼 八坂神社 ➔ 京都塔 ➔ 京都車站
 </span>
 
 </div>
 
-<div class="title">
-🗼 八坂神社 ➔ 京都塔 ➔ 京都車站
+<div class="card-header-right">
+
+<span class="tag">
+京都市巴士
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
 <div class="transport-title">
-🚌 八坂神社 → 京都站
+🚌 八坂神社 → 京都站：京都市巴士
 </div>
 
-🚶 前往祇園一帶巴士站。<br><br>
+🚶 八坂神社 → 步行前往「祇園」一帶的京都市巴士站。<br><br>
 
-🚌 <b>京都市巴士206系統</b><br>
+🚌 <b>主要搭乘：京都市巴士 206系統</b><br>
 
-➡️ <b>方向：京都駅／京都駅前</b><br>
+📍 <b>搭車地點：</b>祇園一帶巴士站<br>
 
-📍 下車：京都駅前。<br>
+➡️ <b>方向：</b>「京都駅」方向<br>
 
-🗼 下車後前往京都塔。
+📍 <b>下車：</b>京都駅前<br>
+
+🗼 <b>下車後：</b>京都車站就在旁邊，京都塔位於京都車站北側。<br><br>
+
+⚠️ <b>206 是「系統編號」，不是車種。</b>
 
 </div>
 
 
 <div class="transfer-box">
 
-<b>🚌 205、206的差別</b><br><br>
+<b>🚌 205、206 到底是什麼？</b><br><br>
 
-205為循環系統，並非這段的首選。<br><br>
+<b>205系統</b><br>
 
-你從八坂神社／祇園前往京都站時，主要找：<br><br>
+➡️ 京都市巴士205號循環系統。<br><br>
 
-<b>206 ＋ 京都駅方向</b>
+👉 <b>它不是你這趟從祇園前往京都站的首選。</b><br><br>
+
+<b>206系統</b><br>
+
+➡️ 京都市巴士206號循環系統。<br><br>
+
+👉 <b>你這趟從八坂神社／祇園前往京都站，主要找206「京都駅」方向。</b>
 
 </div>
 
@@ -1955,15 +2400,32 @@ onclick="goRoute(
 
 <b>🚌 實際上車步驟</b><br><br>
 
-① 到祇園一帶巴士站。<br>
+① 八坂神社離開後，前往<b>祇園一帶巴士站</b>。<br><br>
 
-② 看站牌／電子看板。<br>
+② 看站牌／電子看板。<br><br>
 
-③ 找<b>206</b>。<br>
+③ 找：<br>
 
-④ 確認車頭寫<b>京都駅／京都駅前</b>。<br>
+<b>206</b><br>
+
+＋<br>
+
+<b>京都駅／京都駅前</b><br><br>
+
+④ 上車前再看一次車頭方向。<br><br>
 
 ⑤ 搭乘後在<b>京都駅前</b>下車。
+
+</div>
+
+
+<div class="good-box">
+
+💡 <b>你只要記這一句：</b><br><br>
+
+八坂神社 → 祇園站 → <b>206</b> → <b>京都駅方向</b> → 京都駅前下車。<br><br>
+
+🗼 下車後前往京都塔即可。
 
 </div>
 
@@ -1972,11 +2434,14 @@ onclick="goRoute(
 
 <b>🛑 公車末班：</b><br>
 
-不同方向與日期會有差異。10/26當天直接查看站牌上的206時刻表，不建議壓最後一班。
+京都市巴士不同系統、方向及日期的末班時間不同。<br><br>
+
+你是 <b>2026/10/26（一）</b> 移動，因此當天到祇園站後，直接查看站牌上的206時刻表。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -1990,26 +2455,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 6 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 京都車站之後
 </span>
 
-<span class="tag">
-JR＋大阪Metro
+<span class="title">
+🥟 京都車站 ➔ 浪花一口餃子 Chao Chao
 </span>
 
 </div>
 
-<div class="title">
-🥟 京都車站 ➔ 浪花一口餃子 Chao Chao
+<div class="card-header-right">
+
+<span class="tag">
+JR＋大阪Metro
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2021,37 +2503,40 @@ JR＋大阪Metro
 
 ➡️ <b>方向：大阪／姬路方面</b><br>
 
-🚃 可搭新快速／快速等列車。<br>
+🚃 可搭新快速／快速等前往大阪。<br>
 
-📍 下車：大阪站。
+📍 下車：大阪站
 
 </div>
 
 
 <div class="transfer-box">
 
-🚇 <b>第二段：</b>大阪Metro御堂筋線<br><br>
+🚇 <b>第二段：</b>大阪Metro 御堂筋線<br><br>
 
-梅田／大阪一帶 → 梅田站。<br>
+大阪／梅田一帶 → 梅田站<br>
 
 ➡️ <b>方向：なかもず方面</b><br>
 
-📍 下車：難波。<br>
+📍 下車：難波<br>
 
-🚶 再依Google Maps前往餃子店。
+🚶 再依 Google Maps 前往餃子店。
 
 </div>
 
 
 <div class="last-train">
 
-<b>🛑 末班提醒：</b><br>
+<b>🛑 末班：</b><br>
 
-京都→大阪的JR晚上仍有列車，但不建議壓最後一班。
+京都→大阪的JR晚上仍有列車，但你這段不建議拖到最後班。<br>
+
+大阪→難波的御堂筋線也有晚間班次。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2065,26 +2550,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 7 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 餃子之後
 </span>
 
-<span class="tag">
-超市購物
+<span class="title">
+🛒 浪花一口餃子 ➔ LIFE 中央廣場難波店
 </span>
 
 </div>
 
-<div class="title">
-🛒 浪花一口餃子 ➔ LIFE 中央廣場難波店
+<div class="card-header-right">
+
+<span class="tag">
+超市購物
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2100,6 +2602,7 @@ onclick="goMap(
 
 </div>
 
+
 <button
 class="btn-nav"
 onclick="goMap(
@@ -2112,46 +2615,67 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 2 - 8 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 最後
 </span>
 
-<span class="tag">
-回飯店
+<span class="title">
+🏨 LIFE超市 ➔ 飯店 Check-in
 </span>
 
 </div>
 
-<div class="title">
-🏨 LIFE超市 ➔ 飯店
+<div class="card-header-right">
+
+<span class="tag">
+回飯店
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
-🚇 <b>推薦：</b>大阪Metro千日前線。<br>
+🚇 <b>推薦：</b>大阪Metro 千日前線<br>
 
-📍 目標：日本橋一帶。<br>
+➡️ <b>方向：</b>南巽方面／野田阪神方向依所在地選擇<br>
+
+📍 目標：日本橋一帶<br>
 
 🚶 最後步行回飯店。
 
 </div>
 
+
 <div class="good-box">
 
-💡 如果已經很晚，直接步行或搭計程車會比較簡單。
+💡 如果已經很晚，這一段其實直接步行或搭計程車會比較簡單。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2167,6 +2691,10 @@ onclick="goRoute(
 </div>
 
 </div>
+
+
+</div>
+
 
 
 <!-- ================================================= -->
@@ -2185,25 +2713,53 @@ onclick="goRoute(
 </div>
 
 
+<div class="collapse-control">
+
+<button onclick="openAll(3)">
+＋ 全部展開
+</button>
+
+<button onclick="closeAll(3)">
+− 全部收合
+</button>
+
+</div>
+
+
+
 <!-- DAY 3 - 1 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 清晨
 </span>
 
-<span class="tag">
-阪神＋JR
+<span class="title">
+🎢 飯店 ➔ 日本環球影城 USJ
 </span>
 
 </div>
 
-<div class="title">
-🎢 飯店 ➔ 日本環球影城 USJ
+<div class="card-header-right">
+
+<span class="tag">
+阪神＋JR
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2213,11 +2769,11 @@ onclick="goRoute(
 🚶 第一步：飯店 → 近鐵日本橋站
 </div>
 
-🏨 飯店步行至近鐵日本橋站。<br>
+🏨 飯店步行至<b>近鐵日本橋站</b>。<br>
 
-📍 找近鐵奈良線／阪神なんば線方向。<br>
+📍 找「近鐵奈良線／阪神なんば線」方向。<br>
 
-💳 ICOCA／Suica等交通IC卡可使用。
+💳 ICOCA／Suica 等交通IC卡可使用。
 
 </div>
 
@@ -2226,13 +2782,13 @@ onclick="goRoute(
 
 <b>🚃 第二步：近鐵日本橋 → 西九條</b><br><br>
 
-搭阪神なんば線直通列車。<br>
+搭<b>阪神なんば線直通列車</b>。<br>
 
-➡️ <b>方向：尼崎／神戶三宮方面</b><br>
+➡️ <b>方向：</b>尼崎／神戶三宮方面<br>
 
-📍 下車：西九條。<br><br>
+📍 下車：<b>西九條</b><br><br>
 
-⚠️ 不需要先到大阪難波再轉一次。
+⚠️ 不需要到大阪難波再轉一次。
 
 </div>
 
@@ -2247,9 +2803,9 @@ onclick="goRoute(
 
 準急 → 可以<br>
 
-快速急行 → 必須確認停西九條。<br><br>
+快速急行 → 如果停西九條則可搭<br><br>
 
-⚠️ 一定先確認停靠西九條。
+⚠️ 你的目的地是西九條，<b>一定要確認停靠西九條</b>。
 
 </div>
 
@@ -2258,22 +2814,24 @@ onclick="goRoute(
 
 <b>🔄 第三步：西九條轉JR</b><br><br>
 
-① 西九條下阪神。<br>
+① 在西九條下阪神。<br>
 
-② 跟著JR指標。<br>
+② 跟著「JR」指標走。<br>
 
-③ 找JR櫻島線。<br>
+③ 找JR大阪環狀線／櫻島線方向。<br>
+
+④ 搭<b>JR櫻島線</b>。<br>
 
 ➡️ <b>方向：桜島方面</b><br>
 
-④ 下車：Universal City。
+⑤ 下車：<b>ユニバーサルシティ（Universal City）</b>。
 
 </div>
 
 
 <div class="train-box">
 
-<b>⏱️ 原本設定清晨班次</b><br><br>
+<b>⏱️ 你原本設定的清晨班次</b><br><br>
 
 05:21 → 西九條<br>
 
@@ -2283,9 +2841,7 @@ JR櫻島線：<br>
 
 05:40 → 約05:45 Universal City<br>
 
-05:58 → 約06:03 Universal City<br><br>
-
-⚠️ 10/27實際班次以當日JR電子看板為準。
+05:58 → 約06:03 Universal City
 
 </div>
 
@@ -2294,13 +2850,14 @@ JR櫻島線：<br>
 
 <b>🛑 回程末班：</b><br>
 
-USJ → 西九條 → 阪神なんば線。<br>
+USJ閉園後，JR櫻島線 → 西九條 → 阪神なんば線。<br>
 
-深夜回程務必確認西九條仍有往大阪難波／近鐵日本橋方向列車。
+深夜回程不要只看「USJ到西九條」，要確認西九條還有沒有往大阪難波／近鐵日本橋方向的阪神列車。
+
+</div>
 
 </div>
 
-</div>
 
 <button
 class="btn-nav"
@@ -2315,26 +2872,43 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 3 - 2 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 深夜宵夜
 </span>
 
-<span class="tag">
-JR＋阪神
+<span class="title">
+🍢 環球影城 ➔ BATTEN YOKATO
 </span>
 
 </div>
 
-<div class="title">
-🍢 環球影城 ➔ BATTEN YOKATO
+<div class="card-header-right">
+
+<span class="tag">
+JR＋阪神
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2342,17 +2916,17 @@ JR＋阪神
 
 🚶 Universal City → JR環球城站<br>
 
-🚃 JR櫻島線 → 西九條<br>
+🚃 <b>JR櫻島線：</b>Universal City → 西九條<br>
 
-➡️ <b>方向：西九條／大阪方面</b><br>
+➡️ <b>方向：</b>西九條／大阪方面<br>
 
-🔄 西九條轉阪神なんば線。<br>
+🔄 西九條轉阪神なんば線<br>
 
-➡️ <b>方向：大阪難波／近鐵奈良方面</b><br>
+➡️ <b>方向：</b>大阪難波／近鐵奈良方向<br>
 
-📍 大阪難波下車。<br>
+📍 大阪難波下車<br>
 
-🚶 再往美國村。
+🚶 難波 → 美國村。
 
 </div>
 
@@ -2361,11 +2935,20 @@ JR＋阪神
 
 <b>🚃 西九條 → 大阪難波</b><br><br>
 
-普通／區間準急／準急／快速急行等車種皆可能出現。<br><br>
+可見車種包含：<br>
 
-⚠️ 上車前確認行先包含：<br>
+普通<br>
 
-<b>大阪難波／近鐵奈良／大和西大寺</b>等方向。
+區間準急<br>
+
+準急<br>
+
+快速急行<br><br>
+
+⚠️ <b>不是每一班都完全相同停站方式。</b><br>
+
+上車前看：
+「大阪難波」「近鐵奈良」「大和西大寺」等方向。
 
 </div>
 
@@ -2374,11 +2957,14 @@ JR＋阪神
 
 <b>🛑 非常重要：</b><br>
 
-原本設定最晚23:00開始往車站移動，比較安全。不要為了看完最後表演才慢慢離開。
+你原本設定「最晚23:00開始往車站移動」是比較安全的做法。<br>
+
+不要為了看完USJ最後一個表演才慢慢走，否則可能遇到JR轉阪神的銜接問題。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2392,26 +2978,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 3 - 3 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 深夜
 </span>
 
-<span class="tag">
-步行
+<span class="title">
+🛒 美國村 ➔ 唐吉訶德道頓堀店 ➔ 飯店
 </span>
 
 </div>
 
-<div class="title">
-🛒 美國村 ➔ 唐吉訶德道頓堀店 ➔ 飯店
+<div class="card-header-right">
+
+<span class="tag">
+步行
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2422,15 +3025,16 @@ onclick="goMap(
 
 <div class="info-row">
 🚶 <b>第二段：</b>
-唐吉訶德 → 飯店。
+唐吉訶德 → 飯店步行。
 </div>
 
 <div class="info-row">
 💡 <b>建議：</b>
-深夜直接步行最簡單。
+深夜直接步行比較簡單，不必為了這一小段特別搭地鐵。
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2446,6 +3050,10 @@ onclick="goRoute(
 </div>
 
 </div>
+
+
+</div>
+
 
 
 <!-- ================================================= -->
@@ -2464,25 +3072,53 @@ onclick="goRoute(
 </div>
 
 
+<div class="collapse-control">
+
+<button onclick="openAll(4)">
+＋ 全部展開
+</button>
+
+<button onclick="closeAll(4)">
+− 全部收合
+</button>
+
+</div>
+
+
+
 <!-- DAY 4 - 1 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 08:00 起
 </span>
 
-<span class="tag">
-起點
+<span class="title">
+🏨 住一道頓堀10號店
 </span>
 
 </div>
 
-<div class="title">
-🏨 住一道頓堀10號店
+<div class="card-header-right">
+
+<span class="tag">
+起點
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2498,6 +3134,7 @@ onclick="goRoute(
 
 </div>
 
+
 <button
 class="btn-nav"
 onclick="goMap(
@@ -2510,26 +3147,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 4 - 2 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 早上
 </span>
 
-<span class="tag">
-御堂筋線＋巴士
+<span class="title">
+🔴 1. 飯店 ➔ 勝尾寺
 </span>
 
 </div>
 
-<div class="title">
-🔴 1. 飯店 ➔ 勝尾寺
+<div class="card-header-right">
+
+<span class="tag">
+御堂筋線＋巴士
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2537,28 +3191,28 @@ onclick="goMap(
 
 <b>🚇 第一段：日本橋 → 難波 → 箕面萱野</b><br><br>
 
-前往大阪Metro御堂筋線。<br>
+先到大阪Metro御堂筋線。<br>
 
 ➡️ <b>方向：箕面萱野方面</b><br>
 
 📍 目標：箕面萱野站。<br>
 
-⚠️ 部分列車只到新大阪／江坂，注意終點。
+⚠️ 部分車只到新大阪／江坂，<b>不能搭錯終點</b>。
 
 </div>
 
 
 <div class="train-box">
 
-<b>🚇 御堂筋線</b><br><br>
+<b>🚇 御堂筋線：10/28（三）重點</b><br><br>
 
 看到：<br>
 
-<b>箕面萱野行 → 最方便</b><br>
+<b>「箕面萱野行」→ 最方便</b><br>
 
-新大阪行 → 不要當成直達<br>
+「新大阪行」→ 不要當成直達<br>
 
-江坂行 → 需要另外處理。
+「江坂行」→ 需要另外處理
 
 </div>
 
@@ -2567,40 +3221,40 @@ onclick="goMap(
 
 <b>🚌 第二段：箕面萱野 → 勝尾寺</b><br><br>
 
-📍 抵達箕面萱野站後出站。<br>
+📍 抵達<b>箕面萱野站</b>後出站。<br>
 
 🚏 前往<b>8號乘車處</b>。<br><br>
 
-🚌 <b>阪急巴士 北摂霊園線30系統</b><br>
+🚌 <b>阪急巴士 北摂霊園線 30系統</b><br>
 
-➡️ <b>方向：勝尾寺</b><br>
+➡️ <b>方向：</b>勝尾寺<br>
 
-📍 下車：勝尾寺。<br><br>
+📍 <b>下車：</b>勝尾寺<br><br>
 
-💳 2026/10/1起這段完全無現金收費。<br>
+⚠️ <b>不要只看「阪急巴士」三個字，要確認是「30系統・勝尾寺方面」。</b><br><br>
 
-可使用ICOCA、Suica、PiTaPa等交通IC卡。<br><br>
+💳 <b>2026/10/1 起這段完全無現金收費。</b><br>
 
-⚠️ 車內不能臨時使用現金付款。
+可使用ICOCA、Suica、PiTaPa等交通系IC卡。
 
 </div>
 
 
 <div class="train-box">
 
-<b>⏱️ 原本設定班次</b><br><br>
+<b>⏱️ 你原本排的班次</b><br><br>
 
-07:15 → 約07:50<br>
+07:15 → 07:50 左右<br>
 
-07:30 → 約08:05<br><br>
+07:30 → 08:05 左右<br><br>
 
 箕面萱野 → 勝尾寺：<br>
 
-08:10 → 約08:32<br>
+08:10 → 08:32<br>
 
-09:00 → 約09:22<br><br>
+09:00 → 09:22<br><br>
 
-⚠️ 10/28實際班次以當日官方資料為準。
+⚠️ 10/28為星期三，實際巴士班次務必以當日站牌／官方時刻表為準。
 
 </div>
 
@@ -2609,11 +3263,14 @@ onclick="goMap(
 
 <b>🛑 勝尾寺回程：</b><br>
 
-離開勝尾寺前先確認下一班「勝尾寺 → 箕面萱野」巴士，不要壓最後一班。
+不要把最後一班巴士當成備案。<br>
+
+建議離開勝尾寺前先確認「勝尾寺 → 箕面萱野」下一班時間。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2628,26 +3285,43 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 4 - 3 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 勝尾寺之後
 </span>
 
-<span class="tag">
-巴士＋御堂筋線
+<span class="title">
+🍱 2. 勝尾寺 ➔ Hozenji Yamakazu
 </span>
 
 </div>
 
-<div class="title">
-🍱 2. 勝尾寺 ➔ Hozenji Yamakazu
+<div class="card-header-right">
+
+<span class="tag">
+巴士＋御堂筋線
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2655,15 +3329,15 @@ onclick="goRoute(
 
 🚌 勝尾寺 → 箕面萱野<br>
 
-➡️ <b>方向：箕面萱野站</b><br><br>
+➡️ <b>方向：</b>箕面萱野站<br><br>
 
 🚇 箕面萱野 → 難波<br>
 
-➡️ <b>御堂筋線：なかもず方面</b><br>
+➡️ <b>御堂筋線方向：なかもず方面</b><br>
 
-📍 下車：なんば。<br>
+📍 下車：なんば<br>
 
-🚶 步行前往法善寺橫丁。
+🚶 難波站 → 法善寺橫丁。
 
 </div>
 
@@ -2684,11 +3358,12 @@ onclick="goRoute(
 
 10:45 → 11:18<br><br>
 
-⚠️ 實際10/28班次以官方資料為準。
+⚠️ 實際10/28班次以當日官方資料為準。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2696,48 +3371,65 @@ onclick="goMap(
 'Hozenji Yamakazu'
 )">
 
-🗺️ 導航至法善寺Yamakazu
+🗺️ 導航至法善寺 Yamakazu
 
 </button>
 
 </div>
+
+</div>
+
 
 
 <!-- DAY 4 - 4 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 11:26 起
 </span>
 
-<span class="tag">
-大阪Metro
+<span class="title">
+🏯 3. 法善寺 Yamakazu ➔ 大阪城
 </span>
 
 </div>
 
-<div class="title">
-🏯 3. 法善寺 Yamakazu ➔ 大阪城
+<div class="card-header-right">
+
+<span class="tag">
+大阪Metro
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
-🚶 法善寺 → 日本橋站。<br>
+🚶 法善寺 → 日本橋站<br>
 
-🚇 堺筋線：日本橋 → 堺筋本町。<br>
+🚇 <b>堺筋線：</b>日本橋 → 堺筋本町<br>
 
-➡️ <b>方向：天神橋筋六丁目／北千里方面</b><br>
+➡️ <b>方向：</b>天神橋筋六丁目／北千里方向<br>
 
-🔄 堺筋本町轉中央線。<br>
+🔄 堺筋本町轉<b>中央線</b><br>
 
-➡️ <b>方向：夢洲／森之宮／長田方面</b><br>
+➡️ <b>方向：</b>夢洲／森之宮／長田方向，依實際月台看車頭目的地<br>
 
-📍 谷町四丁目附近下車。<br>
+📍 谷町四丁目附近下車<br>
 
 🚶 步行進大阪城公園。
 
@@ -2748,15 +3440,15 @@ onclick="goMap(
 
 <b>🚇 車種：</b><br><br>
 
-大阪Metro主要看：<br>
+大阪Metro這段不需要分普通／快速急行。<br>
 
-<b>路線＋方向＋終點</b>。<br><br>
+Metro主要看：
+<b>路線＋方向＋終點</b>。
 
-不需要用JR／私鐵的快速急行概念判斷。
+</div>
 
 </div>
 
-</div>
 
 <button
 class="btn-nav"
@@ -2771,38 +3463,55 @@ onclick="goRoute(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 4 - 5 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 12:54 起
 </span>
 
-<span class="tag">
-中央線＋步行
+<span class="title">
+🍜 4. 大阪城 ➔ 雞湯拉麵 座銀
 </span>
 
 </div>
 
-<div class="title">
-🍜 4. 大阪城 ➔ 雞湯拉麵 座銀
+<div class="card-header-right">
+
+<span class="tag">
+中央線＋步行
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
-🚶 大阪城 → 谷町四丁目站。<br>
+🚶 大阪城 → 谷町四丁目站<br>
 
-🚇 搭大阪Metro中央線。<br>
+🚇 搭<b>大阪Metro中央線</b><br>
 
-➡️ <b>方向：夢洲／大阪港方向</b><br>
+➡️ <b>方向：</b>夢洲／大阪港方向<br>
 
-📍 下車：本町。<br>
+📍 下車：本町<br>
 
 🚶 本町 → 南船場 → 座銀。
 
@@ -2813,11 +3522,15 @@ onclick="goRoute(
 
 <b>⚠️ 注意：</b><br>
 
-實際搭車時只要確認會停<b>本町</b>即可。
+中央線目前方向顯示會依列車終點不同。<br>
+
+你只需要確認：
+<b>「本町」</b>會停即可。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2831,42 +3544,59 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 4 - 6 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 14:18 起
 </span>
 
-<span class="tag">
-御堂筋線
+<span class="title">
+🏙️ 5. 座銀 ➔ Harukas 300
 </span>
 
 </div>
 
-<div class="title">
-🏙️ 5. 座銀 ➔ Harukas 300
+<div class="card-header-right">
+
+<span class="tag">
+御堂筋線
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
-🚶 座銀 → 心齋橋／本町站。<br>
+🚶 座銀 → 心齋橋／本町站<br>
 
-🚇 大阪Metro御堂筋線。<br>
+🚇 搭<b>大阪Metro御堂筋線</b><br>
 
 ➡️ <b>方向：なかもず方面</b><br>
 
-📍 下車：天王寺。<br>
+📍 下車：<b>天王寺</b><br>
 
 🚶 依指標前往Abeno Harukas。<br>
 
-🏙️ Harukas 300位於阿倍野Harukas高樓層。
+🏙️ Harukas 300 位於阿倍野Harukas高樓層。
 
 </div>
 
@@ -2875,13 +3605,18 @@ onclick="goMap(
 
 <b>🚇 御堂筋線判斷方式</b><br><br>
 
-往天王寺：<b>なかもず方面</b>。<br>
+往天王寺要搭：
 
-不要搭箕面萱野方面。
+<b>なかもず方面</b><br><br>
+
+不要搭：
+
+箕面萱野方面。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -2889,42 +3624,59 @@ onclick="goMap(
 'HARUKAS 300 Observation Deck'
 )">
 
-🗺️ 導航至Harukas 300
+🗺️ 導航至 Harukas 300
 
 </button>
 
 </div>
+
+</div>
+
 
 
 <!-- DAY 4 - 7 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 15:39 起
 </span>
 
-<span class="tag">
-御堂筋線
+<span class="title">
+🥩 6. Harukas 300 ➔ 和牛燒肉モウモウ 南堀江店
 </span>
 
 </div>
 
-<div class="title">
-🥩 6. Harukas 300 ➔ 和牛燒肉モウモウ 南堀江店
+<div class="card-header-right">
+
+<span class="tag">
+御堂筋線
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
 <div class="transport-box">
 
-🚇 天王寺站。<br>
+🚇 天王寺站<br>
 
-➡️ <b>御堂筋線方向：箕面萱野方面</b><br>
+➡️ <b>御堂筋線方向：</b>千里中央／箕面萱野方面<br>
 
-📍 可於心齋橋／難波一帶下車。<br>
+📍 依目的地可於心齋橋／難波一帶下車。<br>
 
 🚶 再往南堀江。
 
@@ -2933,13 +3685,14 @@ onclick="goMap(
 
 <div class="good-box">
 
-💡 如果Google Maps顯示步行較快，直接步行即可。<br>
+💡 這一段如果Google Maps顯示步行較快，直接步行也可以。<br>
 
-按下方導航按鈕讓Google Maps依當下時間判斷。
+你可以按下面導航按鈕，讓Google Maps依當天時間判斷。
+
+</div>
 
 </div>
 
-</div>
 
 <button
 class="btn-nav"
@@ -2953,26 +3706,43 @@ onclick="goMap(
 
 </div>
 
+</div>
+
+
 
 <!-- DAY 4 - 8 -->
 
 <div class="card">
 
-<div class="card-header">
+<div class="card-header"
+onclick="toggleCard(this)">
+
+<div class="card-header-left">
 
 <span class="time-badge">
 最後
 </span>
 
-<span class="tag">
-返回住宿
+<span class="title">
+🏨 7. 和牛燒肉モウモウ ➔ 飯店
 </span>
 
 </div>
 
-<div class="title">
-🏨 7. 和牛燒肉モウモウ ➔ 飯店
+<div class="card-header-right">
+
+<span class="tag">
+返回住宿
+</span>
+
+<span class="collapse-icon">＋</span>
+
 </div>
+
+</div>
+
+
+<div class="card-body">
 
 <div class="info-group">
 
@@ -2982,7 +3752,7 @@ onclick="goMap(
 
 南堀江 → 道頓堀 → 飯店。<br>
 
-天氣好可以直接步行。<br><br>
+如果天氣好，直接步行即可。<br><br>
 
 🚇 <b>選項B：</b><br>
 
@@ -2995,13 +3765,14 @@ onclick="goMap(
 
 <div class="good-box">
 
-🏁 DAY 4最後一段不需要追固定班次。<br>
+🏁 DAY 4 最後一段不需要特別追某一班車。<br>
 
 Google Maps會依當下時間判斷步行／電車／計程車。
 
 </div>
 
 </div>
+
 
 <button
 class="btn-nav"
@@ -3019,6 +3790,10 @@ onclick="goRoute(
 </div>
 
 
+</div>
+
+
+
 <!-- ================================================= -->
 <!-- ===================== JAVASCRIPT ================= -->
 <!-- ================================================= -->
@@ -3027,7 +3802,7 @@ onclick="goRoute(
 
 
 /* ================================================= */
-/* ===================== 日期資料 ==================== */
+/* ================= DAY 日期 ======================= */
 /* ================================================= */
 
 const dayDates = {
@@ -3043,30 +3818,30 @@ const dayDates = {
 };
 
 
+
 /* ================================================= */
-/* ================= DAY 切換功能 ==================== */
+/* ================= DAY 切換 ======================= */
 /* ================================================= */
 
 function switchDay(day) {
 
-    const contents =
-        document.querySelectorAll('.day-content');
 
-    contents.forEach(function(el) {
+    document
+        .querySelectorAll('.day-content')
+        .forEach(function(el) {
 
-        el.classList.remove('active');
+            el.classList.remove('active');
 
-    });
+        });
 
 
-    const buttons =
-        document.querySelectorAll('.tab-btn');
+    document
+        .querySelectorAll('.tab-btn')
+        .forEach(function(el) {
 
-    buttons.forEach(function(el) {
+            el.classList.remove('active');
 
-        el.classList.remove('active');
-
-    });
+        });
 
 
     const target =
@@ -3075,17 +3850,17 @@ function switchDay(day) {
         );
 
 
-    const button =
-        document.getElementById(
-            'btn-d' + day
-        );
-
-
     if(target) {
 
         target.classList.add('active');
 
     }
+
+
+    const button =
+        document.getElementById(
+            'btn-d' + day
+        );
 
 
     if(button) {
@@ -3101,17 +3876,13 @@ function switchDay(day) {
         );
 
 
-    if(dateLabel && dayDates[day]) {
+    if(dateLabel) {
 
         dateLabel.textContent =
             dayDates[day];
 
     }
 
-
-    /*
-     * 切換DAY後回到頁面最上方
-     */
 
     window.scrollTo({
 
@@ -3124,17 +3895,111 @@ function switchDay(day) {
 }
 
 
+
 /* ================================================= */
-/* ================= Google Maps 單點導航 ============ */
+/* ================= 折疊功能 ====================== */
+/* ================================================= */
+
+function toggleCard(header) {
+
+    const card =
+        header.closest('.card');
+
+    if(!card) return;
+
+    card.classList.toggle('open');
+
+    const icon =
+        card.querySelector('.collapse-icon');
+
+    if(icon) {
+
+        icon.textContent =
+            card.classList.contains('open')
+            ? '−'
+            : '＋';
+
+    }
+
+}
+
+
+
+/* ================================================= */
+/* ================= 全部展開 ====================== */
+/* ================================================= */
+
+function openAll(day) {
+
+    const container =
+        document.getElementById(
+            'day' + day
+        );
+
+    if(!container) return;
+
+
+    container
+        .querySelectorAll('.card')
+        .forEach(function(card) {
+
+            card.classList.add('open');
+
+            const icon =
+                card.querySelector('.collapse-icon');
+
+            if(icon) {
+
+                icon.textContent = '−';
+
+            }
+
+        });
+
+}
+
+
+
+/* ================================================= */
+/* ================= 全部收合 ====================== */
+/* ================================================= */
+
+function closeAll(day) {
+
+    const container =
+        document.getElementById(
+            'day' + day
+        );
+
+    if(!container) return;
+
+
+    container
+        .querySelectorAll('.card')
+        .forEach(function(card) {
+
+            card.classList.remove('open');
+
+            const icon =
+                card.querySelector('.collapse-icon');
+
+            if(icon) {
+
+                icon.textContent = '＋';
+
+            }
+
+        });
+
+}
+
+
+
+/* ================================================= */
+/* ================= Google Maps ==================== */
 /* ================================================= */
 
 function goMap(destination) {
-
-    if(!destination) {
-
-        return;
-
-    }
 
 
     const encodedDestination =
@@ -3151,29 +4016,23 @@ function goMap(destination) {
 
 
     window.open(
-
         url,
-
         '_blank',
-
         'noopener,noreferrer'
-
     );
 
 }
 
 
+
 /* ================================================= */
-/* ================= Google Maps 路線導航 ============ */
+/* ================= 路線導航 ======================= */
 /* ================================================= */
 
-function goRoute(origin, destination) {
-
-    if(!origin || !destination) {
-
-        return;
-
-    }
+function goRoute(
+    origin,
+    destination
+) {
 
 
     const encodedOrigin =
@@ -3198,38 +4057,17 @@ function goRoute(origin, destination) {
 
 
     window.open(
-
         url,
-
         '_blank',
-
         'noopener,noreferrer'
-
     );
 
 }
 
 
-/* ================================================= */
-/* ===================== 初始化 ====================== */
-/* ================================================= */
-
-document.addEventListener(
-
-    'DOMContentLoaded',
-
-    function() {
-
-        switchDay(1);
-
-    }
-
-);
-
 </script>
 
 
 </body>
-
 </html>
 ```
