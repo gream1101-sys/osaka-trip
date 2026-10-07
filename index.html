@@ -3431,7 +3431,6 @@ onclick="goRoute(
 
 <div id="day2" class="day-content">
 
-
 <div class="day-note">
 
 <b>📅 DAY 2｜2026/10/26（一）</b><br>
@@ -3441,26 +3440,62 @@ onclick="goRoute(
 </div>
 
 
-<div class="collapse-control">
+<!-- ================================================= -->
+<!-- DAY2 交通支付 -->
+<!-- 放在 DAY2 最上方第一個白色區塊 -->
+<!-- 不新增摺疊功能 -->
+<!-- ================================================= -->
 
-<button onclick="openAll(2)">
-＋ 全部展開
-</button>
+<div class="good-box">
 
-<button onclick="closeAll(2)">
-− 全部收合
-</button>
+<b>💳 DAY2 交通支付</b><br><br>
+
+💳 <b>電車支付方式：</b><br>
+
+ICOCA／Suica 等交通 IC 卡直接感應進出站。<br><br>
+
+
+🚃 <b>預估電車車資：</b><br>
+
+日本橋 → 北濱　約 ¥190<br>
+
+北濱 → 伏見稻荷　約 ¥480<br>
+
+伏見稻荷 → 祇園四条　約 ¥220<br>
+
+<b>電車目前預估：約 ¥890／人</b><br><br>
+
+
+🚌 <b>公車上下車簡單記法：</b><br>
+
+上車 → 看方向<br>
+
+下車 → 提前按鈴 → 感應 IC 卡<br><br>
+
+
+💴 <b>預估公車車資：</b><br>
+
+京都市巴士一般單程約 <b>¥230／人</b>。
 
 </div>
 
 
+<div class="collapse-control">
 
+<button onclick="openAll(2)">＋ 全部展開</button>
+
+<button onclick="closeAll(2)">− 全部收合</button>
+
+</div>
+
+
+<!-- ================================================= -->
 <!-- DAY 2 - 1 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3480,6 +3515,10 @@ onclick="toggleCard(this)">
 大阪Metro＋京阪
 </span>
 
+<span class="tag">
+🕐 參拜24小時
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -3491,90 +3530,280 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
+
+<!-- 第一段 -->
+
 <div class="transport-box">
 
 <div class="transport-title">
-🚇 第一段：飯店 → 日本橋站
+🚶 第一段：飯店 → 日本橋站
 </div>
 
-🏨 飯店步行前往「近鐵日本橋／大阪Metro 日本橋站」。<br>
+🏨 從飯店步行前往
+<b>近鐵日本橋／大阪Metro 日本橋站</b>。<br><br>
 
-📍 找<b>千日前線／堺筋線</b>指標。
+🚶 <b>步行：約8～10分鐘</b><br>
 
-</div>
+💴 <b>車資：免費</b><br><br>
 
-
-<div class="transfer-box">
-
-<b>🚇 第二段：日本橋 → 北濱</b><br><br>
-
-搭大阪Metro <b>堺筋線</b>。<br>
-
-➡️ <b>方向：天神橋筋六丁目／北千里方向</b><br>
-
-📍 日本橋 → 北濱<br>
-
-到北濱後不要出站亂走，依<b>京阪電車</b>指標轉乘。
+📍 進站後找
+<b>堺筋線</b>指標。
 
 </div>
 
 
-<div class="transfer-box">
-
-<b>🚃 第三段：北濱 → 伏見稻荷</b><br><br>
-
-搭京阪本線。<br>
-
-➡️ <b>方向：出町柳方面</b><br>
-
-📍 下車：<b>伏見稻荷站</b><br>
-
-🚶 出站後步行約5分鐘到伏見稻荷大社。
-
-</div>
-
+<!-- 日本橋中文時刻表 -->
 
 <div class="train-box">
 
-<b>🚃 京阪車種：伏見稻荷站實際停靠判斷</b><br><br>
+<b>🚇 日本橋 → 北濱｜Osaka Metro 中文平日時刻表</b><br><br>
 
-目前京阪官方站點資訊列出的停車車種包含：<br><br>
+📅 <b>2026/10/26（一）＝平日</b><br>
 
-快速特急「洛楽」<br>
-特急<br>
-通勤快急<br>
-快速急行<br>
-急行<br>
-通勤準急<br>
-準急<br>
-區間急行<br>
-普通<br><br>
+📍 上車站：
+<b>日本橋 日本橋</b><br>
 
-⚠️ <b>所以不能再寫「特急不要搭，因為不一定停伏見稻荷」。</b><br><br>
+📍 下車站：
+<b>北濱 北浜</b><br>
 
-你實際搭車時，最簡單的判斷方式是：<br>
+🚇 路線：
+<b>堺筋線</b><br>
 
-① 先確認方向：<b>出町柳方面</b><br>
+➡️ 方向：
+<b>天神橋筋六丁目・北千里・高槻・京都方向</b><br><br>
 
-② 再看電子看板／月台資訊是否顯示<b>「伏見稲荷」</b>。<br>
 
-③ 顯示停靠伏見稻荷即可搭乘。<br><br>
+<b>🌅 05:00</b><br>
 
-💡 <b>不要只用「普通／急行／特急」判斷，直接看目的地與停靠站最安全。</b>
+05:14　05:24　05:34　05:44　05:54<br><br>
+
+
+<b>🌅 06:00</b><br>
+
+06:04　06:13　06:22　06:30　06:36<br>
+06:43　06:49　06:55<br><br>
+
+
+<b>🌅 07:00</b><br>
+
+07:00　07:04　07:08　07:13　07:17<br>
+07:21　07:26　07:31　07:36　07:40<br>
+07:45　07:48　07:52　07:55　07:59<br><br>
+
+
+<b>🌅 08:00</b><br>
+
+08:02　08:06　08:09　08:13　08:16<br>
+08:20　08:23　08:27　08:30　08:34<br>
+08:37　08:41　08:44　08:48　08:51<br>
+08:55　08:58<br><br>
+
+
+⏱️ <b>車程：約5分鐘</b><br>
+
+💴 <b>車資：¥190</b><br><br>
+
+💡 <b>早上班次很多，不需要死背某一班。</b><br>
+
+抵達日本橋站後，直接確認：
+
+<b>「堺筋線」＋「天神橋筋六丁目・北千里・高槻・京都方向」</b>
+
+即可。
+
+🔗 <b>Osaka Metro 中文官方時刻表：</b><br>
+
+<a href="https://kensaku.osakametro.co.jp/timetable/cn/subway/dia/station/26101/1024/2/"
+target="_blank">
+日本橋 → 天神橋筋六丁目・北千里・高槻・京都方向
+</a>
+</div>
+
+
+<!-- 北濱轉乘 -->
+
+<div class="transfer-box">
+
+<b>🚇 第二段：日本橋 → 北濱｜到站後轉乘京阪</b><br><br>
+
+日本橋搭乘
+<b>大阪Metro 堺筋線</b>，在
+<b>北濱站（北浜）</b>下車。<br><br>
+
+⏱️ <b>約5分鐘</b><br>
+
+💴 <b>¥190</b><br><br>
+
+⚠️ <b>到北濱後不要出站。</b><br><br>
+
+不要先往地面出口、商業大樓或其他出口方向走。<br><br>
+
+
+① 下車後先留在
+<b>站內</b>。<br><br>
+
+② 找站內的
+<b>「京阪電車」</b>或
+<b>「京阪線」</b>轉乘指標。<br><br>
+
+③ 沿著
+<b>京阪電車</b>指標往前走。<br><br>
+
+④ 如果看到
+<b>「出口」</b>或地面出口方向，<br>
+不要出去，繼續找
+<b>京阪電車</b>。<br><br>
+
+⑤ 抵達京阪
+<b>北浜站 KH02</b>後，再確認月台方向。
 
 </div>
 
 
-<div class="last-train">
+<!-- 月台 -->
 
-<b>🛑 回程末班車：</b><br>
+<div class="transfer-box">
 
-伏見稻荷 → 大阪方向晚間仍有京阪列車，但回程時不要只記固定時間，當天請看京阪電子看板。
+<b>🚃 京阪北濱站｜月台方向</b><br><br>
+
+📍 <b>1號月台：</b><br>
+
+三条・出町柳方面 ✅<br><br>
+
+📍 <b>2號月台：</b><br>
+
+淀屋橋方面 ❌<br><br>
+
+💡 <b>你去伏見稻荷，所以只記住：</b><br><br>
+
+北濱<br>
+↓<br>
+<b>京阪電車</b><br>
+↓<br>
+<b>1號月台</b><br>
+↓<br>
+<b>三条・出町柳方面</b>
 
 </div>
 
+
+<!-- 北濱京阪時刻表 -->
+
+<div class="train-box">
+
+<b>🚃 北濱 → 伏見稻荷｜京阪平日時刻表</b><br><br>
+
+📍 上車站：
+<b>京阪北浜 KH02</b><br>
+
+📍 月台：
+<b>1號月台</b><br>
+
+➡️ 方向：
+<b>三条・出町柳方面</b><br>
+
+📍 下車：
+<b>伏見稲荷 KH34</b><br><br>
+
+
+<b>🌅 05:00</b><br>
+
+05:34　05:49　05:52　05:59<br><br>
+
+
+<b>🌅 06:00</b><br>
+
+06:09　06:12　06:22　06:25　06:31<br>
+06:36　06:39　06:46　06:51　06:55<br><br>
+
+
+<b>🌅 07:00</b><br>
+
+07:01　07:05　07:08　07:11　07:14<br>
+07:16　07:18　07:23　07:25　07:27<br>
+07:30　07:32　07:35　07:37　07:40<br>
+07:42　07:45　07:48　07:51　07:54　07:59<br><br>
+
+
+⏱️ <b>車程：約48～51分鐘</b><br>
+
+💴 <b>車資：¥480</b><br><br>
+
+⚠️ <b>實際搭乘仍以當天京阪電子看板為準。</b><br><br>
+
+上車前確認電子看板有顯示
+<b>「伏見稲荷」</b>停靠。
+<br>
+
+🔗 <a
+href="https://www.keihan.co.jp/traffic/time-fare/time.html"
+target="_blank"
+rel="noopener">
+
+京阪官方時刻表｜北浜 → 出町柳方面
+
+</a>
+
+
 </div>
 
+
+<!-- 京阪車種 -->
+
+<div class="train-box">
+
+<b>🚃 京阪車種：北濱 → 伏見稻荷</b><br><br>
+
+📍 <b>方向：</b>
+三条・出町柳方面<br><br>
+
+✅ <b>可以搭：</b><br>
+
+普通、區間急行、準急、急行、快速急行、通勤快急、特急等，<br>
+
+<b>只要電子看板確認「伏見稲荷」有停靠即可。</b><br><br>
+
+⚠️ <b>不要只看車種判斷。</b><br><br>
+
+上車前一定確認電子看板有顯示
+<b>「伏見稲荷」</b>。<br><br>
+
+💡 <b>最簡單記法：</b><br>
+
+「三条・出町柳方向」<br>
+＋<br>
+「停伏見稲荷」<br>
+＝ <b>可以搭</b>。<br><br>
+
+不要搭往
+<b>淀屋橋・中之島方向</b>
+的反方向列車。
+
+</div>
+
+
+<!-- 伏見稻荷站到大社 -->
+
+<div class="transport-box">
+
+<div class="transport-title">
+🚶 第四段：伏見稻荷站 → 伏見稻荷大社
+</div>
+
+📍 在
+<b>伏見稻荷站</b>下車。<br><br>
+
+🚶 出站後往
+<b>伏見稻荷大社</b>方向步行。<br><br>
+
+⏱️ <b>約5分鐘</b><br>
+
+💴 <b>免費</b><br><br>
+
+💡 早上抵達後直接依照
+「伏見稲荷大社」指標前往即可。
+
+</div>
 
 <button
 class="btn-nav"
@@ -3593,12 +3822,13 @@ onclick="goRoute(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 2 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3618,6 +3848,10 @@ onclick="toggleCard(this)">
 京阪本線
 </span>
 
+<span class="tag">
+🕐 和服店依預約
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -3629,69 +3863,220 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
+
+<!-- ================================================= -->
+<!-- 第一段 -->
+<!-- ================================================= -->
+
 <div class="transport-box">
 
-🚶 伏見稻荷大社 → 京阪伏見稻荷站<br>
+<div class="transport-title">
+🚶 第一段：伏見稻荷大社 → 京阪伏見稻荷站
+</div>
 
-🚃 搭<b>京阪本線</b><br>
+🚶 從<b>伏見稻荷大社</b>步行回
+<b>京阪伏見稻荷站（KH34）</b>。<br><br>
 
-➡️ <b>方向：出町柳方面</b><br>
+📍 沿著<b>「京阪電車」</b>指標前往即可。<br><br>
 
-📍 下車：<b>祇園四條站</b><br>
+⏱️ <b>步行約5分鐘</b><br>
 
-🚶 再依 Google Maps 前往京都悠見着物。
+💴 <b>免費</b>
 
 </div>
 
+
+<!-- ================================================= -->
+<!-- 第二段 -->
+<!-- ================================================= -->
+
+<div class="transfer-box">
+
+<b>🚃 第二段：伏見稻荷 → 祇園四条</b><br><br>
+
+📍 <b>出發站：</b>京阪伏見稻荷站 KH34<br>
+
+🚉 <b>搭乘月台：</b>1號月台<br>
+
+➡️ <b>方向：三条・出町柳方面</b><br><br>
+
+📍 <b>下車站：</b>祇園四条 KH39<br><br>
+
+⏱️ <b>車程：約8～10分鐘</b><br>
+
+💴 <b>車資：約¥220／人</b><br><br>
+
+⚠️ <b>方向一定要確認「三条・出町柳方面」。</b>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- 京阪時刻表 -->
+<!-- ================================================= -->
 
 <div class="train-box">
 
-<b>🚃 伏見稻荷 → 祇園四條</b><br><br>
+<b>🕐 京阪電車時刻表｜伏見稻荷 → 祇園四条</b><br><br>
 
-普通：約8～9分鐘<br>
+📅 <b>2026/10/26（一）＝平日</b><br>
 
-急行：約7分鐘<br>
+📍 上車：
+<b>伏見稻荷 KH34</b><br>
 
-準急：約8～9分鐘<br><br>
+➡️ 方向：
+<b>三条・出町柳方面</b><br>
 
-⚠️ <b>方向一定是「出町柳方面」</b>。
+📍 下車：
+<b>祇園四条 KH39</b><br><br>
+
+
+<b>🌅 早上班次參考</b><br><br>
+
+05:14　05:29　05:43　05:54<br><br>
+
+06:02　06:10　06:17　06:22　06:27<br>
+
+06:35　06:39　06:46　06:57<br><br>
+
+07:02　07:06　07:16　07:18　07:28<br>
+
+07:40　07:51<br><br>
+
+08:02　08:13　08:23　08:33　08:43　08:56<br><br>
+
+⏱️ <b>車程：約8～10分鐘</b><br>
+
+💴 <b>車資：約¥220／人</b><br><br>
+
+💡 <b>早上班次很多，不需要死背某一班。</b><br>
+
+抵達伏見稻荷站後，直接看電子看板確認
+<b>「三条・出町柳方面」</b>即可。
 
 </div>
 
 
-<div class="last-train">
+<!-- ================================================= -->
+<!-- 車種說明 -->
+<!-- ================================================= -->
 
-<b>🛑 末班車：</b><br>
+<div class="train-box">
 
-祇園四條 → 伏見稻荷／大阪方向，晚上仍有列車；實際末班請當天以京阪站內電子看板為準。
+<b>🚃 京阪車種怎麼看？</b><br><br>
+
+前往祇園四条時，不需要只看「普通／急行／特急」來判斷。<br><br>
+
+✅ 上車前最重要的是確認：<br>
+
+<b>① 三条・出町柳方面</b><br>
+
+＋<br>
+
+<b>② 祇園四条（KH39）有停靠</b><br><br>
+
+💡 <b>看到電子看板有停「祇園四条」就可以搭。</b>
 
 </div>
 
+
+<!-- ================================================= -->
+<!-- 京阪官方時刻表 -->
+<!-- ================================================= -->
+
+<div class="good-box">
+
+📱 <b>京阪官方交通資訊</b><br><br>
+
+👉
+<a
+href="https://www.keihan.co.jp/travel/tw/trains/information-for-travelers.html"
+target="_blank"
+style="color:#007aff;font-weight:700;text-decoration:none;"
+>
+🔗 京阪官方繁體中文交通資訊
+</a><br><br>
+
+👉
+<a
+href="https://www.keihan.co.jp/traffic/time-fare/time.html"
+target="_blank"
+style="color:#007aff;font-weight:700;text-decoration:none;"
+>
+🔗 京阪官方時刻表
+</a>
+
 </div>
 
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- 第三段 -->
+<!-- ================================================= -->
+
+<div class="transport-box">
+
+<div class="transport-title">
+🚶 第三段：祇園四条站 → 京都悠見着物
+</div>
+
+🚉 抵達<b>祇園四条 KH39</b>後出站。<br><br>
+
+📍 依站內指標前往地面出口。<br><br>
+
+🚶 出站後開啟<b>Google Maps</b>，直接導航至
+<b>京都悠見着物</b>。<br><br>
+
+⏱️ <b>步行約10～20分鐘</b><br>
+
+💴 <b>免費</b><br><br>
+
+💡 <b>建議：</b><br>
+
+先確認自己已經走到地面，再開啟 Google Maps 導航，避免在地下通道裡走錯方向。
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- 本段費用 -->
+<!-- ================================================= -->
+
+<div class="info-row">
+
+💴 <b>本段主要交通費：</b>
+<b>¥220／人</b>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- 導航按鈕 -->
+<!-- 注意：一定放在 card-body 裡面 -->
+<!-- ================================================= -->
 
 <button
 class="btn-nav"
-onclick="goMap(
-'京都悠見着物'
-)">
+onclick="goMap('京都悠見着物')">
 
 🗺️ 導航至和服店
 
 </button>
 
-</div>
 
 </div>
 
 
-
+</div>
+<!-- ================================================= -->
 <!-- DAY 2 - 3 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3711,6 +4096,10 @@ onclick="toggleCard(this)">
 步行 / 公車
 </span>
 
+<span class="tag">
+🕐 清水寺 06:00～18:00
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -3722,34 +4111,81 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
-<div class="info-row">
-🚶 <b>路線：</b>
-依原本順序由和服店 → 清水寺。
+
+<div class="transport-box">
+
+<b>👘 第一段：京都悠見着物 → 清水寺</b><br><br>
+
+依原本行程由和服店前往
+<b>清水寺</b>。<br><br>
+
+🚶 主要依 Google Maps 步行。<br>
+
+⏱️ <b>約25～35分鐘</b><br>
+
+💴 <b>免費</b>
+
 </div>
 
+
 <div class="info-row">
-📍 <b>地址：</b>
+
+📍 <b>清水寺：</b><br>
+
+京都府京都市東山区清水1丁目294
+
+</div>
+
+
+<div class="info-row">
+
+🕐 <b>清水寺參拜時間：</b><br>
+
+06:00～18:00
+
+</div>
+
+
+<div class="transport-box">
+
+<b>🚶 第二段：清水寺 → 富之上 祇園本店</b><br><br>
+
+清水寺參拜後沿
+<b>清水坂、三年坂方向下山</b>。<br><br>
+
+⏱️ <b>約15～20分鐘</b><br>
+
+💴 <b>免費</b><br><br>
+
+📍 地址：<br>
 京都府京都市東山区常盤町161-1
+
 </div>
 
-<div class="info-row">
-🚶 <b>前往：</b>
-清水寺參拜後沿清水坂、三年坂方向下山。
-</div>
 
 <div class="info-row">
-💡 <b>特色：</b>
-黑毛和牛／神戶牛壽喜燒。
+
+💡 <b>特色：</b><br>
+
+黑毛和牛／神戶牛壽喜燒
+
 </div>
+
+
+<div class="info-row">
+
+💴 <b>本段交通費：</b>
+<b>¥0</b>
+
+</div>
+
 
 </div>
 
 
 <button
 class="btn-nav"
-onclick="goMap(
-'京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店'
-)">
+onclick="goMap('京都和牛すき焼き しゃぶしゃぶ 富之上 祇園本店')">
 
 🗺️ 地圖導航
 
@@ -3761,12 +4197,13 @@ onclick="goMap(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 4 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3786,6 +4223,14 @@ onclick="toggleCard(this)">
 全程步行
 </span>
 
+<span class="tag">
+🕐 錦市場各店不同
+</span>
+
+<span class="tag">
+⛩️ 八坂參拜24H
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -3797,15 +4242,62 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
-<div class="info-row">
-🚶 <b>路線：</b>
-富之上 → 錦市場 → 八坂神社。
+
+<div class="transport-box">
+
+🚶 <b>第一段：富之上 → 錦市場</b><br><br>
+
+依原本順序步行前往錦市場。<br><br>
+
+⏱️ <b>約10～15分鐘</b><br>
+
+💴 <b>免費</b>
+
 </div>
 
-<div class="info-row">
-💡 <b>方式：</b>
-這段維持你原本的步行順序。
+
+<div class="transport-box">
+
+🚶 <b>第二段：錦市場 → 八坂神社</b><br><br>
+
+由錦市場步行前往八坂神社。<br><br>
+
+⏱️ <b>約17～20分鐘</b><br>
+
+💴 <b>免費</b>
+
 </div>
+
+
+<div class="info-row">
+
+🕐 <b>錦市場：</b><br>
+
+各店營業時間不同，部分店家也有自己的休息日。<br>
+
+<b>營業時間僅供行程參考。</b>
+
+</div>
+
+
+<div class="info-row">
+
+⛩️ <b>八坂神社：</b><br>
+
+參拜24小時。<br>
+
+社務所等服務時間依當日公告為準。
+
+</div>
+
+
+<div class="info-row">
+
+💴 <b>本段交通費：</b>
+<b>¥0</b>
+
+</div>
+
 
 </div>
 
@@ -3827,12 +4319,13 @@ onclick="goRoute(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 5 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3852,6 +4345,14 @@ onclick="toggleCard(this)">
 京都市巴士
 </span>
 
+<span class="tag">
+🕐 八坂參拜24H
+</span>
+
+<span class="tag">
+🗼 京都塔10:00～21:00
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -3863,28 +4364,52 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
+
+<!-- 八坂 → 祇園 -->
+
 <div class="transport-box">
 
 <div class="transport-title">
-🚌 八坂神社 → 京都站：京都市巴士
+🚶 第一段：八坂神社 → 祇園巴士站
 </div>
 
-🚶 八坂神社 → 步行前往「祇園」一帶的京都市巴士站。<br><br>
+八坂神社離開後，步行前往
+<b>祇園一帶京都市巴士站</b>。<br><br>
 
-🚌 <b>主要搭乘：京都市巴士 206系統</b><br>
+🚶 <b>約3～5分鐘</b><br>
 
-📍 <b>搭車地點：</b>祇園一帶巴士站<br>
-
-➡️ <b>方向：</b>「京都駅」方向<br>
-
-📍 <b>下車：</b>京都駅前<br>
-
-🗼 <b>下車後：</b>京都車站就在旁邊，京都塔位於京都車站北側。<br><br>
-
-⚠️ <b>206 是「系統編號」，不是車種。</b>
+💴 <b>免費</b>
 
 </div>
 
+
+<!-- 206 -->
+
+<div class="transport-box">
+
+<div class="transport-title">
+🚌 第二段：祇園 → 京都站
+</div>
+
+🚍 <b>京都市巴士 206系統</b><br>
+
+📍 上車：
+<b>祇園一帶巴士站</b><br>
+
+➡️ 方向：
+<b>京都駅／京都駅前</b><br>
+
+📍 下車：
+<b>京都駅前</b><br><br>
+
+⏱️ <b>約20～30分鐘</b><br>
+
+💴 <b>¥230</b>
+
+</div>
+
+
+<!-- 205 / 206 -->
 
 <div class="transfer-box">
 
@@ -3894,7 +4419,7 @@ onclick="toggleCard(this)">
 
 ➡️ 京都市巴士205號循環系統。<br><br>
 
-👉 <b>它不是你這趟從祇園前往京都站的首選。</b><br><br>
+👉 <b>這趟不把205當主要選擇。</b><br><br>
 
 <b>206系統</b><br>
 
@@ -3905,25 +4430,61 @@ onclick="toggleCard(this)">
 </div>
 
 
+<!-- 實際上車 -->
+
 <div class="train-box">
 
 <b>🚌 實際上車步驟</b><br><br>
 
-① 八坂神社離開後，前往<b>祇園一帶巴士站</b>。<br><br>
+① 八坂神社離開。<br><br>
 
-② 看站牌／電子看板。<br><br>
+② 前往
+<b>祇園一帶巴士站</b>。<br><br>
 
-③ 找：<br>
+③ 看站牌／電子看板。<br><br>
+
+④ 找：
 
 <b>206</b><br>
-
 ＋<br>
-
 <b>京都駅／京都駅前</b><br><br>
 
-④ 上車前再看一次車頭方向。<br><br>
+⑤ 上車前再看一次車頭方向。<br><br>
 
-⑤ 搭乘後在<b>京都駅前</b>下車。
+⑥ 搭乘後在
+<b>京都駅前</b>下車。
+
+</div>
+
+
+<!-- 京都塔 -->
+
+<div class="transport-box">
+
+<div class="transport-title">
+🗼 第三段：京都站 → 京都塔
+</div>
+
+📍 京都塔就在京都站北側。<br><br>
+
+🚶 <b>步行約2～5分鐘</b><br>
+
+💴 <b>免費</b><br><br>
+
+🕐 <b>京都塔參考營業時間：10:00～21:00</b>
+
+</div>
+
+
+<!-- 京都塔 → 京都站 -->
+
+<div class="info-row">
+
+🚶 <b>第四段：京都塔 → 京都車站</b><br><br>
+
+⏱️ <b>約2～5分鐘</b><br>
+
+💴 <b>免費</b>
 
 </div>
 
@@ -3932,9 +4493,17 @@ onclick="toggleCard(this)">
 
 💡 <b>你只要記這一句：</b><br><br>
 
-八坂神社 → 祇園站 → <b>206</b> → <b>京都駅方向</b> → 京都駅前下車。<br><br>
-
-🗼 下車後前往京都塔即可。
+八坂神社<br>
+↓<br>
+祇園站<br>
+↓<br>
+<b>206</b><br>
+↓<br>
+<b>京都駅方向</b><br>
+↓<br>
+京都駅前<br>
+↓<br>
+🗼 京都塔
 
 </div>
 
@@ -3945,18 +4514,27 @@ onclick="toggleCard(this)">
 
 京都市巴士不同系統、方向及日期的末班時間不同。<br><br>
 
-你是 <b>2026/10/26（一）</b> 移動，因此當天到祇園站後，直接查看站牌上的206時刻表。
+你是
+<b>2026/10/26（一）</b>
+移動，因此當天到祇園站後，直接查看站牌上的206時刻表。
 
 </div>
+
+
+<div class="info-row">
+
+💴 <b>本段主要交通費：</b>
+<b>¥230／人</b>
+
+</div>
+
 
 </div>
 
 
 <button
 class="btn-nav"
-onclick="goMap(
-'Kyoto Tower'
-)">
+onclick="goMap('Kyoto Tower')">
 
 🗺️ 導航至京都塔
 
@@ -3968,12 +4546,13 @@ onclick="goMap(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 6 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -3993,6 +4572,10 @@ onclick="toggleCard(this)">
 JR＋大阪Metro
 </span>
 
+<span class="tag">
+🕐 約16:00～01:00
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -4004,32 +4587,86 @@ JR＋大阪Metro
 
 <div class="info-group">
 
+
+<!-- 京都 → 大阪 -->
+
 <div class="transport-box">
 
-🚄 <b>第一段：</b>JR京都線<br>
+<div class="transport-title">
+🚄 第一段：京都 → 大阪
+</div>
 
-京都站 → 大阪站<br>
+搭乘
+<b>JR京都線</b>。<br><br>
 
-➡️ <b>方向：大阪／姬路方面</b><br>
+➡️ <b>方向：大阪／姬路方面</b><br><br>
 
-🚃 可搭新快速／快速等前往大阪。<br>
+🚃 優先選擇
+<b>新快速</b>。<br><br>
 
-📍 下車：大阪站
+📍 下車：
+<b>大阪站</b><br><br>
+
+⏱️ <b>約28分鐘</b><br>
+
+💴 <b>¥580</b>
 
 </div>
 
 
+<!-- 大阪站 → 梅田 -->
+
 <div class="transfer-box">
 
-🚇 <b>第二段：</b>大阪Metro 御堂筋線<br><br>
+<b>🚶 第二段：大阪站 → 梅田</b><br><br>
 
-大阪／梅田一帶 → 梅田站<br>
+JR大阪站與大阪Metro梅田站位於同一個梅田區域。<br><br>
+
+依站內
+<b>Osaka Metro／御堂筋線</b>
+指標前進。<br><br>
+
+🚶 <b>約5～10分鐘</b><br>
+
+💴 <b>免費</b>
+
+</div>
+
+
+<!-- 梅田 → 難波 -->
+
+<div class="transport-box">
+
+<div class="transport-title">
+🚇 第三段：梅田 → 難波
+</div>
+
+搭大阪Metro
+<b>御堂筋線</b>。<br><br>
 
 ➡️ <b>方向：なかもず方面</b><br>
 
-📍 下車：難波<br>
+📍 下車：
+<b>難波站</b><br><br>
 
-🚶 再依 Google Maps 前往餃子店。
+⏱️ <b>約9～11分鐘</b><br>
+
+💴 <b>¥240</b>
+
+</div>
+
+
+<!-- 難波 → 餃子 -->
+
+<div class="info-row">
+
+🚶 <b>第四段：難波站 → 浪花一口餃子 Chao Chao</b><br><br>
+
+依 Google Maps 步行前往餃子店。<br>
+
+⏱️ <b>約5～10分鐘</b><br>
+
+💴 <b>免費</b>
 
 </div>
 
@@ -4038,20 +4675,33 @@ JR＋大阪Metro
 
 <b>🛑 末班：</b><br>
 
-京都→大阪的JR晚上仍有列車，但你這段不建議拖到最後班。<br>
+京都→大阪的JR晚上仍有列車，但這段不建議拖到最後班。<br><br>
 
 大阪→難波的御堂筋線也有晚間班次。
 
 </div>
+
+
+<div class="info-row">
+
+💴 <b>本段主要交通費：</b><br>
+
+京都 → 大阪：¥580<br>
+
+梅田 → 難波：¥240<br><br>
+
+合計：
+<b>¥820／人</b>
+
+</div>
+
 
 </div>
 
 
 <button
 class="btn-nav"
-onclick="goMap(
-'浪花ひとくち餃子チャオチャオ 湊町店'
-)">
+onclick="goMap('浪花ひとくち餃子チャオチャオ 湊町店')">
 
 🗺️ 導航至餃子店
 
@@ -4063,12 +4713,13 @@ onclick="goMap(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 7 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -4088,6 +4739,10 @@ onclick="toggleCard(this)">
 超市購物
 </span>
 
+<span class="tag">
+🕐 09:00～00:00
+</span>
+
 <span class="collapse-icon">＋</span>
 
 </div>
@@ -4099,24 +4754,54 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
-<div class="info-row">
-🚶 <b>交通：</b>
-維持原本步行。
+
+<div class="transport-box">
+
+🚶 <b>浪花一口餃子 → LIFE 中央廣場難波店</b><br><br>
+
+維持原本步行。<br><br>
+
+⏱️ <b>約5～10分鐘</b><br>
+
+💴 <b>免費</b>
+
 </div>
 
+
 <div class="info-row">
-📍 <b>位置：</b>
-難波一帶。
+
+📍 <b>LIFE 中央廣場難波店</b><br>
+
+難波／湊町一帶。
+
 </div>
+
+
+<div class="info-row">
+
+🕐 <b>營業時間：</b><br>
+
+09:00～00:00<br><br>
+
+💡 <b>營業時間僅供行程參考，不代表當日實際營業狀況。</b>
+
+</div>
+
+
+<div class="info-row">
+
+💴 <b>本段交通費：</b>
+<b>¥0</b>
+
+</div>
+
 
 </div>
 
 
 <button
 class="btn-nav"
-onclick="goMap(
-'ライフ なんば店'
-)">
+onclick="goMap('ライフ なんば店')">
 
 🗺️ 地圖導航
 
@@ -4128,12 +4813,13 @@ onclick="goMap(
 
 
 
+<!-- ================================================= -->
 <!-- DAY 2 - 8 -->
+<!-- ================================================= -->
 
 <div class="card">
 
-<div class="card-header"
-onclick="toggleCard(this)">
+<div class="card-header" onclick="toggleCard(this)">
 
 <div class="card-header-left">
 
@@ -4164,24 +4850,74 @@ onclick="toggleCard(this)">
 
 <div class="info-group">
 
+
+<!-- 步行 -->
+
 <div class="transport-box">
 
-🚇 <b>推薦：</b>大阪Metro 千日前線<br>
+🚶 <b>第一選擇：直接步行回飯店</b><br><br>
 
-➡️ <b>方向：</b>南巽方面／野田阪神方向依所在地選擇<br>
+LIFE中央廣場難波店位於難波／湊町一帶。<br><br>
 
-📍 目標：日本橋一帶<br>
+如果當天體力允許，直接步行最簡單。<br><br>
 
-🚶 最後步行回飯店。
+⏱️ <b>約10～20分鐘</b><br>
+
+💴 <b>免費</b>
 
 </div>
 
+
+<!-- Metro -->
+
+<div class="transfer-box">
+
+<b>🚇 第二選擇：大阪Metro</b><br><br>
+
+如果不想步行，可以視當天狀況搭大阪Metro。<br><br>
+
+➡️ 目標：
+<b>日本橋一帶</b><br><br>
+
+🚶 最後再步行回飯店。<br><br>
+
+💴 <b>車資依實際搭乘區間計費</b>
+
+</div>
+
+
+<!-- Taxi -->
 
 <div class="good-box">
 
-💡 如果已經很晚，這一段其實直接步行或搭計程車會比較簡單。
+💡 <b>如果已經很晚或購物後東西很多：</b><br><br>
+
+直接搭計程車會比較輕鬆。<br><br>
+
+尤其如果手上有大量超市購物品，這段不需要硬走。
 
 </div>
+
+
+<div class="info-row">
+
+💴 <b>最省方式：</b><br>
+
+步行回飯店＝<b>¥0</b>
+
+</div>
+
+
+<div class="info-row">
+
+💡 <b>營業時間提醒：</b><br>
+
+以上營業時間僅供行程參考，不代表當日實際營業狀況。<br>
+
+實際營業時間如有變更，以店家當日公告為準。
+
+</div>
+
 
 </div>
 
@@ -4203,8 +4939,6 @@ onclick="goRoute(
 
 
 </div>
-
-
 
 <!-- ================================================= -->
 <!-- ======================= DAY 3 ==================== -->
