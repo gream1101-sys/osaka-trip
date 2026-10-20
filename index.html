@@ -1191,15 +1191,7 @@ DAY 6
 
 
 <div class="collapse-control">
-
-<button onclick="openAll(1)">
-＋ 全部展開
-</button>
-
-<button onclick="closeAll(1)">
-− 全部收合
-</button>
-
+<button onclick="toggleAll(1)">展開收合</button>
 </div>
 
 
@@ -3431,11 +3423,7 @@ ICOCA／Suica 等交通 IC 卡直接感應進出站。<br><br>
 </div>
 
 <div class="collapse-control">
-
-<button onclick="openAll(2)">＋ 全部展開</button>
-
-<button onclick="closeAll(2)">− 全部收合</button>
-
+<button onclick="toggleAll(2)">展開收合</button>
 </div>
 
 
@@ -5014,15 +5002,7 @@ ICOCA／Suica 等交通 IC 卡直接感應進出站。<br>
 
 
 <div class="collapse-control">
-
-<button onclick="openAll(3)">
-＋ 全部展開
-</button>
-
-<button onclick="closeAll(3)">
-− 全部收合
-</button>
-
+<button onclick="toggleAll(3)">展開收合</button>
 </div>
 
 
@@ -5430,13 +5410,8 @@ onclick="goRoute(
     搭車前請確認 IC 卡餘額及當日巴士支付規定。
   </div>
   <div class="collapse-control">
-    <button onclick="openAll(4)">
-      ＋ 全部展開
-    </button>
-    <button onclick="closeAll(4)">
-      − 全部收合
-    </button>
-  </div>
+<button onclick="toggleAll(4)">展開收合</button>
+</div>
 
   <div class="card">
     <div class="card-header" onclick="toggleCard(this)">
@@ -5669,13 +5644,8 @@ onclick="goRoute(
     Osaka Metro 可使用 ICOCA／Suica 等相容交通 IC 卡直接感應進出站，請事先確認餘額。
   </div>
   <div class="collapse-control">
-    <button onclick="openAll(5)">
-      ＋ 全部展開
-    </button>
-    <button onclick="closeAll(5)">
-      − 全部收合
-    </button>
-  </div>
+<button onclick="toggleAll(5)">展開收合</button>
+</div>
 
   <div class="card">
     <div class="card-header" onclick="toggleCard(this)">
@@ -5944,8 +5914,7 @@ onclick="goRoute(
 </div>
 
 <div class="collapse-control">
-<button onclick="openAll(6)">＋ 全部展開</button>
-<button onclick="closeAll(6)">− 全部收合</button>
+<button onclick="toggleAll(6)">展開收合</button>
 </div>
 
 <div class="card">
@@ -6192,6 +6161,40 @@ function closeAll(day) {
             }
 
         });
+
+}
+
+
+
+/* ================================================= */
+/* ============== 展開／收合切換按鈕 ================= */
+/* ================================================= */
+
+function toggleAll(day) {
+
+    const container = document.getElementById('day' + day);
+    if (!container) return;
+
+    const cards = Array.from(container.querySelectorAll('.card'));
+    if (!cards.length) return;
+
+    // 全部卡片都已展開時，再按一次就全部收合；否則全部展開。
+    const allOpen = cards.every(function(card) {
+        return card.classList.contains('open');
+    });
+
+    cards.forEach(function(card) {
+        if (allOpen) {
+            card.classList.remove('open');
+        } else {
+            card.classList.add('open');
+        }
+
+        const icon = card.querySelector('.collapse-icon');
+        if (icon) {
+            icon.textContent = allOpen ? '＋' : '−';
+        }
+    });
 
 }
 
