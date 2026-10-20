@@ -3,12 +3,12 @@
   "name": "OSAKA - 大阪京都行程手帳",
   "icons": [
     {
-      "src": "./icon-kitty-castle.svg?v=2",
+      "src": "./icon-kitty-castle.svg?v=3",
       "type": "image/svg+xml",
       "sizes": "any"
     },
     {
-      "src": "./icon-kitty-castle.svg?v=2",
+      "src": "./icon-kitty-castle.svg?v=3",
       "type": "image/svg+xml",
       "sizes": "any"
     }
