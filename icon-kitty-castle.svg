@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="112" fill="#fff5f7"/>
-  <circle cx="256" cy="256" r="218" fill="#ffe9ef"/>
-  <!-- Hello Kitty: keep the familiar simple white face, tiny eyes, yellow nose and whiskers -->
-  <g stroke="#242126" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M75 211 67 121Q65 105 81 115L144 158Q171 143 204 154L250 116Q266 104 265 123L259 215"
-      fill="#fff" stroke-width="7"/>
-    <path d="M82 128 132 163 91 184Z" fill="#fff" stroke-width="3"/>
-    <path d="M244 130 210 164 249 184Z" fill="#fff" stroke-width="3"/>
-    <path d="M82 210Q78 181 108 173Q144 156 179 169Q217 155 246 177Q270 194 264 226L259 278Q256 319 220 334Q178 351 136 334Q94 319 88 279Z"
-      fill="#fff" stroke-width="7"/>
-    <!-- iconic red bow -->
-    <path d="M121 178C96 144 63 154 70 181C76 206 102 217 128 202Z" fill="#f23863" stroke="#c91e4a" stroke-width="6"/>
-    <path d="M127 178C145 145 179 154 174 181C169 205 147 216 126 202Z" fill="#f23863" stroke="#c91e4a" stroke-width="6"/>
-    <circle cx="126" cy="192" r="11" fill="#ff7895" stroke-width="5"/>
-    <!-- eyes and nose -->
-    <ellipse cx="132" cy="244" rx="5.5" ry="9" fill="#242126" stroke="none"/>
-    <ellipse cx="207" cy="244" rx="5.5" ry="9" fill="#242126" stroke="none"/>
-    <ellipse cx="170" cy="261" rx="8.5" ry="6" fill="#ffd84d" stroke="#c9a12a" stroke-width="2.5"/>
-    <!-- whiskers -->
-    <g fill="none" stroke-width="4">
-      <path d="M115 252 83 245M115 264 78 264M117 276 86 284"/>
-      <path d="M224 252 256 245M224 264 261 264M222 276 253 284"/>
+  <!-- Classic, minimalist Kitty-inspired face -->
+  <g stroke="#231f20" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- head silhouette with the familiar two ears -->
+    <path d="M55 204 L43 104 Q41 91 54 99 L132 145 Q174 128 218 145 L278 101 Q292 91 291 108 L283 208
+      Q305 236 300 282 Q296 333 251 355 Q207 376 159 364 Q108 353 82 317 Q63 290 65 254 Q65 226 55 204Z"
+      fill="#fff"/>
+    <!-- ear inner detail kept very subtle -->
+    <path d="M57 116 L112 149" fill="none" stroke="#f1c9d4" stroke-width="5"/>
+    <path d="M274 119 L224 150" fill="none" stroke="#f1c9d4" stroke-width="5"/>
+    <!-- classic red bow at Kitty's left ear -->
+    <path d="M119 154 C91 125 62 136 70 163 C77 188 100 198 127 179 Z" fill="#ed174c" stroke="#c8103d" stroke-width="6"/>
+    <path d="M128 154 C145 124 178 136 171 163 C165 187 144 198 126 179 Z" fill="#ed174c" stroke="#c8103d" stroke-width="6"/>
+    <circle cx="126" cy="168" r="11" fill="#ff557b" stroke="#c8103d" stroke-width="5"/>
+    <!-- two tiny oval eyes, no mouth, small yellow nose -->
+    <ellipse cx="132" cy="250" rx="6" ry="10" fill="#231f20" stroke="none"/>
+    <ellipse cx="224" cy="250" rx="6" ry="10" fill="#231f20" stroke="none"/>
+    <ellipse cx="178" cy="269" rx="9" ry="6.5" fill="#ffd629" stroke="#d2a91d" stroke-width="2.5"/>
+    <!-- three whiskers on each side -->
+    <g fill="none" stroke-width="4.5">
+      <path d="M111 253 L76 245 M111 267 L70 267 M113 281 L79 291"/>
+      <path d="M244 253 L279 245 M244 267 L285 267 M242 281 L276 291"/>
     </g>
   </g>
-  <!-- cute Osaka Castle beside Kitty -->
-  <g stroke="#34303a" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M286 402V315H306V290H326V268H361V290H381V315H402V402Z" fill="#fff" stroke-width="6"/>
-    <path d="M276 317 296 296 316 317ZM301 292 326 269 348 292ZM338 270 360 244 382 270ZM369 292 390 269 412 292ZM391 317 411 296 431 317Z" fill="#34303a" stroke-width="5"/>
-    <path d="M309 337H380M327 310H367M348 286H372" fill="none" stroke="#34303a" stroke-width="5"/>
-    <path d="M321 402V358H368V402Z" fill="#f7c5d3" stroke-width="4"/>
-    <path d="M344 358V402" fill="none" stroke-width="3"/>
-    <path d="M360 240V225M353 232H367" fill="none" stroke="#d7a536" stroke-width="4"/>
+  <!-- small Osaka Castle beside her, intentionally secondary -->
+  <g stroke="#35313a" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M315 409V333H332V309H350V287H382V309H400V333H418V409Z" fill="#fff" stroke-width="5.5"/>
+    <path d="M307 335L324 316L342 335Z M328 311L350 288L371 311Z M357 289L382 263L405 289Z M389 311L409 288L429 311Z M410 335L428 316L445 335Z" fill="#38333d" stroke-width="5"/>
+    <path d="M338 352H397 M352 326H386" fill="none" stroke-width="4.5"/>
+    <path d="M353 409V370H385V409Z" fill="#f3b6ca" stroke-width="3.5"/>
+    <path d="M369 370V409" fill="none" stroke-width="3"/>
+    <path d="M382 259V246M376 252H388" fill="none" stroke="#d4a12b" stroke-width="4"/>
   </g>
-  <path d="M62 415Q160 402 256 415T450 415" fill="none" stroke="#e7a5b8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M47 424Q150 411 256 424T465 424" fill="none" stroke="#e6a6b8" stroke-width="5.5" stroke-linecap="round"/>
 </svg>
