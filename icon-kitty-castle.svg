@@ -1,41 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#fff5f8"/>
-  <circle cx="256" cy="256" r="213" fill="#ffe5ed"/>
-  <circle cx="256" cy="256" r="188" fill="#fff9fb"/>
-  <!-- tiny cherry blossom accents -->
-  <g fill="#f4a4bd">
-    <path d="M90 184c-18-16-2-31 12-18 3-19 24-17 23 2 18-9 29 10 12 22 10 17-9 29-22 13-14 16-32 2-19-13z"/>
-    <path d="M392 136c-13-12-1-23 9-13 2-14 18-13 17 2 13-7 22 7 9 16 7 13-7 22-16 10-10 12-24 1-14-10z"/>
+  <rect width="512" height="512" rx="112" fill="#fff5f7"/>
+  <circle cx="256" cy="256" r="218" fill="#ffe9ef"/>
+  <!-- Hello Kitty: keep the familiar simple white face, tiny eyes, yellow nose and whiskers -->
+  <g stroke="#242126" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M75 211 67 121Q65 105 81 115L144 158Q171 143 204 154L250 116Q266 104 265 123L259 215"
+      fill="#fff" stroke-width="7"/>
+    <path d="M82 128 132 163 91 184Z" fill="#fff" stroke-width="3"/>
+    <path d="M244 130 210 164 249 184Z" fill="#fff" stroke-width="3"/>
+    <path d="M82 210Q78 181 108 173Q144 156 179 169Q217 155 246 177Q270 194 264 226L259 278Q256 319 220 334Q178 351 136 334Q94 319 88 279Z"
+      fill="#fff" stroke-width="7"/>
+    <!-- iconic red bow -->
+    <path d="M121 178C96 144 63 154 70 181C76 206 102 217 128 202Z" fill="#f23863" stroke="#c91e4a" stroke-width="6"/>
+    <path d="M127 178C145 145 179 154 174 181C169 205 147 216 126 202Z" fill="#f23863" stroke="#c91e4a" stroke-width="6"/>
+    <circle cx="126" cy="192" r="11" fill="#ff7895" stroke-width="5"/>
+    <!-- eyes and nose -->
+    <ellipse cx="132" cy="244" rx="5.5" ry="9" fill="#242126" stroke="none"/>
+    <ellipse cx="207" cy="244" rx="5.5" ry="9" fill="#242126" stroke="none"/>
+    <ellipse cx="170" cy="261" rx="8.5" ry="6" fill="#ffd84d" stroke="#c9a12a" stroke-width="2.5"/>
+    <!-- whiskers -->
+    <g fill="none" stroke-width="4">
+      <path d="M115 252 83 245M115 264 78 264M117 276 86 284"/>
+      <path d="M224 252 256 245M224 264 261 264M222 276 253 284"/>
+    </g>
   </g>
-  <!-- Hello Kitty inspired white kitten, left -->
-  <path d="M104 229L96 145Q94 126 112 139L157 172Q184 155 215 170L252 143Q269 132 267 153L262 231Z" fill="#fff" stroke="#4b4148" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M106 153L148 183L118 204Z" fill="#f6c9d7"/>
-  <path d="M249 158L215 184L247 204Z" fill="#f6c9d7"/>
-  <ellipse cx="181" cy="242" rx="91" ry="75" fill="#fff" stroke="#4b4148" stroke-width="8"/>
-  <!-- bow -->
-  <path d="M166 179C137 145 105 158 117 185C126 205 148 211 171 202Z" fill="#ed527c" stroke="#c93662" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M174 179C193 145 226 156 216 183C209 203 188 211 170 202Z" fill="#ed527c" stroke="#c93662" stroke-width="7" stroke-linejoin="round"/>
-  <circle cx="170" cy="193" r="13" fill="#ffb0c6" stroke="#c93662" stroke-width="6"/>
-  <!-- face -->
-  <ellipse cx="151" cy="244" rx="7" ry="12" fill="#3e3940"/>
-  <ellipse cx="207" cy="244" rx="7" ry="12" fill="#3e3940"/>
-  <ellipse cx="179" cy="258" rx="8" ry="6" fill="#f0c84c" stroke="#b99124" stroke-width="3"/>
-  <ellipse cx="126" cy="264" rx="15" ry="8" fill="#ffb4c7" opacity=".9"/>
-  <ellipse cx="232" cy="264" rx="15" ry="8" fill="#ffb4c7" opacity=".9"/>
-  <g stroke="#4b4148" stroke-width="4.5" stroke-linecap="round">
-    <path d="M137 254L108 249M138 265L111 270M221 254L250 249M220 265L247 270"/>
+  <!-- cute Osaka Castle beside Kitty -->
+  <g stroke="#34303a" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M286 402V315H306V290H326V268H361V290H381V315H402V402Z" fill="#fff" stroke-width="6"/>
+    <path d="M276 317 296 296 316 317ZM301 292 326 269 348 292ZM338 270 360 244 382 270ZM369 292 390 269 412 292ZM391 317 411 296 431 317Z" fill="#34303a" stroke-width="5"/>
+    <path d="M309 337H380M327 310H367M348 286H372" fill="none" stroke="#34303a" stroke-width="5"/>
+    <path d="M321 402V358H368V402Z" fill="#f7c5d3" stroke-width="4"/>
+    <path d="M344 358V402" fill="none" stroke-width="3"/>
+    <path d="M360 240V225M353 232H367" fill="none" stroke="#d7a536" stroke-width="4"/>
   </g>
-  <!-- chibi Osaka Castle, right -->
-  <path d="M268 386V290H290V266H314V242H355V266H379V290H401V386Z" fill="#fff" stroke="#4b4148" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M259 292L279 273L300 292ZM284 267L302 248L322 267ZM315 243L335 222L356 243ZM348 267L369 248L389 267ZM378 292L398 273L418 292Z" fill="#3c3942" stroke="#3c3942" stroke-width="7" stroke-linejoin="round"/>
-  <path d="M274 316H395M293 289H376M326 264H346" stroke="#4b4148" stroke-width="6" stroke-linecap="round"/>
-  <path d="M290 386V333H379V386" fill="#fff" stroke="#4b4148" stroke-width="6"/>
-  <path d="M322 386V346H348V386Z" fill="#f3b3c8" stroke="#4b4148" stroke-width="5"/>
-  <path d="M335 346V386" stroke="#4b4148" stroke-width="4"/>
-  <path d="M336 215V202M329 207H343" stroke="#d6a23b" stroke-width="5" stroke-linecap="round"/>
-  <!-- ground -->
-  <path d="M78 398Q174 385 256 398T434 398" fill="none" stroke="#e5a6b8" stroke-width="8" stroke-linecap="round"/>
-  <g fill="#e96f96">
-    <circle cx="95" cy="357" r="5"/><circle cx="235" cy="337" r="5"/><circle cx="423" cy="350" r="5"/>
-  </g>
+  <path d="M62 415Q160 402 256 415T450 415" fill="none" stroke="#e7a5b8" stroke-width="6" stroke-linecap="round"/>
 </svg>
