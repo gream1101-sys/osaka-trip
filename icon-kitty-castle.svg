@@ -1,17 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="112" fill="#fff4f7"/>
-  <circle cx="256" cy="254" r="190" fill="#ffe3ec"/>
-  <path d="M105 383h302" stroke="#d7a0af" stroke-width="12" stroke-linecap="round"/>
-  <path d="M143 383V299h42v-35h37v-38h68v38h37v35h42v84z" fill="#fffdfb" stroke="#55505a" stroke-width="10" stroke-linejoin="round"/>
-  <path d="M132 300l32-26 32 26zm42-35l30-25 30 25zm54-39l28-25 28 25zm54 39l30-25 30 25zm42 35l32-26 32 26z" fill="#34323b" stroke="#34323b" stroke-width="8" stroke-linejoin="round"/>
-  <path d="M143 300h226M185 264h142M239 226h34" fill="none" stroke="#34323b" stroke-width="8" stroke-linecap="round"/>
-  <path d="M172 383v-52h168v52" fill="#fff" stroke="#55505a" stroke-width="8"/>
-  <path d="M208 383v-42h96v42" fill="#f6bfd0" stroke="#55505a" stroke-width="8"/>
-  <path d="M256 341v42" stroke="#55505a" stroke-width="7"/>
-  <path d="M256 100c-30-35-85-30-85 8 0 34 48 55 85 78 37-23 85-44 85-78 0-38-55-43-85-8z" fill="#ed527c" stroke="#c93662" stroke-width="8" stroke-linejoin="round"/>
-  <circle cx="256" cy="144" r="17" fill="#fff7fa" stroke="#c93662" stroke-width="6"/>
-  <path d="M92 192l7 17 18 1-14 11 5 17-16-10-15 10 5-17-14-11 18-1z" fill="#fffdfb"/>
-  <path d="M407 230l5 12 13 1-10 8 3 13-11-7-11 7 4-13-10-8 13-1z" fill="#fffdfb"/>
-  <path d="M122 426q12-16 24 0t24 0" fill="none" stroke="#ed8eaa" stroke-width="7" stroke-linecap="round"/>
-  <path d="M342 426q12-16 24 0t24 0" fill="none" stroke="#ed8eaa" stroke-width="7" stroke-linecap="round"/>
+  <rect width="512" height="512" rx="112" fill="#fff5f8"/>
+  <circle cx="256" cy="256" r="213" fill="#ffe5ed"/>
+  <circle cx="256" cy="256" r="188" fill="#fff9fb"/>
+  <!-- tiny cherry blossom accents -->
+  <g fill="#f4a4bd">
+    <path d="M90 184c-18-16-2-31 12-18 3-19 24-17 23 2 18-9 29 10 12 22 10 17-9 29-22 13-14 16-32 2-19-13z"/>
+    <path d="M392 136c-13-12-1-23 9-13 2-14 18-13 17 2 13-7 22 7 9 16 7 13-7 22-16 10-10 12-24 1-14-10z"/>
+  </g>
+  <!-- Hello Kitty inspired white kitten, left -->
+  <path d="M104 229L96 145Q94 126 112 139L157 172Q184 155 215 170L252 143Q269 132 267 153L262 231Z" fill="#fff" stroke="#4b4148" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M106 153L148 183L118 204Z" fill="#f6c9d7"/>
+  <path d="M249 158L215 184L247 204Z" fill="#f6c9d7"/>
+  <ellipse cx="181" cy="242" rx="91" ry="75" fill="#fff" stroke="#4b4148" stroke-width="8"/>
+  <!-- bow -->
+  <path d="M166 179C137 145 105 158 117 185C126 205 148 211 171 202Z" fill="#ed527c" stroke="#c93662" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M174 179C193 145 226 156 216 183C209 203 188 211 170 202Z" fill="#ed527c" stroke="#c93662" stroke-width="7" stroke-linejoin="round"/>
+  <circle cx="170" cy="193" r="13" fill="#ffb0c6" stroke="#c93662" stroke-width="6"/>
+  <!-- face -->
+  <ellipse cx="151" cy="244" rx="7" ry="12" fill="#3e3940"/>
+  <ellipse cx="207" cy="244" rx="7" ry="12" fill="#3e3940"/>
+  <ellipse cx="179" cy="258" rx="8" ry="6" fill="#f0c84c" stroke="#b99124" stroke-width="3"/>
+  <ellipse cx="126" cy="264" rx="15" ry="8" fill="#ffb4c7" opacity=".9"/>
+  <ellipse cx="232" cy="264" rx="15" ry="8" fill="#ffb4c7" opacity=".9"/>
+  <g stroke="#4b4148" stroke-width="4.5" stroke-linecap="round">
+    <path d="M137 254L108 249M138 265L111 270M221 254L250 249M220 265L247 270"/>
+  </g>
+  <!-- chibi Osaka Castle, right -->
+  <path d="M268 386V290H290V266H314V242H355V266H379V290H401V386Z" fill="#fff" stroke="#4b4148" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M259 292L279 273L300 292ZM284 267L302 248L322 267ZM315 243L335 222L356 243ZM348 267L369 248L389 267ZM378 292L398 273L418 292Z" fill="#3c3942" stroke="#3c3942" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M274 316H395M293 289H376M326 264H346" stroke="#4b4148" stroke-width="6" stroke-linecap="round"/>
+  <path d="M290 386V333H379V386" fill="#fff" stroke="#4b4148" stroke-width="6"/>
+  <path d="M322 386V346H348V386Z" fill="#f3b3c8" stroke="#4b4148" stroke-width="5"/>
+  <path d="M335 346V386" stroke="#4b4148" stroke-width="4"/>
+  <path d="M336 215V202M329 207H343" stroke="#d6a23b" stroke-width="5" stroke-linecap="round"/>
+  <!-- ground -->
+  <path d="M78 398Q174 385 256 398T434 398" fill="none" stroke="#e5a6b8" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#e96f96">
+    <circle cx="95" cy="357" r="5"/><circle cx="235" cy="337" r="5"/><circle cx="423" cy="350" r="5"/>
+  </g>
 </svg>
