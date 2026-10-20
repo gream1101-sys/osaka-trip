@@ -1,20 +1,20 @@
 {
-  "short_name": "osaka",
-  "name": "osaka - DAY 1 行程導航",
+  "short_name": "OSAKA 🎀",
+  "name": "OSAKA - 大阪京都行程手帳",
   "icons": [
     {
-      "src": "./icon.png?v=3",
-      "type": "image/png",
-      "sizes": "180x180"
+      "src": "./icon-kitty-castle.svg?v=1",
+      "type": "image/svg+xml",
+      "sizes": "any"
     },
     {
-      "src": "./icon.png?v=3",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "./icon-kitty-castle.svg?v=1",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ],
   "start_url": "./index.html",
-  "background_color": "#f2f2f7",
-  "theme_color": "#f2f2f7",
+  "background_color": "#fff4f7",
+  "theme_color": "#fff4f7",
   "display": "standalone"
 }
