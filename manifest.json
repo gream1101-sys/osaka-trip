@@ -3,14 +3,14 @@
   "name": "OSAKA - 大阪京都行程手帳",
   "icons": [
     {
-      "src": "./icon-kitty-castle.svg?v=3",
-      "type": "image/svg+xml",
-      "sizes": "any"
+      "src": "https://animalcafes.com/imgt/1000-hk-nagoya.jpg",
+      "type": "image/jpeg",
+      "sizes": "1000x1000"
     },
     {
-      "src": "./icon-kitty-castle.svg?v=3",
-      "type": "image/svg+xml",
-      "sizes": "any"
+      "src": "https://animalcafes.com/imgt/1000-hk-nagoya.jpg",
+      "type": "image/jpeg",
+      "sizes": "1000x1000"
     }
   ],
   "start_url": "./index.html",
