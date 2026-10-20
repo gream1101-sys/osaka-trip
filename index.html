@@ -1079,6 +1079,210 @@ h1 {
     opacity:0.8;
 }
 
+
+/* ================================================= */
+/* ============== Hello Kitty 粉色手帳主題 ========== */
+/* 僅調整視覺樣式，保留原有行程與互動功能 */
+/* ================================================= */
+
+:root {
+    --bg-color:#fff4f7;
+    --card-bg:#fffdfd;
+    --primary:#ed6b91;
+    --text-main:#50343d;
+    --text-sub:#a17b87;
+    --accent-red:#e84d72;
+    --accent-green:#43a77a;
+    --accent-orange:#e99a4a;
+}
+
+body {
+    background-color:var(--bg-color);
+    background-image:
+        radial-gradient(circle at 12px 12px, rgba(255,182,199,.22) 2px, transparent 2.5px),
+        linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,241,246,.78));
+    background-size:28px 28px, auto;
+    color:var(--text-main);
+}
+
+header {
+    position:relative;
+    padding:18px 12px 16px;
+    margin:0 0 16px;
+    border:1px solid #ffd5e0;
+    border-radius:24px;
+    background:linear-gradient(145deg,#fffefe 0%,#fff0f5 100%);
+    box-shadow:0 7px 20px rgba(216,104,139,.12);
+    overflow:hidden;
+}
+
+header::before {
+    content:"🎀";
+    display:block;
+    font-size:29px;
+    line-height:1;
+    margin:0 auto 7px;
+}
+
+header::after {
+    content:"♡  ♡  ♡";
+    position:absolute;
+    right:13px;
+    bottom:8px;
+    color:#f3a3ba;
+    font-size:12px;
+    letter-spacing:4px;
+    pointer-events:none;
+}
+
+h1 {
+    color:#d94e79;
+    font-size:23px;
+    letter-spacing:.3px;
+    text-shadow:0 1px 0 #fff;
+}
+
+.subtitle {
+    color:#9d7481;
+}
+
+.date-label {
+    background:#ffe0e9;
+    color:#c83f69;
+    border:1px solid #ffc3d3;
+    box-shadow:0 2px 5px rgba(216,104,139,.08);
+}
+
+.tab-container {
+    background:#ffe3eb;
+    border:1px solid #ffd0dd;
+    border-radius:16px;
+    padding:4px;
+    box-shadow:0 5px 14px rgba(216,104,139,.10);
+    backdrop-filter:blur(12px);
+}
+
+.tab-btn {
+    color:#a66e7e;
+    border-radius:12px;
+    min-height:38px;
+    transition:background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.tab-btn.active {
+    background:linear-gradient(135deg,#fff 0%,#fff7fa 100%);
+    color:#d94e79;
+    box-shadow:0 2px 7px rgba(199,82,119,.16);
+}
+
+.day-note {
+    background:linear-gradient(135deg,#fff 0%,#fff7fa 100%);
+    border:1px solid #ffe0e8;
+    border-radius:18px;
+    box-shadow:0 4px 14px rgba(191,102,128,.08);
+}
+
+.card {
+    background:var(--card-bg);
+    border:1px solid #ffe0e8;
+    border-radius:19px;
+    box-shadow:0 5px 15px rgba(191,102,128,.09);
+    transition:box-shadow .18s ease, transform .18s ease;
+}
+
+.card-header {
+    background:linear-gradient(105deg,#fffefe 0%,#fff8fa 100%);
+}
+
+.card-header:active {
+    background:#fff0f5;
+}
+
+.card.open {
+    border-color:#ffc7d7;
+    box-shadow:0 7px 18px rgba(214,99,135,.13);
+}
+
+.time-badge {
+    background:#ffe5ed;
+    color:#cc4c74;
+}
+
+.tag {
+    background:#fff0f4;
+    color:#9b7180;
+}
+
+.card.open .collapse-icon {
+    background:#ffe0e9;
+    color:#d94e79;
+}
+
+.transport-box {
+    background:#fff1f5;
+    border-left-color:#ed7b9d;
+}
+
+.transport-title {
+    color:#c94c73;
+}
+
+.transfer-box,
+.timetable-box {
+    background:#fff7f9;
+}
+
+.train-box {
+    background:#fff7e9;
+    border-left-color:#e8a14c;
+}
+
+.last-train {
+    background:#fff0f2;
+    border-left-color:#e84d72;
+    color:#b52f52;
+}
+
+.good-box {
+    background:#effaf3;
+    border-left-color:#59b68b;
+}
+
+.btn-nav {
+    background:linear-gradient(135deg,#f17fa1 0%,#df527d 100%);
+    border:1px solid rgba(207,67,111,.15);
+    border-radius:13px;
+    box-shadow:0 4px 9px rgba(219,82,124,.17);
+}
+
+.btn-nav:active {
+    opacity:.9;
+}
+
+.collapse-control button {
+    background:linear-gradient(135deg,#fff 0%,#fff3f7 100%);
+    color:#ce4f77;
+    border:1px solid #ffd0dd;
+    border-radius:13px;
+    min-height:42px;
+    box-shadow:0 3px 9px rgba(216,104,139,.10);
+}
+
+.collapse-control button:active {
+    background:#ffe4ec;
+}
+
+button {
+    -webkit-tap-highlight-color:transparent;
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    .tab-btn:active {
+        transform:scale(.97);
+    }
+}
+
+
 </style>
 
 </head>
@@ -1089,10 +1293,10 @@ h1 {
 
 <header>
 
-<h1>⛩️ osaka 自由行導航</h1>
+<h1>🎀 Hello Kitty 大阪行程手帳</h1>
 
 <p class="subtitle">
-點擊行程即可展開詳細交通資訊
+大阪・京都旅行日記｜點擊卡片查看交通資訊
 </p>
 
 <div id="dateLabel" class="date-label">
